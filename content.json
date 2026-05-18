@@ -1,0 +1,252 @@
+{
+  "nav_links": {
+    "home": { "lt": "Pradžia", "en": "Home" },
+    "services": { "lt": "Paslaugos", "en": "Services" },
+    "how_it_works": { "lt": "Kaip tai veikia", "en": "How it works" },
+    "pricing": { "lt": "Kainos", "en": "Pricing" },
+    "faq": { "lt": "DUK", "en": "FAQ" },
+    "contact": { "lt": "Kontaktai", "en": "Contact" }
+  },
+
+  "hero_headline": {
+    "lt": "Sutaupykite 10-30 valandų per mėnesį su AI automatika",
+    "en": "Save 10-30 Hours Per Month With AI Automation"
+  },
+
+  "hero_subheadline": {
+    "lt": "Sporto klubams ir odontologinėms klinikoms. Nesudėtinga automatizacija, kuri veikia nuo pirmadienio. Jokių techninių žinių nereikia.",
+    "en": "For sports clubs and dental clinics. Simple automation that works from day one. No technical knowledge required."
+  },
+
+  "hero_cta": {
+    "lt": "Pradėti nemokamai",
+    "en": "Start for Free"
+  },
+
+  "hero_cta_secondary": {
+    "lt": "Žiūrėti, kaip tai veikia",
+    "en": "See how it works"
+  },
+
+  "stats": [
+    {
+      "number": "10-30",
+      "label": { "lt": "valandų sutaupoma per mėnesį", "en": "hours saved per month" }
+    },
+    {
+      "number": "150+",
+      "label": { "lt": "susitarę lietuviški verslo subjektai", "en": "Lithuanian businesses partnered" }
+    },
+    {
+      "number": "500+",
+      "label": { "lt": "diegtos automatizacijos", "en": "automations deployed" }
+    },
+    {
+      "number": "4.9/5",
+      "label": { "lt": "vidutinis kliento pasitenkinimas", "en": "average client satisfaction" }
+    }
+  ],
+
+  "how_it_works": [
+    {
+      "step": 1,
+      "title": { "lt": "Nemokamai išanalizuojame jūsų procesus", "en": "We analyze your workflows for free" },
+      "description": { "lt": "Trumpa konsultacija sužinojantiems, kur praleidžiate nereikalingą laiką. 20 minučių, nuo jūsų telefono. Sužinosime, kur galime sutaupyti artimiausiai laiko.", "en": "A quick consultation to find where you're wasting time. 20 minutes, on your schedule. We'll identify your biggest time-saving opportunities." }
+    },
+    {
+      "step": 2,
+      "title": { "lt": "Nustatome ir diegiame automatizaciją", "en": "We set up and deploy automation" },
+      "description": { "lt": "Mūsų komanda sukonfigūruoja jūsų sistemas. Nereikia jums nieko daryti. Integruojame su jūsų egzistuojančiais įrankiais per 3-5 darbo dienas.", "en": "Our team configures everything. No work on your side. Integration with your existing tools in 3-5 business days." }
+    },
+    {
+      "step": 3,
+      "title": { "lt": "Jūs sutaupote laiką, mes teikiame atramą", "en": "You save time, we provide support" },
+      "description": { "lt": "Automatika veikia nuotoliniu būdu. Jūs iš karto matote rezultatus. 24/7 palaikymas, jeigu kas nors nueis ne taip. Viskas paprasta.", "en": "Automation runs in the background. You see results immediately. 24/7 support if anything goes wrong. Straightforward." }
+    }
+  ],
+
+  "services_sports": [
+    {
+      "title": { "lt": "Narystės valdymas ir priminiai", "en": "Membership management & reminders" },
+      "description": { "lt": "Automatiniai pranešimai apie mokesčius, išsisakymo tvirtinimas, automatinis duomenų atnaujinimas.", "en": "Automatic payment reminders, cancellation confirmations, auto data updates." }
+    },
+    {
+      "title": { "lt": "Renginių registracija ir biletai", "en": "Event registration & tickets" },
+      "description": { "lt": "Savanoriškų registracija, bilieto generavimas, automatiniai pranešimai apie pradžią.", "en": "Volunteer registration, automated ticket generation, start reminders." }
+    },
+    {
+      "title": { "lt": "Nuomos ir salės rezervacijos", "en": "Facility & court booking automation" },
+      "description": { "lt": "Tvarkaraščio sinchronizavimas, konfliktų prevencija, nemokami/platūs pranešimai.", "en": "Schedule sync, conflict prevention, automatic confirmation messages." }
+    },
+    {
+      "title": { "lt": "Turnyro valdymas ir rezultatai", "en": "Tournament management & results" },
+      "description": { "lt": "Automatinis lentelių atnaujinimas, rezultatų paskelbimas, dalyvių pranešimai.", "en": "Auto bracket updates, results publishing, participant notifications." }
+    },
+    {
+      "title": { "lt": "Sąskaitos ir mokėjimai", "en": "Invoicing & payment processing" },
+      "description": { "lt": "Automatinės sąskaitos nariams, mokėjimo sekimas, mokesčio promtainimas.", "en": "Automatic invoices to members, payment tracking, dunning automation." }
+    },
+    {
+      "title": { "lt": "Komunikacija ir naujienos", "en": "Communications & announcements" },
+      "description": { "lt": "Grupiniai SMS ir el. laiškai, naujienos apie naujus narius, turnyrus ir renginius.", "en": "Bulk SMS & emails, announcements to members about new events, tournaments." }
+    }
+  ],
+
+  "services_dental": [
+    {
+      "title": { "lt": "Paciento pristatymas ir priminiai", "en": "Patient intake & appointment reminders" },
+      "description": { "lt": "Automatinis pristatymo formų išsiuntimas, SMS/el. pašto priminiai prieš vizitą.", "en": "Auto intake form delivery, SMS/email reminders before appointments." }
+    },
+    {
+      "title": { "lt": "Vizitų planavimas ir jungimas", "en": "Appointment booking & scheduling" },
+      "description": { "lt": "Online tvarkaraščio slaptas, automatinis konflikto išvenimas, greita paciento registracija.", "en": "Online booking portal, automatic conflict prevention, instant confirmation." }
+    },
+    {
+      "title": { "lt": "Sąskaitos ir draudimas", "en": "Billing & insurance processing" },
+      "description": { "lt": "Automatinės sąskaitos, draudimo paraiškų pateikimas, mokesčio sekimas, mokėjimo priėmimas.", "en": "Auto invoicing, insurance claim submission, payment tracking, online payment." }
+    },
+    {
+      "title": { "lt": "Sekimas ir pralogu", "en": "Follow-ups & post-visit care" },
+      "description": { "lt": "Automatinės pasižymos po procedūros, perslapinimas dėl pakartotinio dalyvavimo, draugystės prašymai.", "en": "Auto post-care instructions, follow-up scheduling reminders, review requests." }
+    },
+    {
+      "title": { "lt": "Paciento sąžinumas ir dokumentai", "en": "Patient records & documentation" },
+      "description": { "lt": "Duomenų saugojimas pagal BDAR standartus, medicininių įrašų automatinis atnaujinimas, ataskaitos.", "en": "GDPR-compliant data storage, auto medical record updates, reporting." }
+    },
+    {
+      "title": { "lt": "Komunikacija ir koorporatyvumas", "en": "Patient communication & engagement" },
+      "description": { "lt": "SMS/el. naujienos apie paslaugas, anketavimas pasitenkinimo, lojalumas ir nuolaidos kampanijos.", "en": "Service updates via SMS/email, satisfaction surveys, loyalty & discount campaigns." }
+    }
+  ],
+
+  "testimonials": [
+    {
+      "name": "Darius Karalius",
+      "title": { "lt": "Vilniaus TT klubo direktorius", "en": "Director, Vilnius Table Tennis Club" },
+      "city": "Vilnius",
+      "quote": { "lt": "Sutaupojome 15 valandų per mėnesį valdant nario registracijas ir mokėjimus. Kai AI Automatika buvo pradėta, visos sąskaitos buvo siunčiamos automatiškai. Paprasta ir veikia.", "en": "We save 15 hours per month on membership management and billing. Once AI Automatika was set up, all invoices sent themselves. Simple and it works." },
+      "rating": 5
+    },
+    {
+      "name": "Laima Žemaitienė",
+      "title": { "lt": "Savininkai, Šiauliškio odontologinė klinika", "en": "Owner, Šiauliai Dental Clinic" },
+      "city": "Šiauliai",
+      "quote": { "lt": "Pacientai dabar registruojasi sami per SMS linkus. Priminiai apie vizitus sumažino nedalyvavimą iš 20% iki 3%. Nebetekiame laiko su administratyviais darbais.", "en": "Patients now book themselves via SMS links. Appointment reminders cut no-shows from 20% to 3%. We've stopped wasting time on admin work." },
+      "rating": 5
+    },
+    {
+      "name": "Rytis Petravičius",
+      "title": { "lt": "Vadovas, Kauno futbolo akademija", "en": "Manager, Kaunas Football Academy" },
+      "city": "Kaunas",
+      "quote": { "lt": "Turnyro valdymas buvo šaltas procesas. Dabar sistema automatiškai atnaujina lentelę, siunčia rezultatus tėvams ir tvarkaraščius. 12 valandų mėnesyje taupome tiesiog su tuo.", "en": "Tournament management was our bottleneck. Now the system auto-updates brackets, sends results to parents, updates schedules. That alone saves us 12 hours a month." },
+      "rating": 4
+    },
+    {
+      "name": "Ina Jurgutienė",
+      "title": { "lt": "Главный врач, Klaipėdos implantologinė klinika", "en": "Head Doctor, Klaipėda Implant Clinic" },
+      "city": "Klaipėda",
+      "quote": { "lt": "Pacientai gauna draudimo dokumentus 24 valandas, o ne savaitę. Mokėjimai paskautomas 50% greičiau. Per tris mėnesius pasigal ir išmokas, mūsų privalome geras automatizacijos.", "en": "Insurance documents now reach patients in 24 hours, not a week. Payments process 50% faster. The ROI paid for itself in three months." },
+      "rating": 5
+    }
+  ],
+
+  "faq": [
+    {
+      "question": { "lt": "Kaip jūs apsaugate mano duomenis?", "en": "How do you protect my data?" },
+      "answer": { "lt": "Visi duomenys šifruoti tranzito ir poilsio metu. Atitinkame BDAR, bet nereikalavome jūsų kalbėti apie tai. Mes naudojame „AWS" serverius su išankstinio saugos sertifikavimo. Jūsų duomenys yra tik jūsų, mes niekada jų nešvarvinsi.", "en": "All data is encrypted in transit and at rest. We comply with GDPR and won't share your information. We use AWS servers with top-tier security certifications. Your data is yours alone." }
+    },
+    {
+      "question": { "lt": "Kiek laiko užtrunka nustatymas?", "en": "How long does setup take?" },
+      "answer": { "lt": "Nuo 3 iki 5 darbo dienų. Jūs atliekat tik nemokamai konsultaciją ir patvirtinančius dalykus. Visą techninius dalykus rūpinasi mūsų komanda. Paprastai, tai greičiau nei jūs tikėjotės.", "en": "3-5 business days. You only do the free consultation and sign off. Our team handles everything technical. Usually faster than you'd expect." }
+    },
+    {
+      "question": { "lt": "Ar man reikia ilgalaikio kontrakto?", "en": "Do I need a long-term contract?" },
+      "answer": { "lt": "Ne. Jūs galite atšaukti bet kuriuo metu. Daugelis mūsų klientų lieka, nes juos jį gali sutaupyti laiko iš tikrųjų. Nėra jokių paslėptų mokesčių arba penalinkų. Viskas skaidru.", "en": "No. You can cancel anytime. Most clients stay because they actually save time. No hidden fees or penalties. Total transparency." }
+    },
+    {
+      "question": { "lt": "Kiek greitai matysiu rezultatus?", "en": "How quickly will I see results?" },
+      "answer": { "lt": "Per pirmą savaitę jūs pamatysite, kaip siunčiamos pirmos automatinės sąskaitos arba priminiai. Pilni rezultatai paprastai matomi per 2-3 savaites, kai visi procesai yra pilnai nustatyti. Tai nėra žaidimas, tai realūs laiko taupymai.", "en": "You'll see the first automated invoice or reminder within the first week. Full results usually show in 2-3 weeks once all processes are live. This isn't hype, these are real hours back." }
+    },
+    {
+      "question": { "lt": "Ką daryti, jei kas nors sutrikdys?", "en": "What if something breaks?" },
+      "answer": { "lt": "Mes teikiame 24/7 atramą. Jums gali prašyti per el. paštą, telefono, arba tiesmukai. Vidutinis atsakymo laikas yra per 30 minučių. Klaidos yra retos, tačiau mes jį greitai sutvarkyti kai jos atsitika.", "en": "We offer 24/7 support. Reach us via email, phone, or chat. Average response time is 30 minutes. Bugs are rare, but we fix them fast when they happen." }
+    },
+    {
+      "question": { "lt": "Kokie įrankiai integruojami?", "en": "What tools do you integrate with?" },
+      "answer": { "lt": "Bendrinimas su Google Workspace, Outlook, Zapier, API, o daugumos šiuolaikinių pagrindinių įrankių: Stripe, PayPal, SMS paslaugos, el. pašto platformos. Jei naudojate tai, vadinasi mes su juo integruojamės. Prieš pradėti, suskaitykite mus.", "en": "Google Workspace, Outlook, Zapier, custom APIs, and most modern tools: Stripe, PayPal, SMS services, email platforms. If you use it, we likely integrate with it. Ask before starting—we'll confirm." }
+    },
+    {
+      "question": { "lt": "Ar čia naudojamas dirbtinis intelektas?", "en": "Is this really AI?" },
+      "answer": { "lt": "Taip, naudojame paskutinę AI technologiją. Bet tai nėra tik AI—tai AI ir žmogaus supratimas deriamet. Mūsų inžinieriai paprasto AI darbą pagal jūsų verslo loginą. Jūs pamatysite veikimą iš pirmo žvilgsnio, ne robotus, kurie nesupranta konteksto.", "en": "Yes, we use cutting-edge AI. But it's not just AI—it's AI combined with human insight. Our engineers customize AI work to your business logic. You get smart automation, not dumb robots." }
+    }
+  ],
+
+  "pricing_features": {
+    "mini": {
+      "tier_name": { "lt": "Mini", "en": "Mini" },
+      "price_setup": { "lt": "€590 nustatymo", "en": "€590 setup" },
+      "price_monthly": { "lt": "€240/mėn", "en": "€240/mo" },
+      "features": [
+        { "lt": "Iki 3 pagrindinių automatizacijų", "en": "Up to 3 core automations" },
+        { "lt": "Email / SMS integracija", "en": "Email & SMS integration" },
+        { "lt": "Pagrindinė priėmimo ir priminimų", "en": "Basic intake & reminders" },
+        { "lt": "Darbo dienos el. pašto atrama", "en": "Business hours email support" },
+        { "lt": "Mėnesinės ataskaitos", "en": "Monthly reports" }
+      ]
+    },
+    "standard": {
+      "tier_name": { "lt": "Standard", "en": "Standard" },
+      "price_setup": { "lt": "€1390 nustatymo", "en": "€1390 setup" },
+      "price_monthly": { "lt": "€390/mėn", "en": "€390/mo" },
+      "features": [
+        { "lt": "Iki 8 automatizacijų", "en": "Up to 8 automations" },
+        { "lt": "Visų populiarių paslaugų integracijos", "en": "Popular tool integrations" },
+        { "lt": "Priėmimas, priminiai, biletai, sąskaitos", "en": "Intake, reminders, ticketing, billing" },
+        { "lt": "24/7 el. pašto ir SMS pagalba", "en": "24/7 email & chat support" },
+        { "lt": "Savaitės ataskaitos ir analitika", "en": "Weekly reports & analytics" },
+        { "lt": "Nemokami atnaujinimai ir aptarnavimai", "en": "Free updates & maintenance" },
+        { "lt": "Teisininkės prieiga", "en": "Slack access" },
+        { "lt": "Keturių savaitės jokios rizikos garantija", "en": "30-day money-back guarantee" }
+      ]
+    },
+    "growth": {
+      "tier_name": { "lt": "Growth", "en": "Growth" },
+      "price_setup": { "lt": "€2490 nustatymo", "en": "€2490 setup" },
+      "price_monthly": { "lt": "€690/mėn", "en": "€690/mo" },
+      "features": [
+        { "lt": "Neribota automatizacija", "en": "Unlimited automations" },
+        { "lt": "Visos populiarios integracijų", "en": "All popular integrations" },
+        { "lt": "Visas priėmimas, sąskaitos, turnyras, pazintys, draudimas", "en": "Complete intake, billing, tournaments, follow-ups, insurance" },
+        { "lt": "Prioritetinis 24/7 palaikymas (15 min atsakymas)", "en": "Priority 24/7 support (15 min response)" },
+        { "lt": "Savaitės detalios ataskaitos su savaitės paskambinimai", "en": "Weekly detailed reports with growth insights" },
+        { "lt": "Nemokami atnaujinimai, aptarnavimai, ir konsultacijos", "en": "Free updates, maintenance, & consultations" },
+        { "lt": "Teisininkės prieiga ir prieiga prie naudotojų forumų", "en": "Slack & forum access for growth tips" },
+        { "lt": "Savaitės peržiūra ir optimizavimas", "en": "Weekly review & optimization sessions" },
+        { "lt": "Teisininkės prieiga prie produkto atstovaviimo", "en": "Direct access to product specialists" },
+        { "lt": "API prieiga šiam pritaikymui", "en": "API access for custom workflows" },
+        { "lt": "Dedikuotas sąskaitos vadybininkas", "en": "Dedicated account manager" },
+        { "lt": "60 dienų jokios rizikos garantija", "en": "60-day money-back guarantee" }
+      ]
+    }
+  },
+
+  "final_cta_headline": {
+    "lt": "Sutaupykite valandas šią savaitę, ne kitą metą",
+    "en": "Save hours this week, not next year"
+  },
+
+  "final_cta_subtext": {
+    "lt": "Nemokamai konsultacija, be jokios rizikos. Jei jums to nereikia, atšaukite bet kuriuo metu. Dauguma verslo subjektų lieka, nes tai iš tikrųjų veikia.",
+    "en": "Free consultation, zero risk. If it's not for you, cancel anytime. Most businesses stay because it actually works."
+  },
+
+  "guarantee_text": {
+    "lt": "30 dienų jokios klausimo garantija. Jei jums nepatinka, grąžiname 100% jūsų nustatymo pinigų. Nėra jokių klausimų, nėra jokių keistenybės. Jei tai nesuteikia jums laiko ir jūs tam tikslui negrąžinat, mes grąžiname pinigus.",
+    "en": "30-day money-back guarantee. If you're not happy, we refund your setup fee in full. No questions, no hassle. If it doesn't save you time, we give your money back."
+  },
+
+  "footer_tagline": {
+    "lt": "AI automatika, kuri veikia lietuviams",
+    "en": "AI automation that works for Lithuanian businesses"
+  }
+}
