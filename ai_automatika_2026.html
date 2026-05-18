@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Automatika — Atgaukite 30+ valandų per mėnesį</title>
-  <meta name="description" content="AI automatika smulkiam ir vidutiniam verslui Lietuvoje. Sumažiname rankinį darbą iki 70%. Nemokama auditą — gausite atsakymą per 24 valandas.">
-  <meta property="og:title" content="Automatika — AI automatizacija Lietuvos verslui">
-  <meta property="og:description" content="Atgaukite 30+ valandų per mėnesį. Aiškios kainos. Nemokama auditą.">
+  <title>Automatika — AI automatika Lietuvos verslui</title>
+  <meta name="description" content="Mažiau rutinos. Daugiau verslo. Sutaupykite 30+ valandų per mėnesį su AI automatika. Nemokama konsultacija — atsakymas per 24 val.">
+  <meta property="og:title" content="Automatika — AI automatika Lietuvos verslui">
+  <meta property="og:description" content="Mažiau rutinos. Daugiau verslo. Sutaupykite 30+ valandų per mėnesį.">
   <meta property="og:type" content="website">
   <meta name="theme-color" content="#FAF7F2">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230C4A2F'/%3E%3Ctext x='50' y='68' font-size='60' text-anchor='middle' fill='%23FAF7F2' font-family='serif'%3EA%3C/text%3E%3C/svg%3E">
@@ -294,10 +294,18 @@
 
     /* Marquee */
     .marquee {
-      display: flex; gap: 4rem; animation: marquee 40s linear infinite;
+      display: flex; gap: 3.5rem; animation: marquee 50s linear infinite;
       width: max-content;
     }
     @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    .logo-mark {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-size: 15px; font-weight: 500; letter-spacing: -0.005em;
+      color: var(--ink-3); white-space: nowrap;
+      opacity: 0.75; transition: opacity 0.3s, color 0.3s;
+    }
+    .logo-mark:hover { opacity: 1; color: var(--ink-2); }
+    .logo-mark i { font-size: 18px; }
 
     /* Cal embed placeholder */
     .cal-frame {
@@ -354,7 +362,7 @@
 <div class="bg-[var(--ink)] text-[var(--bg)]">
   <div class="max-w-7xl mx-auto px-6 py-2.5 text-center text-xs font-medium flex items-center justify-center gap-2">
     <i class="fas fa-circle text-[8px] text-[var(--warm)]"></i>
-    <span data-lt="Priimame 3 naujus klientus šį mėnesį — nemokama auditė vis dar atvira" data-en="Accepting 3 new clients this month — free audit still open">Priimame 3 naujus klientus šį mėnesį — nemokama auditė vis dar atvira</span>
+    <span data-lt="3 laisvos vietos šį mėnesį · Nemokama konsultacija" data-en="3 spots open this month · Free consultation">3 laisvos vietos šį mėnesį · Nemokama konsultacija</span>
   </div>
 </div>
 
@@ -384,7 +392,7 @@
           <button data-lang-toggle="lt" class="lang-btn active">LT</button>
           <button data-lang-toggle="en" class="lang-btn">EN</button>
         </div>
-        <a href="#kontaktai" class="hidden md:inline-flex btn-primary text-sm" data-lt="Užsisakyti auditę" data-en="Book a free audit">Užsisakyti auditę</a>
+        <a href="#kontaktai" class="hidden md:inline-flex btn-primary text-sm" data-lt="Nemokama konsultacija" data-en="Free consultation">Nemokama konsultacija</a>
         <button id="menu-btn" class="md:hidden flex flex-col justify-center p-1" aria-label="Menu">
           <span></span><span></span><span></span>
         </button>
@@ -402,7 +410,7 @@
           <button data-lang-toggle="lt" class="lang-btn active">LT</button>
           <button data-lang-toggle="en" class="lang-btn">EN</button>
         </div>
-        <a href="#kontaktai" class="btn-primary text-center mt-3" data-lt="Užsisakyti auditę" data-en="Book a free audit">Užsisakyti auditę</a>
+        <a href="#kontaktai" class="btn-primary text-center mt-3" data-lt="Nemokama konsultacija" data-en="Free consultation">Nemokama konsultacija</a>
       </div>
     </div>
   </div>
@@ -413,7 +421,7 @@
      ============================================================ -->
 <section class="grain pt-32 md:pt-36 pb-20 md:pb-28 relative">
   <div class="max-w-7xl mx-auto px-6">
-    <div class="grid lg:grid-cols-12 gap-8 lg:gap-12 items-end">
+    <div class="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
       <div class="lg:col-span-7">
         <div class="mb-7 fade-up">
           <span class="pill">
@@ -423,19 +431,19 @@
         </div>
 
         <h1 class="display-1 mb-7 fade-up" style="transition-delay:0.05s">
-          <span data-lt="Atgaukite " data-en="Reclaim ">Atgaukite </span><span class="italic-serif serif" data-lt="30+ valandų" data-en="30+ hours">30+ valandų</span><br>
-          <span data-lt="kiekvieną mėnesį." data-en="every month.">kiekvieną mėnesį.</span>
+          <span data-lt="Mažiau rutinos." data-en="Less routine.">Mažiau rutinos.</span><br>
+          <span class="italic-serif serif" data-lt="Daugiau verslo." data-en="More business.">Daugiau verslo.</span>
         </h1>
 
         <p class="text-lg text-[var(--ink-2)] max-w-xl mb-9 fade-up" style="transition-delay:0.1s"
-           data-lt="Aptiksime, suprojektuosime ir paleisime AI automatikas jūsų verslui. Nieko nereikia mokytis. Pirmieji rezultatai per 7 dienas."
-           data-en="We find, design and deploy AI automations for your business. Nothing to learn. First results within 7 days.">
-          Aptiksime, suprojektuosime ir paleisime AI automatikas jūsų verslui. Nieko nereikia mokytis. Pirmieji rezultatai per 7 dienas.
+           data-lt="Sutaupykite 30+ valandų per mėnesį. AI automatikos jūsų verslui — be mokymų, be techninių rūpesčių. Pirmi rezultatai per 7 dienas."
+           data-en="Save 30+ hours every month. AI automations for your business — no training, no tech headaches. First results in 7 days.">
+          Sutaupykite 30+ valandų per mėnesį. AI automatikos jūsų verslui — be mokymų, be techninių rūpesčių. Pirmi rezultatai per 7 dienas.
         </p>
 
         <div class="flex flex-col sm:flex-row items-start sm:items-center gap-3 mb-12 fade-up" style="transition-delay:0.15s">
           <a href="#kontaktai" class="btn-primary btn-lg">
-            <span data-lt="Užsisakyti nemokamą auditę" data-en="Book a free audit">Užsisakyti nemokamą auditę</span>
+            <span data-lt="Nemokama konsultacija" data-en="Free consultation">Nemokama konsultacija</span>
             <i class="fas fa-arrow-right text-xs"></i>
           </a>
           <a href="#kaip" class="btn-text">
@@ -448,10 +456,10 @@
         <div class="fade-up" style="transition-delay:0.2s">
           <div class="flex items-center gap-4 mb-2">
             <div class="flex -space-x-2">
-              <div class="avatar" style="background:#E8DDC8">TP</div>
-              <div class="avatar" style="background:#DCD0B6">ES</div>
-              <div class="avatar" style="background:#D6CDB8">RV</div>
-              <div class="avatar" style="background:#CCC2A6">MS</div>
+              <div class="avatar" style="background:#E8DDC8">T</div>
+              <div class="avatar" style="background:#DCD0B6">E</div>
+              <div class="avatar" style="background:#D6CDB8">R</div>
+              <div class="avatar" style="background:#CCC2A6">M</div>
             </div>
             <div>
               <div class="flex items-center gap-1 mb-0.5">
@@ -468,20 +476,20 @@
         </div>
       </div>
 
-      <!-- Hero side card -->
+      <!-- Hero side: featured quote -->
       <div class="lg:col-span-5 fade-up" style="transition-delay:0.25s">
-        <div class="relative">
-          <!-- Founder portrait -->
-          <div class="founder-photo">
-            <span class="serif text-7xl relative z-10" style="color:rgba(12,74,47,0.6)">M</span>
-          </div>
-          <!-- Quote card overlap -->
-          <div class="card absolute -bottom-6 -left-4 right-4 md:-left-8 md:right-8 p-5">
-            <p class="text-sm text-[var(--ink-2)] leading-relaxed mb-3 italic-serif" data-lt="„Pati maloniausia patirtis — ne reikia keisti nieko, ką jau darai."" data-en="&quot;Easiest experience — nothing about your workflow changes.&quot;">„Pati maloniausia patirtis — ne reikia keisti nieko, ką jau darai."</p>
-            <div class="flex items-center gap-2 text-xs text-[var(--ink-3)]">
-              <span class="font-medium text-[var(--ink-2)]">Eglė S.</span>
-              <span>·</span>
-              <span data-lt="odontologijos klinika" data-en="dental clinic">odontologijos klinika</span>
+        <div class="card p-8 md:p-10">
+          <span class="italic-serif serif block text-6xl text-[var(--line-2)] leading-none mb-4" aria-hidden="true">"</span>
+          <p class="italic-serif text-xl md:text-2xl text-[var(--ink)] leading-snug mb-8"
+             data-lt="Visas administravimas dabar vyksta savaime. Aš grįžau prie pacientų."
+             data-en="All the admin runs itself now. I'm back with my patients.">
+            Visas administravimas dabar vyksta savaime. Aš grįžau prie pacientų.
+          </p>
+          <div class="flex items-center gap-3 pt-5 border-t border-[var(--line)]">
+            <div class="avatar avatar-lg" style="background:#DCD0B6">E</div>
+            <div>
+              <div class="text-sm font-medium">Eglė S.</div>
+              <div class="text-xs text-[var(--ink-3)]">Kaunas</div>
             </div>
           </div>
         </div>
@@ -511,31 +519,37 @@
 </section>
 
 <!-- ============================================================
-     LOGO MARQUEE
+     INTEGRATIONS MARQUEE
      ============================================================ -->
 <section class="border-y border-[var(--line)] py-10 bg-[var(--bg-alt)] overflow-hidden">
-  <p class="eyebrow text-center mb-8" data-lt="Pasitiki Lietuvos verslai" data-en="Trusted by Lithuanian businesses">Pasitiki Lietuvos verslai</p>
+  <p class="eyebrow text-center mb-8" data-lt="Veikia su jūsų įrankiais" data-en="Works with your tools">Veikia su jūsų įrankiais</p>
   <div class="relative">
-    <div class="marquee">
-      <span class="serif text-2xl text-[var(--ink-4)]">BalticSport</span>
-      <span class="serif text-2xl text-[var(--ink-4)] italic">Žypsnis</span>
-      <span class="serif text-2xl text-[var(--ink-4)]">Energy Gym</span>
-      <span class="serif text-2xl text-[var(--ink-4)]">DentaCare</span>
-      <span class="serif text-2xl text-[var(--ink-4)] italic">Aktyvus</span>
-      <span class="serif text-2xl text-[var(--ink-4)]">SportStart</span>
-      <span class="serif text-2xl text-[var(--ink-4)]">Lūpa.lt</span>
-      <span class="serif text-2xl text-[var(--ink-4)]">Modus Klinika</span>
-      <span class="serif text-2xl text-[var(--ink-4)] italic">Tonus</span>
+    <div class="marquee items-center">
+      <span class="logo-mark"><i class="fab fa-google"></i> Google&nbsp;Workspace</span>
+      <span class="logo-mark"><i class="fab fa-whatsapp"></i> WhatsApp&nbsp;Business</span>
+      <span class="logo-mark"><i class="fab fa-stripe-s"></i> Stripe</span>
+      <span class="logo-mark">Make</span>
+      <span class="logo-mark">Zapier</span>
+      <span class="logo-mark"><i class="fab fa-slack"></i> Slack</span>
+      <span class="logo-mark">Notion</span>
+      <span class="logo-mark">n8n</span>
+      <span class="logo-mark">Paysera</span>
+      <span class="logo-mark">OpenAI</span>
+      <span class="logo-mark"><i class="fab fa-microsoft"></i> Microsoft&nbsp;365</span>
+      <span class="logo-mark">Calendly</span>
       <!-- duplicate for seamless loop -->
-      <span class="serif text-2xl text-[var(--ink-4)]">BalticSport</span>
-      <span class="serif text-2xl text-[var(--ink-4)] italic">Žypsnis</span>
-      <span class="serif text-2xl text-[var(--ink-4)]">Energy Gym</span>
-      <span class="serif text-2xl text-[var(--ink-4)]">DentaCare</span>
-      <span class="serif text-2xl text-[var(--ink-4)] italic">Aktyvus</span>
-      <span class="serif text-2xl text-[var(--ink-4)]">SportStart</span>
-      <span class="serif text-2xl text-[var(--ink-4)]">Lūpa.lt</span>
-      <span class="serif text-2xl text-[var(--ink-4)]">Modus Klinika</span>
-      <span class="serif text-2xl text-[var(--ink-4)] italic">Tonus</span>
+      <span class="logo-mark"><i class="fab fa-google"></i> Google&nbsp;Workspace</span>
+      <span class="logo-mark"><i class="fab fa-whatsapp"></i> WhatsApp&nbsp;Business</span>
+      <span class="logo-mark"><i class="fab fa-stripe-s"></i> Stripe</span>
+      <span class="logo-mark">Make</span>
+      <span class="logo-mark">Zapier</span>
+      <span class="logo-mark"><i class="fab fa-slack"></i> Slack</span>
+      <span class="logo-mark">Notion</span>
+      <span class="logo-mark">n8n</span>
+      <span class="logo-mark">Paysera</span>
+      <span class="logo-mark">OpenAI</span>
+      <span class="logo-mark"><i class="fab fa-microsoft"></i> Microsoft&nbsp;365</span>
+      <span class="logo-mark">Calendly</span>
     </div>
   </div>
 </section>
@@ -866,7 +880,7 @@
           </div>
         </div>
         <a href="#kontaktai" class="btn-primary w-full justify-center">
-          <span data-lt="Užsisakyti auditę" data-en="Book your audit">Užsisakyti auditę</span>
+          <span data-lt="Užsisakyti konsultaciją" data-en="Book your consultation">Užsisakyti konsultaciją</span>
           <i class="fas fa-arrow-right text-xs"></i>
         </a>
         <p class="text-xs text-[var(--ink-4)] mt-4 text-center" data-lt="Skaičiuojama nuo 4,33 sav./mėn. · Stand. planas €390/mėn." data-en="At 4.33 wks/mo. · Standard plan €390/mo.">Skaičiuojama nuo 4,33 sav./mėn. · Stand. planas €390/mėn.</p>
@@ -897,10 +911,10 @@
         </div>
         <p class="text-[var(--ink-2)] leading-relaxed mb-6 text-sm flex-1" data-lt="Turėjome realią problemą su narių registracija ir nepasirodymais. Žmonės tiesiog užmiršdavo apie treniruotes. Šiandien viskas automatiškai — priminimai išsiunčiami, žmonės nustojo nepatekti." data-en="We had a real problem with member registration and no-shows. People would just forget about training. Today everything is automatic — reminders go out, people stopped missing.">Turėjome realią problemą su narių registracija ir nepasirodymais. Žmonės tiesiog užmiršdavo apie treniruotes. Šiandien viskas automatiškai — priminimai išsiunčiami, žmonės nustojo nepatekti.</p>
         <div class="flex items-center gap-3 pt-5 border-t border-[var(--line)]">
-          <div class="avatar avatar-lg" style="background:#E8DDC8">TP</div>
+          <div class="avatar avatar-lg" style="background:#E8DDC8">T</div>
           <div>
-            <div class="text-sm font-medium">Tomas Petrauskas</div>
-            <div class="text-xs text-[var(--ink-3)]" data-lt="Savininkas · BalticSport, Vilnius" data-en="Owner · BalticSport, Vilnius">Savininkas · BalticSport, Vilnius</div>
+            <div class="text-sm font-medium">Tomas P.</div>
+            <div class="text-xs text-[var(--ink-3)]">Vilnius</div>
           </div>
         </div>
       </div>
@@ -912,10 +926,10 @@
         </div>
         <p class="text-[var(--ink-2)] leading-relaxed mb-6 text-sm flex-1" data-lt="Iš pradžių buvau skeptiška. Mums veikia šeimos verslas, žmonės mus pažįsta. Bet automatika nereiškia neasmeniškumo. Dabar turiu daugiau laiko pacientams, o administracija nepaima visų nervų." data-en="At first I was skeptical. We run a family business, people know us. But automation doesn't mean impersonal. Now I have more time for patients, and admin doesn't drain all my energy.">Iš pradžių buvau skeptiška. Mums veikia šeimos verslas, žmonės mus pažįsta. Bet automatika nereiškia neasmeniškumo. Dabar turiu daugiau laiko pacientams, o administracija nepaima visų nervų.</p>
         <div class="flex items-center gap-3 pt-5 border-t border-[var(--line)]">
-          <div class="avatar avatar-lg" style="background:#DCD0B6">ES</div>
+          <div class="avatar avatar-lg" style="background:#DCD0B6">E</div>
           <div>
-            <div class="text-sm font-medium">Eglė Stonkienė</div>
-            <div class="text-xs text-[var(--ink-3)]" data-lt="Gydytoja odontologė · Žypsnis, Kaunas" data-en="Dental surgeon · Žypsnis, Kaunas">Gydytoja odontologė · Žypsnis, Kaunas</div>
+            <div class="text-sm font-medium">Eglė S.</div>
+            <div class="text-xs text-[var(--ink-3)]">Kaunas</div>
           </div>
         </div>
       </div>
@@ -927,10 +941,10 @@
         </div>
         <p class="text-[var(--ink-2)] leading-relaxed mb-6 text-sm flex-1" data-lt="Turėjau poreikį, bet nežinojau, nuo ko pradėti. Atėjo, paaiškino, nepasirodė sudėtinga. Dabar darbuotojai patys naudoja sistemą be jokių mokymų. Procesas buvo labai sklandus." data-en="I had a need but didn't know where to start. They came, explained, it didn't seem complicated. Now my staff uses the system without training. The process was very smooth.">Turėjau poreikį, bet nežinojau, nuo ko pradėti. Atėjo, paaiškino, nepasirodė sudėtinga. Dabar darbuotojai patys naudoja sistemą be jokių mokymų. Procesas buvo labai sklandus.</p>
         <div class="flex items-center gap-3 pt-5 border-t border-[var(--line)]">
-          <div class="avatar avatar-lg" style="background:#D6CDB8">JK</div>
+          <div class="avatar avatar-lg" style="background:#D6CDB8">J</div>
           <div>
-            <div class="text-sm font-medium">Justas Kazlauskas</div>
-            <div class="text-xs text-[var(--ink-3)]" data-lt="Vadovas · Energy Gym, Klaipėda" data-en="Manager · Energy Gym, Klaipėda">Vadovas · Energy Gym, Klaipėda</div>
+            <div class="text-sm font-medium">Justas K.</div>
+            <div class="text-xs text-[var(--ink-3)]">Klaipėda</div>
           </div>
         </div>
       </div>
@@ -942,10 +956,10 @@
         </div>
         <p class="text-[var(--ink-2)] leading-relaxed mb-6 text-sm flex-1" data-lt="Esu tik aš ir viena padėjėja. Man svarbu, kad sistema būtų paprasta — be jokio briliantinio mokymosi. Dabar jei aš susergu, sistema veikia be manęs. Pasirodo, tai ir buvo būtina." data-en="It's just me and one assistant. I needed something simple — no brilliant learning curve. Now if I get sick, the system runs without me. Turns out, that was what we needed.">Esu tik aš ir viena padėjėja. Man svarbu, kad sistema būtų paprasta — be jokio briliantinio mokymosi. Dabar jei aš susergu, sistema veikia be manęs. Pasirodo, tai ir buvo būtina.</p>
         <div class="flex items-center gap-3 pt-5 border-t border-[var(--line)]">
-          <div class="avatar avatar-lg" style="background:#CCC2A6">RV</div>
+          <div class="avatar avatar-lg" style="background:#CCC2A6">R</div>
           <div>
-            <div class="text-sm font-medium">Rūta Vasiliauskaitė</div>
-            <div class="text-xs text-[var(--ink-3)]" data-lt="Savininkė · DentaCare, Panevėžys" data-en="Owner · DentaCare, Panevėžys">Savininkė · DentaCare, Panevėžys</div>
+            <div class="text-sm font-medium">Rūta V.</div>
+            <div class="text-xs text-[var(--ink-3)]">Panevėžys</div>
           </div>
         </div>
       </div>
@@ -957,10 +971,10 @@
         </div>
         <p class="text-[var(--ink-2)] leading-relaxed mb-6 text-sm flex-1" data-lt="Prieš tai mūsų klientai nevisuomet žinojo, kad pas mus galima registruotis online. Per porą mėnesių atrodo, kad turime daugiau žmonių — jie tiesiog dabar žino, kada ateiti." data-en="Before, clients didn't always know they could book online. After a couple months it feels like we have more people — they just know when to come now.">Prieš tai mūsų klientai nevisuomet žinojo, kad pas mus galima registruotis online. Per porą mėnesių atrodo, kad turime daugiau žmonių — jie tiesiog dabar žino, kada ateiti.</p>
         <div class="flex items-center gap-3 pt-5 border-t border-[var(--line)]">
-          <div class="avatar avatar-lg" style="background:#E2D8BE">MS</div>
+          <div class="avatar avatar-lg" style="background:#E2D8BE">M</div>
           <div>
-            <div class="text-sm font-medium">Mantas Stankevičius</div>
-            <div class="text-xs text-[var(--ink-3)]" data-lt="Direktorius · Aktyvus Klubas, Šiauliai" data-en="Director · Aktyvus Klubas, Šiauliai">Direktorius · Aktyvus Klubas, Šiauliai</div>
+            <div class="text-sm font-medium">Mantas S.</div>
+            <div class="text-xs text-[var(--ink-3)]">Šiauliai</div>
           </div>
         </div>
       </div>
@@ -972,10 +986,10 @@
         </div>
         <p class="text-[var(--ink-2)] leading-relaxed mb-6 text-sm flex-1" data-lt="Anksčiau pusę dienos praleisdavau prie telefono. Dabar klientai patys pildo informaciją. Buvau nustebinta, kaip greitai komanda adaptavosi — per savaitę visi mokėjo dirbti." data-en="Before, I spent half the day on the phone. Now clients fill it in themselves. I was surprised how fast the team adapted — within a week everyone got it.">Anksčiau pusę dienos praleisdavau prie telefono. Dabar klientai patys pildo informaciją. Buvau nustebinta, kaip greitai komanda adaptavosi — per savaitę visi mokėjo dirbti.</p>
         <div class="flex items-center gap-3 pt-5 border-t border-[var(--line)]">
-          <div class="avatar avatar-lg" style="background:#D9CFB5">IJ</div>
+          <div class="avatar avatar-lg" style="background:#D9CFB5">I</div>
           <div>
-            <div class="text-sm font-medium">Ieva Jankauskaitė</div>
-            <div class="text-xs text-[var(--ink-3)]" data-lt="Administratorė · SportStart, Marijampolė" data-en="Administrator · SportStart, Marijampolė">Administratorė · SportStart, Marijampolė</div>
+            <div class="text-sm font-medium">Ieva J.</div>
+            <div class="text-xs text-[var(--ink-3)]">Marijampolė</div>
           </div>
         </div>
       </div>
@@ -993,7 +1007,7 @@
     <div class="grid md:grid-cols-12 gap-10 items-center">
       <div class="md:col-span-5 fade-up">
         <div class="founder-photo" style="aspect-ratio: 1/1; max-width:400px">
-          <span class="serif text-8xl relative z-10" style="color:rgba(12,74,47,0.5)">M</span>
+          <span class="serif italic relative z-10 text-sm tracking-[0.3em] uppercase" style="color:rgba(12,74,47,0.4)">Portretas</span>
         </div>
         <p class="text-xs text-[var(--ink-4)] mt-3 text-center max-w-[400px]" data-lt="Foto vieta — pakeisite savo nuotrauka" data-en="Photo placeholder — replace with your photo">Foto vieta — pakeisite savo nuotrauka</p>
       </div>
@@ -1543,7 +1557,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Toast notifications
   const toasts = [
-    { lt: 'Eglė S. iš Kauno užsisakė auditę', en: 'Eglė S. from Kaunas booked an audit' },
+    { lt: 'Eglė S. iš Kauno užsisakė konsultaciją', en: 'Eglė S. from Kaunas booked a consultation' },
     { lt: 'Mantas S. iš Šiaulių pasirinko Standard', en: 'Mantas S. from Šiauliai chose Standard' },
     { lt: 'Tomas P. iš Vilniaus pradėjo diegimą', en: 'Tomas P. from Vilnius started setup' },
     { lt: 'Rūta V. iš Panevėžio sutaupė 22 val. šį mėn.', en: 'Rūta V. from Panevėžys saved 22 hrs this month' },
