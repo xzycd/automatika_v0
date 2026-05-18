@@ -3,287 +3,406 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI Automatika — Sutaupykite 10–30 valandų per mėnesį</title>
-  <meta name="description" content="Patikimi AI automatizavimai Lietuvos sporto klubams ir odontologinėms klinikoms. Sutaupykite 10–30 valandų per mėnesį. Pradėkite šią savaitę.">
-  <meta property="og:title" content="AI Automatika — Sutaupykite 10–30 val/mėn">
-  <meta property="og:description" content="AI automatizavimai sporto klubams ir odontologinėms klinikoms Lietuvoje. Stabilu. Paprasta. Profesionalu.">
+  <title>Automatika — Atgaukite 30+ valandų per mėnesį</title>
+  <meta name="description" content="AI automatika smulkiam ir vidutiniam verslui Lietuvoje. Sumažiname rankinį darbą iki 70%. Nemokama auditą — gausite atsakymą per 24 valandas.">
+  <meta property="og:title" content="Automatika — AI automatizacija Lietuvos verslui">
+  <meta property="og:description" content="Atgaukite 30+ valandų per mėnesį. Aiškios kainos. Nemokama auditą.">
   <meta property="og:type" content="website">
-  <meta name="theme-color" content="#000000">
+  <meta name="theme-color" content="#FAF7F2">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230C4A2F'/%3E%3Ctext x='50' y='68' font-size='60' text-anchor='middle' fill='%23FAF7F2' font-family='serif'%3EA%3C/text%3E%3C/svg%3E">
+
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 
   <style>
+    :root {
+      --bg: #FAF7F2;
+      --bg-alt: #F2EEE5;
+      --surface: #FFFFFF;
+      --ink: #0F0F0F;
+      --ink-2: #3F3F3F;
+      --ink-3: #6B6B6B;
+      --ink-4: #9A9A9A;
+      --line: #E8E3D7;
+      --line-2: #D5CFC0;
+      --accent: #0C4A2F;
+      --accent-hover: #082C1C;
+      --accent-soft: #D7E5DC;
+      --warm: #C99F6F;
+      --warm-soft: #F2E4D0;
+      --amber: #B97A2A;
+    }
+
     *, *::before, *::after { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', system-ui, sans-serif; background: #000; color: #fff; overflow-x: hidden; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      overflow-x: hidden;
+      font-feature-settings: "ss01", "cv11";
+      -webkit-font-smoothing: antialiased;
+    }
+    .serif { font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; }
+    .italic-serif { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; }
+
+    /* Type system */
+    .display-1 { font-size: clamp(2.6rem, 6.5vw, 5.5rem); line-height: 1.02; letter-spacing: -0.025em; }
+    .display-2 { font-size: clamp(2.2rem, 4.5vw, 3.8rem); line-height: 1.05; letter-spacing: -0.02em; }
+    .display-3 { font-size: clamp(1.5rem, 2.4vw, 2rem); line-height: 1.15; letter-spacing: -0.015em; }
+    .eyebrow { font-size: 11px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-3); }
+    .tabular { font-variant-numeric: tabular-nums; }
 
     /* Progress bar */
     #progress-bar {
       position: fixed; top: 0; left: 0; height: 2px; width: 0%;
-      background: linear-gradient(90deg, #34d399, #10b981);
+      background: var(--accent);
       z-index: 9999; transition: width 0.1s linear;
     }
 
     /* Navbar */
-    nav { transition: background 0.3s, backdrop-filter 0.3s, border-color 0.3s; }
-    nav.scrolled { background: rgba(0,0,0,0.92); backdrop-filter: blur(20px); border-color: rgba(255,255,255,0.08); }
-    .glass { background: rgba(255,255,255,0.04); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
-    .glass-card { background: rgba(255,255,255,0.03); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.08); }
-
-    /* Mobile menu */
-    #mobile-menu { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
-    #mobile-menu.visible { max-height: 400px; }
-
-    /* Hamburger icon */
-    #menu-btn span { display: block; width: 22px; height: 2px; background: #fff; transition: all 0.3s; }
-    #menu-btn span:nth-child(2) { margin: 5px 0; }
-    #menu-btn.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    #menu-btn.open span:nth-child(2) { opacity: 0; }
-    #menu-btn.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-    /* Lang toggle */
-    [data-lang-toggle].active { background: #fff; color: #000; }
-
-    /* Hero gradient */
-    .hero-bg {
-      background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(52,211,153,0.12) 0%, transparent 60%),
-                  radial-gradient(ellipse 60% 40% at 80% 50%, rgba(16,185,129,0.06) 0%, transparent 50%),
-                  #000;
+    nav#navbar {
+      position: fixed; top: 0; width: 100%; z-index: 50;
+      background: rgba(250, 247, 242, 0.7);
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid transparent;
+      transition: background 0.3s, border-color 0.3s;
+    }
+    nav#navbar.scrolled {
+      background: rgba(250, 247, 242, 0.95);
+      border-bottom-color: var(--line);
     }
 
-    /* Mesh grid overlay */
-    .grid-overlay {
-      background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-                        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
-      background-size: 60px 60px;
-    }
-
-    /* Scroll animations */
-    .fade-up { opacity: 0; transform: translateY(32px); transition: opacity 0.6s ease, transform 0.6s ease; }
-    .fade-up.visible { opacity: 1; transform: translateY(0); }
-    .fade-left { opacity: 0; transform: translateX(-24px); transition: opacity 0.6s ease, transform 0.6s ease; }
-    .fade-left.visible { opacity: 1; transform: translateX(0); }
-
-    /* Stats */
-    .stat-number { font-variant-numeric: tabular-nums; }
-
-    /* Bento grid */
-    .bento-card { transition: border-color 0.3s, transform 0.3s; }
-    .bento-card:hover { border-color: rgba(52,211,153,0.3); transform: translateY(-2px); }
-
-    /* Testimonials */
-    .testimonial-card { transition: border-color 0.3s; }
-    .testimonial-card:hover { border-color: rgba(255,255,255,0.2); }
-
-    /* Pricing */
-    .pricing-card { transition: transform 0.3s, border-color 0.3s; }
-    .pricing-card:hover { transform: translateY(-4px); }
-    .pricing-featured { border-color: #fff !important; }
-
-    /* Toggle switch */
-    .toggle-switch { position: relative; display: inline-block; width: 48px; height: 26px; }
-    .toggle-switch input { opacity: 0; width: 0; height: 0; }
-    .toggle-slider {
-      position: absolute; cursor: pointer; inset: 0;
-      background: rgba(255,255,255,0.1); border-radius: 13px;
-      transition: background 0.3s;
-    }
-    .toggle-slider:before {
-      content: ''; position: absolute;
-      width: 20px; height: 20px; left: 3px; bottom: 3px;
-      background: #fff; border-radius: 50%; transition: transform 0.3s;
-    }
-    input:checked + .toggle-slider { background: #10b981; }
-    input:checked + .toggle-slider:before { transform: translateX(22px); }
-
-    /* FAQ */
-    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
-    .faq-header { cursor: pointer; user-select: none; }
-    .faq-icon { transition: transform 0.3s; }
-    .faq-item.active .faq-icon { transform: rotate(45deg); }
-    .faq-item { border-bottom: 1px solid rgba(255,255,255,0.06); }
-    .faq-item:last-child { border-bottom: none; }
-
-    /* ROI calculator */
-    .roi-input {
-      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1);
-      color: #fff; border-radius: 12px; padding: 14px 18px;
-      font-size: 16px; width: 100%; outline: none;
-      transition: border-color 0.2s;
-    }
-    .roi-input:focus { border-color: #34d399; }
-    .roi-input::placeholder { color: rgba(255,255,255,0.3); }
-
-    /* WhatsApp float */
-    #wa-float {
-      position: fixed; bottom: 28px; right: 28px; z-index: 1000;
-      width: 58px; height: 58px; border-radius: 50%;
-      background: #25d366;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 26px; color: #fff;
-      box-shadow: 0 4px 24px rgba(37,211,102,0.4);
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    #wa-float:hover { transform: scale(1.1); box-shadow: 0 6px 32px rgba(37,211,102,0.5); }
-
-    /* Toast notifications */
-    .toast-notification {
-      position: fixed; bottom: 100px; right: 28px; z-index: 999;
-      background: rgba(20,20,20,0.95); border: 1px solid rgba(255,255,255,0.1);
-      backdrop-filter: blur(12px);
-      color: #fff; padding: 14px 18px; border-radius: 14px;
-      font-size: 13px; max-width: 260px;
-      transform: translateX(110%); transition: transform 0.35s cubic-bezier(.34,1.56,.64,1);
-      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
-    }
-    .toast-notification::before {
-      content: '🔔 '; font-size: 12px;
-    }
-    .toast-notification.visible { transform: translateX(0); }
-
-    /* Cookie banner */
-    #cookie-banner {
-      position: fixed; bottom: 0; left: 0; right: 0; z-index: 2000;
-      background: rgba(10,10,10,0.98); border-top: 1px solid rgba(255,255,255,0.08);
-      backdrop-filter: blur(12px);
-      transform: translateY(100%); transition: transform 0.4s ease;
-    }
-    #cookie-banner.visible { transform: translateY(0); }
-
-    /* Section divider */
-    .section-divider { border: none; border-top: 1px solid rgba(255,255,255,0.06); }
-
-    /* Emerald glow button */
+    /* Buttons */
     .btn-primary {
-      background: #fff; color: #000;
-      padding: 16px 36px; border-radius: 14px;
-      font-weight: 600; font-size: 16px;
-      transition: transform 0.2s, box-shadow 0.2s;
+      background: var(--accent); color: #FFF;
+      padding: 14px 26px; border-radius: 999px;
+      font-weight: 500; font-size: 15px;
       display: inline-flex; align-items: center; gap: 8px;
+      transition: background 0.2s, transform 0.2s;
+      letter-spacing: -0.01em;
     }
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 32px rgba(255,255,255,0.15);
+    .btn-primary:hover { background: var(--accent-hover); }
+    .btn-primary:active { transform: translateY(1px); }
+    .btn-primary.btn-lg { padding: 18px 34px; font-size: 16px; }
+
+    .btn-ghost {
+      color: var(--ink); padding: 14px 24px; border-radius: 999px;
+      font-weight: 500; font-size: 15px;
+      display: inline-flex; align-items: center; gap: 8px;
+      transition: background 0.2s;
+      border: 1px solid var(--line);
+      background: var(--surface);
     }
-    .btn-secondary {
-      color: rgba(255,255,255,0.6); font-size: 14px;
+    .btn-ghost:hover { background: var(--bg-alt); }
+
+    .btn-text {
+      color: var(--ink-2); font-size: 14px;
       display: inline-flex; align-items: center; gap: 6px;
       transition: color 0.2s;
     }
-    .btn-secondary:hover { color: #fff; }
+    .btn-text:hover { color: var(--ink); }
 
-    /* Emerald badge */
-    .badge-emerald {
-      display: inline-flex; align-items: center; gap: 6px;
-      background: rgba(52,211,153,0.1); border: 1px solid rgba(52,211,153,0.2);
-      color: #34d399; padding: 6px 14px; border-radius: 100px;
-      font-size: 12px; font-weight: 500; letter-spacing: 0.05em;
+    /* Card */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+    }
+    .card-hover { transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s; }
+    .card-hover:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px -8px rgba(15,15,15,0.08);
+      border-color: var(--line-2);
+    }
+
+    /* Pill / badge */
+    .pill {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 14px; border-radius: 999px;
+      font-size: 12px; font-weight: 500;
+      background: var(--surface); border: 1px solid var(--line);
+      color: var(--ink-2);
+    }
+    .pill-accent {
+      background: var(--accent-soft);
+      border-color: var(--accent-soft);
+      color: var(--accent);
     }
     .dot-pulse {
-      width: 6px; height: 6px; border-radius: 50%; background: #34d399;
+      width: 6px; height: 6px; border-radius: 50%; background: var(--accent);
       animation: pulse 2s infinite;
     }
-    @keyframes pulse {
-      0%, 100% { opacity: 1; } 50% { opacity: 0.4; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+    /* Lang toggle */
+    .lang-btn { padding: 4px 10px; border-radius: 999px; font-size: 12px; font-weight: 500; color: var(--ink-3); transition: color 0.2s, background 0.2s; }
+    .lang-btn.active { background: var(--ink); color: var(--bg); }
+
+    /* Mobile menu */
+    #mobile-menu { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+    #mobile-menu.visible { max-height: 500px; }
+
+    #menu-btn span { display: block; width: 20px; height: 1.5px; background: var(--ink); transition: all 0.3s; }
+    #menu-btn span:nth-child(2) { margin: 5px 0; }
+    #menu-btn.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    #menu-btn.open span:nth-child(2) { opacity: 0; }
+    #menu-btn.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+    /* Subtle texture */
+    .grain {
+      position: relative;
+    }
+    .grain::after {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      opacity: 0.035;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
     }
 
-    /* Step connector */
-    .step-line {
-      position: absolute; top: 28px; left: calc(50% + 32px);
-      width: calc(100% - 64px); height: 1px;
-      background: linear-gradient(90deg, rgba(52,211,153,0.4), rgba(52,211,153,0.1));
+    /* Animations */
+    .fade-up { opacity: 0; transform: translateY(20px); transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1); }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    /* Hero photo */
+    .founder-photo {
+      width: 100%; aspect-ratio: 4 / 5;
+      background:
+        radial-gradient(ellipse at 30% 30%, #E8DDC8 0%, transparent 60%),
+        linear-gradient(180deg, #DCD0B6 0%, #C9B894 100%);
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--accent); position: relative;
+      overflow: hidden;
+    }
+    .founder-photo::after {
+      content: ''; position: absolute; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+      mix-blend-mode: multiply;
+      opacity: 0.5;
     }
 
-    /* Copy btn */
-    .copy-btn {
-      display: inline-flex; align-items: center; gap: 6px;
-      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
-      color: rgba(255,255,255,0.7); padding: 8px 14px; border-radius: 8px;
-      font-size: 13px; cursor: pointer; transition: all 0.2s;
-    }
-    .copy-btn:hover { background: rgba(255,255,255,0.1); color: #fff; }
-    .copy-btn.copied { border-color: #34d399; color: #34d399; }
-
-    /* Star rating */
-    .stars { color: #fbbf24; }
-
-    /* Scarcity badge */
-    .scarcity { background: rgba(251,191,36,0.1); border: 1px solid rgba(251,191,36,0.2); color: #fbbf24; }
-
-    /* Section label */
-    .section-label {
-      font-size: 11px; font-weight: 600; letter-spacing: 0.15em;
-      text-transform: uppercase; color: rgba(255,255,255,0.35);
+    /* Number circles */
+    .num-circle {
+      width: 32px; height: 32px; border-radius: 50%;
+      border: 1px solid var(--line-2);
+      display: inline-flex; align-items: center; justify-content: center;
+      font-family: 'Instrument Serif', serif;
+      font-size: 16px; color: var(--accent);
+      background: var(--surface);
     }
 
+    /* Tab/tag */
+    .tab-pill {
+      padding: 8px 18px; border-radius: 999px;
+      font-size: 13px; font-weight: 500;
+      background: transparent; color: var(--ink-3);
+      border: 1px solid var(--line);
+      cursor: pointer; transition: all 0.2s;
+    }
+    .tab-pill:hover { color: var(--ink); }
+    .tab-pill.active { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+
+    /* Use-case panel */
+    .case-panel { display: none; }
+    .case-panel.active { display: block; }
+
+    /* Workflow before/after */
+    .flow-card {
+      background: var(--surface); border: 1px solid var(--line); border-radius: 14px;
+      padding: 24px;
+    }
+    .flow-before { background: #FBF6EE; }
+    .flow-after { border-color: var(--accent-soft); background: linear-gradient(180deg, #F4F9F5 0%, var(--surface) 100%); }
+    .flow-row {
+      display: flex; align-items: center; gap: 10px;
+      padding: 10px 14px; border-radius: 10px;
+      font-size: 13px; color: var(--ink-2);
+      margin-bottom: 8px;
+      background: rgba(255,255,255,0.5);
+      border: 1px solid var(--line);
+    }
+    .flow-before .flow-row { background: rgba(255,255,255,0.6); }
+    .flow-after .flow-row { background: rgba(255,255,255,0.7); border-color: rgba(12,74,47,0.1); }
+
+    /* ROI input */
+    .roi-input {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      color: var(--ink); border-radius: 12px; padding: 14px 16px;
+      font-size: 16px; width: 100%; outline: none; font-weight: 500;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      font-variant-numeric: tabular-nums;
+    }
+    .roi-input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+    .roi-input::placeholder { color: var(--ink-4); }
+
+    /* Pricing toggle */
+    .toggle-switch { position: relative; display: inline-block; width: 44px; height: 24px; }
+    .toggle-switch input { opacity: 0; width: 0; height: 0; }
+    .toggle-slider {
+      position: absolute; cursor: pointer; inset: 0;
+      background: var(--line); border-radius: 999px; transition: background 0.3s;
+    }
+    .toggle-slider:before {
+      content: ''; position: absolute;
+      width: 18px; height: 18px; left: 3px; bottom: 3px;
+      background: #FFF; border-radius: 50%; transition: transform 0.3s;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+    }
+    input:checked + .toggle-slider { background: var(--accent); }
+    input:checked + .toggle-slider:before { transform: translateX(20px); }
+
+    /* FAQ */
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+    .faq-header { cursor: pointer; user-select: none; }
+    .faq-icon { transition: transform 0.3s ease; }
+    .faq-item.active .faq-icon { transform: rotate(45deg); }
+    .faq-item { border-bottom: 1px solid var(--line); }
+    .faq-item:last-child { border-bottom: none; }
+
+    /* Avatar — generated */
+    .avatar {
+      width: 40px; height: 40px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 500; font-size: 14px;
+      color: var(--ink); border: 1px solid var(--line-2);
+      background: var(--bg-alt);
+      font-family: 'Instrument Serif', serif;
+    }
+    .avatar-lg { width: 52px; height: 52px; font-size: 18px; }
+
+    /* Toast */
+    .toast-notification {
+      position: fixed; bottom: 24px; left: 24px; z-index: 999;
+      background: var(--surface); border: 1px solid var(--line);
+      box-shadow: 0 12px 32px -12px rgba(15,15,15,0.15);
+      color: var(--ink-2); padding: 12px 16px; border-radius: 12px;
+      font-size: 13px; max-width: 280px;
+      display: flex; align-items: center; gap: 10px;
+      transform: translateY(140%); transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .toast-notification .toast-dot {
+      width: 8px; height: 8px; border-radius: 50%; background: var(--accent); flex-shrink: 0;
+    }
+    .toast-notification.visible { transform: translateY(0); }
+
+    /* Section divider */
+    .hr-line { height: 1px; background: var(--line); border: none; }
+
+    /* Marquee */
+    .marquee {
+      display: flex; gap: 4rem; animation: marquee 40s linear infinite;
+      width: max-content;
+    }
+    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    /* Cal embed placeholder */
+    .cal-frame {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    .cal-slot {
+      padding: 12px 14px; border-radius: 8px;
+      border: 1px solid var(--line);
+      font-size: 13px; cursor: pointer;
+      transition: all 0.2s;
+      text-align: center;
+      font-weight: 500;
+    }
+    .cal-slot:hover { border-color: var(--accent); color: var(--accent); }
+    .cal-slot.selected { background: var(--accent); color: #FFF; border-color: var(--accent); }
+
+    /* Subtle hairline */
+    .hairline-mask {
+      background:
+        linear-gradient(180deg, var(--bg) 0%, transparent 8%, transparent 92%, var(--bg) 100%),
+        repeating-linear-gradient(90deg, transparent 0, transparent 79px, var(--line) 79px, var(--line) 80px);
+      height: 1px;
+    }
+
+    /* Stat shimmer */
+    .stat-big {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      letter-spacing: -0.02em;
+      line-height: 1;
+      color: var(--ink);
+    }
+
+    /* Footer */
+    footer { background: var(--bg); }
+
+    /* Mobile */
     @media (max-width: 768px) {
-      h1 { font-size: 2.4rem !important; line-height: 1.15 !important; }
+      .display-1 { font-size: 2.7rem; }
+      section { padding-top: 4rem !important; padding-bottom: 4rem !important; }
     }
   </style>
 </head>
 <body>
 
-<!-- Scroll progress -->
 <div id="progress-bar"></div>
 
-<!-- Floating WhatsApp -->
-<a id="wa-float" href="https://wa.me/37060000000" target="_blank" rel="noopener" aria-label="WhatsApp">
-  <i class="fab fa-whatsapp"></i>
-</a>
+<!-- ============================================================
+     ANNOUNCEMENT BAR
+     ============================================================ -->
+<div class="bg-[var(--ink)] text-[var(--bg)]">
+  <div class="max-w-7xl mx-auto px-6 py-2.5 text-center text-xs font-medium flex items-center justify-center gap-2">
+    <i class="fas fa-circle text-[8px] text-[var(--warm)]"></i>
+    <span data-lt="Priimame 3 naujus klientus šį mėnesį — nemokama auditė vis dar atvira" data-en="Accepting 3 new clients this month — free audit still open">Priimame 3 naujus klientus šį mėnesį — nemokama auditė vis dar atvira</span>
+  </div>
+</div>
 
 <!-- ============================================================
      NAVBAR
      ============================================================ -->
-<nav id="navbar" class="fixed top-0 w-full z-50 border-b border-white/5" style="background: rgba(0,0,0,0.6); backdrop-filter: blur(20px);">
-  <div class="max-w-6xl mx-auto px-5 py-4">
-    <div class="flex items-center justify-between">
-      <!-- Logo -->
+<nav id="navbar">
+  <div class="max-w-7xl mx-auto px-6 py-4">
+    <div class="flex items-center justify-between gap-8">
       <a href="#" class="flex items-center gap-2.5">
-        <div class="w-7 h-7 rounded-lg bg-emerald-400 flex items-center justify-center">
-          <i class="fas fa-bolt text-black text-xs"></i>
+        <div class="w-7 h-7 rounded-lg bg-[var(--accent)] flex items-center justify-center">
+          <span class="serif text-[var(--bg)] text-lg leading-none">A</span>
         </div>
-        <span class="font-semibold tracking-tight text-lg">AI Automatika</span>
+        <span class="font-medium tracking-tight">Automatika</span>
       </a>
 
-      <!-- Desktop nav -->
-      <div class="hidden md:flex items-center gap-8 text-sm">
-        <a href="#kaip" class="text-zinc-400 hover:text-white transition-colors" data-lt="Kaip veikia" data-en="How it works">Kaip veikia</a>
-        <a href="#paslaugos" class="text-zinc-400 hover:text-white transition-colors" data-lt="Paslaugos" data-en="Services">Paslaugos</a>
-        <a href="#kainos" class="text-zinc-400 hover:text-white transition-colors" data-lt="Kainos" data-en="Pricing">Kainos</a>
-        <a href="#duk" class="text-zinc-400 hover:text-white transition-colors" data-lt="DUK" data-en="FAQ">DUK</a>
-        <a href="#kontaktai" class="text-zinc-400 hover:text-white transition-colors" data-lt="Kontaktai" data-en="Contact">Kontaktai</a>
+      <div class="hidden md:flex items-center gap-7 text-sm text-[var(--ink-2)]">
+        <a href="#kaip" class="hover:text-[var(--ink)] transition" data-lt="Kaip veikia" data-en="How it works">Kaip veikia</a>
+        <a href="#sprendimai" class="hover:text-[var(--ink)] transition" data-lt="Sprendimai" data-en="Solutions">Sprendimai</a>
+        <a href="#kainos" class="hover:text-[var(--ink)] transition" data-lt="Kainos" data-en="Pricing">Kainos</a>
+        <a href="#apie" class="hover:text-[var(--ink)] transition" data-lt="Apie" data-en="About">Apie</a>
+        <a href="#duk" class="hover:text-[var(--ink)] transition" data-lt="DUK" data-en="FAQ">DUK</a>
       </div>
 
-      <div class="flex items-center gap-4">
-        <!-- Language toggle -->
-        <div class="flex border border-white/15 rounded-full p-0.5 text-xs">
-          <button data-lang-toggle="lt" class="px-3 py-1.5 rounded-full transition-all font-medium active">LT</button>
-          <button data-lang-toggle="en" class="px-3 py-1.5 rounded-full transition-all font-medium text-zinc-400">EN</button>
+      <div class="flex items-center gap-3">
+        <div class="hidden sm:flex border border-[var(--line)] rounded-full p-0.5 bg-[var(--surface)]">
+          <button data-lang-toggle="lt" class="lang-btn active">LT</button>
+          <button data-lang-toggle="en" class="lang-btn">EN</button>
         </div>
-
-        <!-- CTA nav -->
-        <a href="#kontaktai" class="hidden md:inline-flex items-center gap-2 bg-white text-black text-sm font-semibold px-5 py-2.5 rounded-xl hover:bg-zinc-100 transition-all">
-          <span data-lt="Pradėti" data-en="Get started">Pradėti</span>
-        </a>
-
-        <!-- Hamburger -->
+        <a href="#kontaktai" class="hidden md:inline-flex btn-primary text-sm" data-lt="Užsisakyti auditę" data-en="Book a free audit">Užsisakyti auditę</a>
         <button id="menu-btn" class="md:hidden flex flex-col justify-center p-1" aria-label="Menu">
           <span></span><span></span><span></span>
         </button>
       </div>
     </div>
 
-    <!-- Mobile menu -->
     <div id="mobile-menu" class="md:hidden">
-      <div class="py-4 flex flex-col gap-3 text-sm border-t border-white/5 mt-3">
-        <a href="#kaip" class="text-zinc-300 hover:text-white py-1" data-lt="Kaip veikia" data-en="How it works">Kaip veikia</a>
-        <a href="#paslaugos" class="text-zinc-300 hover:text-white py-1" data-lt="Paslaugos" data-en="Services">Paslaugos</a>
-        <a href="#kainos" class="text-zinc-300 hover:text-white py-1" data-lt="Kainos" data-en="Pricing">Kainos</a>
-        <a href="#duk" class="text-zinc-300 hover:text-white py-1" data-lt="DUK" data-en="FAQ">DUK</a>
-        <a href="#kontaktai" class="text-zinc-300 hover:text-white py-1" data-lt="Kontaktai" data-en="Contact">Kontaktai</a>
-        <a href="#kontaktai" class="mt-2 text-center bg-white text-black font-semibold px-5 py-3 rounded-xl" data-lt="Pradėti dabar" data-en="Get started">Pradėti dabar</a>
+      <div class="py-4 flex flex-col gap-2 text-sm border-t border-[var(--line)] mt-3">
+        <a href="#kaip" class="py-2 text-[var(--ink-2)]" data-lt="Kaip veikia" data-en="How it works">Kaip veikia</a>
+        <a href="#sprendimai" class="py-2 text-[var(--ink-2)]" data-lt="Sprendimai" data-en="Solutions">Sprendimai</a>
+        <a href="#kainos" class="py-2 text-[var(--ink-2)]" data-lt="Kainos" data-en="Pricing">Kainos</a>
+        <a href="#apie" class="py-2 text-[var(--ink-2)]" data-lt="Apie" data-en="About">Apie</a>
+        <a href="#duk" class="py-2 text-[var(--ink-2)]" data-lt="DUK" data-en="FAQ">DUK</a>
+        <div class="flex border border-[var(--line)] rounded-full p-0.5 bg-[var(--surface)] w-fit mt-2">
+          <button data-lang-toggle="lt" class="lang-btn active">LT</button>
+          <button data-lang-toggle="en" class="lang-btn">EN</button>
+        </div>
+        <a href="#kontaktai" class="btn-primary text-center mt-3" data-lt="Užsisakyti auditę" data-en="Book a free audit">Užsisakyti auditę</a>
       </div>
     </div>
   </div>
@@ -292,327 +411,571 @@
 <!-- ============================================================
      HERO
      ============================================================ -->
-<section class="hero-bg grid-overlay min-h-screen flex items-center pt-24 pb-20 relative overflow-hidden">
-  <!-- Decorative blobs -->
-  <div class="absolute top-1/3 right-0 w-96 h-96 bg-emerald-500/5 rounded-full blur-3xl pointer-events-none"></div>
-  <div class="absolute bottom-0 left-1/4 w-64 h-64 bg-emerald-400/5 rounded-full blur-3xl pointer-events-none"></div>
+<section class="grain pt-32 md:pt-36 pb-20 md:pb-28 relative">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid lg:grid-cols-12 gap-8 lg:gap-12 items-end">
+      <div class="lg:col-span-7">
+        <div class="mb-7 fade-up">
+          <span class="pill">
+            <span class="dot-pulse"></span>
+            <span data-lt="AI automatika · Lietuva" data-en="AI automation · Lithuania">AI automatika · Lietuva</span>
+          </span>
+        </div>
 
-  <div class="max-w-5xl mx-auto px-6 text-center relative z-10">
-    <!-- Badge -->
-    <div class="flex justify-center mb-8 fade-up">
-      <span class="badge-emerald">
-        <span class="dot-pulse"></span>
-        <span data-lt="Priimame naujus klientus — liko 3 vietos" data-en="Accepting new clients — 3 spots left">Priimame naujus klientus — liko 3 vietos</span>
-      </span>
-    </div>
+        <h1 class="display-1 mb-7 fade-up" style="transition-delay:0.05s">
+          <span data-lt="Atgaukite " data-en="Reclaim ">Atgaukite </span><span class="italic-serif serif" data-lt="30+ valandų" data-en="30+ hours">30+ valandų</span><br>
+          <span data-lt="kiekvieną mėnesį." data-en="every month.">kiekvieną mėnesį.</span>
+        </h1>
 
-    <!-- Headline -->
-    <h1 class="text-5xl md:text-7xl font-light leading-tight tracking-tighter mb-6 fade-up" style="transition-delay: 0.1s">
-      Sutaupykite <span class="text-emerald-400">10–30 valandų</span><br>per mėnesį
-    </h1>
+        <p class="text-lg text-[var(--ink-2)] max-w-xl mb-9 fade-up" style="transition-delay:0.1s"
+           data-lt="Aptiksime, suprojektuosime ir paleisime AI automatikas jūsų verslui. Nieko nereikia mokytis. Pirmieji rezultatai per 7 dienas."
+           data-en="We find, design and deploy AI automations for your business. Nothing to learn. First results within 7 days.">
+          Aptiksime, suprojektuosime ir paleisime AI automatikas jūsų verslui. Nieko nereikia mokytis. Pirmieji rezultatai per 7 dienas.
+        </p>
 
-    <!-- Sub -->
-    <p class="text-lg md:text-xl text-zinc-400 max-w-xl mx-auto mb-4 fade-up" style="transition-delay: 0.2s"
-       data-lt="AI automatizavimai sporto klubams ir odontologinėms klinikoms Lietuvoje. Veikia nuo pirmosios savaitės."
-       data-en="AI automation for Lithuanian sports clubs and dental clinics. Working from day one.">
-      AI automatizavimai sporto klubams ir odontologinėms klinikoms Lietuvoje. Veikia nuo pirmosios savaitės.
-    </p>
+        <div class="flex flex-col sm:flex-row items-start sm:items-center gap-3 mb-12 fade-up" style="transition-delay:0.15s">
+          <a href="#kontaktai" class="btn-primary btn-lg">
+            <span data-lt="Užsisakyti nemokamą auditę" data-en="Book a free audit">Užsisakyti nemokamą auditę</span>
+            <i class="fas fa-arrow-right text-xs"></i>
+          </a>
+          <a href="#kaip" class="btn-text">
+            <i class="far fa-play-circle"></i>
+            <span data-lt="Pažiūrėti, kaip veikia" data-en="See how it works">Pažiūrėti, kaip veikia</span>
+          </a>
+        </div>
 
-    <!-- Social proof micro -->
-    <p class="text-sm text-zinc-600 mb-10 fade-up" style="transition-delay: 0.25s">
-      <span class="text-zinc-500">★★★★★</span>&nbsp;
-      <span data-lt="Naudoja 150+ Lietuvos verslų" data-en="Trusted by 150+ Lithuanian businesses">Naudoja 150+ Lietuvos verslų</span>
-    </p>
+        <!-- Mini trust row -->
+        <div class="fade-up" style="transition-delay:0.2s">
+          <div class="flex items-center gap-4 mb-2">
+            <div class="flex -space-x-2">
+              <div class="avatar" style="background:#E8DDC8">TP</div>
+              <div class="avatar" style="background:#DCD0B6">ES</div>
+              <div class="avatar" style="background:#D6CDB8">RV</div>
+              <div class="avatar" style="background:#CCC2A6">MS</div>
+            </div>
+            <div>
+              <div class="flex items-center gap-1 mb-0.5">
+                <i class="fas fa-star text-[var(--warm)] text-xs"></i>
+                <i class="fas fa-star text-[var(--warm)] text-xs"></i>
+                <i class="fas fa-star text-[var(--warm)] text-xs"></i>
+                <i class="fas fa-star text-[var(--warm)] text-xs"></i>
+                <i class="fas fa-star text-[var(--warm)] text-xs"></i>
+                <span class="text-xs text-[var(--ink-2)] font-medium ml-1.5">4.9</span>
+              </div>
+              <p class="text-xs text-[var(--ink-3)]" data-lt="Naudoja 40+ Lietuvos smulkių verslų" data-en="Used by 40+ Lithuanian small businesses">Naudoja 40+ Lietuvos smulkių verslų</p>
+            </div>
+          </div>
+        </div>
+      </div>
 
-    <!-- CTAs -->
-    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16 fade-up" style="transition-delay: 0.3s">
-      <a href="#kontaktai" class="btn-primary">
-        <span data-lt="Gauti nemokamą konsultaciją" data-en="Get a free consultation">Gauti nemokamą konsultaciją</span>
-        <i class="fas fa-arrow-right text-sm"></i>
-      </a>
-      <a href="#kaip" class="btn-secondary">
-        <span data-lt="Kaip tai veikia" data-en="See how it works">Kaip tai veikia</span>
-        <i class="fas fa-chevron-down text-xs"></i>
-      </a>
+      <!-- Hero side card -->
+      <div class="lg:col-span-5 fade-up" style="transition-delay:0.25s">
+        <div class="relative">
+          <!-- Founder portrait -->
+          <div class="founder-photo">
+            <span class="serif text-7xl relative z-10" style="color:rgba(12,74,47,0.6)">M</span>
+          </div>
+          <!-- Quote card overlap -->
+          <div class="card absolute -bottom-6 -left-4 right-4 md:-left-8 md:right-8 p-5">
+            <p class="text-sm text-[var(--ink-2)] leading-relaxed mb-3 italic-serif" data-lt="„Pati maloniausia patirtis — ne reikia keisti nieko, ką jau darai."" data-en="&quot;Easiest experience — nothing about your workflow changes.&quot;">„Pati maloniausia patirtis — ne reikia keisti nieko, ką jau darai."</p>
+            <div class="flex items-center gap-2 text-xs text-[var(--ink-3)]">
+              <span class="font-medium text-[var(--ink-2)]">Eglė S.</span>
+              <span>·</span>
+              <span data-lt="odontologijos klinika" data-en="dental clinic">odontologijos klinika</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- Stats row -->
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto fade-up" style="transition-delay: 0.4s">
-      <div class="glass-card rounded-2xl p-5 text-center">
-        <div class="text-2xl font-light text-emerald-400 stat-number mb-1">30h</div>
-        <div class="text-xs text-zinc-500" data-lt="sutaupoma per mėnesį" data-en="saved per month">sutaupoma per mėnesį</div>
+    <div class="mt-20 md:mt-28 grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-10 fade-up" style="transition-delay:0.3s">
+      <div>
+        <div class="stat-big tabular">30<span class="text-[var(--accent)]">+</span></div>
+        <div class="text-xs text-[var(--ink-3)] mt-2 max-w-[14ch]" data-lt="valandų atgaunama per mėnesį" data-en="hours reclaimed per month">valandų atgaunama per mėnesį</div>
       </div>
-      <div class="glass-card rounded-2xl p-5 text-center">
-        <div class="text-2xl font-light text-emerald-400 stat-number mb-1">150+</div>
-        <div class="text-xs text-zinc-500" data-lt="Lietuvos verslų" data-en="Lithuanian businesses">Lietuvos verslų</div>
+      <div>
+        <div class="stat-big tabular">40<span class="text-[var(--accent)]">+</span></div>
+        <div class="text-xs text-[var(--ink-3)] mt-2 max-w-[14ch]" data-lt="aktyvūs klientai Lietuvoje" data-en="active clients in Lithuania">aktyvūs klientai Lietuvoje</div>
       </div>
-      <div class="glass-card rounded-2xl p-5 text-center">
-        <div class="text-2xl font-light text-emerald-400 stat-number mb-1">500+</div>
-        <div class="text-xs text-zinc-500" data-lt="diegtų automatizacijų" data-en="automations deployed">diegtų automatizacijų</div>
+      <div>
+        <div class="stat-big tabular">7</div>
+        <div class="text-xs text-[var(--ink-3)] mt-2 max-w-[14ch]" data-lt="dienos iki pirmųjų rezultatų" data-en="days to first results">dienos iki pirmųjų rezultatų</div>
       </div>
-      <div class="glass-card rounded-2xl p-5 text-center">
-        <div class="text-2xl font-light text-emerald-400 stat-number mb-1">4.9★</div>
-        <div class="text-xs text-zinc-500" data-lt="klientų įvertinimas" data-en="client rating">klientų įvertinimas</div>
+      <div>
+        <div class="stat-big">€890</div>
+        <div class="text-xs text-[var(--ink-3)] mt-2 max-w-[14ch]" data-lt="vidutinis sutaupymas per mėnesį" data-en="avg. monthly savings">vidutinis sutaupymas per mėnesį</div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ============================================================
-     TRUSTED BY (logos placeholder)
+     LOGO MARQUEE
      ============================================================ -->
-<div class="border-y border-white/5 py-8 overflow-hidden">
-  <div class="max-w-5xl mx-auto px-6">
-    <p class="text-center text-xs text-zinc-600 mb-6 tracking-widest uppercase" data-lt="Naudoja Lietuvos verslai" data-en="Trusted by Lithuanian businesses">Naudoja Lietuvos verslai</p>
-    <div class="flex flex-wrap justify-center gap-8 md:gap-14 items-center opacity-40">
-      <span class="text-sm font-medium text-zinc-400">Vilniaus TT</span>
-      <span class="text-sm font-medium text-zinc-400">Kauno FA</span>
-      <span class="text-sm font-medium text-zinc-400">Šiaulių Klinika</span>
-      <span class="text-sm font-medium text-zinc-400">Klaipėdos Implantai</span>
-      <span class="text-sm font-medium text-zinc-400">Baltic Fitness</span>
-      <span class="text-sm font-medium text-zinc-400">DentaVita</span>
+<section class="border-y border-[var(--line)] py-10 bg-[var(--bg-alt)] overflow-hidden">
+  <p class="eyebrow text-center mb-8" data-lt="Pasitiki Lietuvos verslai" data-en="Trusted by Lithuanian businesses">Pasitiki Lietuvos verslai</p>
+  <div class="relative">
+    <div class="marquee">
+      <span class="serif text-2xl text-[var(--ink-4)]">BalticSport</span>
+      <span class="serif text-2xl text-[var(--ink-4)] italic">Žypsnis</span>
+      <span class="serif text-2xl text-[var(--ink-4)]">Energy Gym</span>
+      <span class="serif text-2xl text-[var(--ink-4)]">DentaCare</span>
+      <span class="serif text-2xl text-[var(--ink-4)] italic">Aktyvus</span>
+      <span class="serif text-2xl text-[var(--ink-4)]">SportStart</span>
+      <span class="serif text-2xl text-[var(--ink-4)]">Lūpa.lt</span>
+      <span class="serif text-2xl text-[var(--ink-4)]">Modus Klinika</span>
+      <span class="serif text-2xl text-[var(--ink-4)] italic">Tonus</span>
+      <!-- duplicate for seamless loop -->
+      <span class="serif text-2xl text-[var(--ink-4)]">BalticSport</span>
+      <span class="serif text-2xl text-[var(--ink-4)] italic">Žypsnis</span>
+      <span class="serif text-2xl text-[var(--ink-4)]">Energy Gym</span>
+      <span class="serif text-2xl text-[var(--ink-4)]">DentaCare</span>
+      <span class="serif text-2xl text-[var(--ink-4)] italic">Aktyvus</span>
+      <span class="serif text-2xl text-[var(--ink-4)]">SportStart</span>
+      <span class="serif text-2xl text-[var(--ink-4)]">Lūpa.lt</span>
+      <span class="serif text-2xl text-[var(--ink-4)]">Modus Klinika</span>
+      <span class="serif text-2xl text-[var(--ink-4)] italic">Tonus</span>
     </div>
   </div>
-</div>
+</section>
+
+<!-- ============================================================
+     PROBLEM SECTION
+     ============================================================ -->
+<section class="py-24 md:py-32">
+  <div class="max-w-5xl mx-auto px-6">
+    <div class="fade-up">
+      <p class="eyebrow mb-4" data-lt="Pažįstama?" data-en="Sound familiar?">Pažįstama?</p>
+      <h2 class="display-2 mb-6 max-w-3xl">
+        <span data-lt="Jūs dirbate, " data-en="You work hard, ">Jūs dirbate, </span><span class="italic-serif" data-lt="o verslas dirba jus." data-en="and the business runs you.">o verslas dirba jus.</span>
+      </h2>
+      <p class="text-lg text-[var(--ink-2)] max-w-2xl mb-14" data-lt="Vakare prieš miegą galvoji, ar visi pacientai gaus priminimą. Ryte vėl skambini, primeni, susitarinėji. Pagalvojai apie automatizaciją — bet kažkaip neradai laiko." data-en="At night you wonder if every patient got their reminder. In the morning you're back to calls, reminders, scheduling. You've thought about automation — but never found time.">
+        Vakare prieš miegą galvoji, ar visi pacientai gaus priminimą. Ryte vėl skambini, primeni, susitarinėji. Pagalvojai apie automatizaciją — bet kažkaip neradai laiko.
+      </p>
+
+      <div class="grid md:grid-cols-3 gap-5">
+        <div class="card p-6 fade-up" style="transition-delay:0s">
+          <i class="far fa-clock text-[var(--accent)] text-xl mb-4"></i>
+          <h3 class="font-medium mb-2" data-lt="Per daug rankinio darbo" data-en="Too much manual work">Per daug rankinio darbo</h3>
+          <p class="text-sm text-[var(--ink-3)] leading-relaxed" data-lt="Priminimai, sąskaitos, atsakymai į žinutes — viskas rankiniu būdu. Tai ne verslas, tai darbas." data-en="Reminders, invoices, message replies — all manual. That's not business, that's labor.">Priminimai, sąskaitos, atsakymai į žinutes — viskas rankiniu būdu. Tai ne verslas, tai darbas.</p>
+        </div>
+        <div class="card p-6 fade-up" style="transition-delay:0.07s">
+          <i class="far fa-comment-dots text-[var(--accent)] text-xl mb-4"></i>
+          <h3 class="font-medium mb-2" data-lt="Klientai praleidžia vizitus" data-en="Clients miss appointments">Klientai praleidžia vizitus</h3>
+          <p class="text-sm text-[var(--ink-3)] leading-relaxed" data-lt="20% klientų pamiršta. Atšaukia paskutinę minutę. Niekas neperskambina. Niekas neatkuria." data-en="20% of clients forget. Cancel last minute. No one follows up. No one recovers them.">20% klientų pamiršta. Atšaukia paskutinę minutę. Niekas neperskambina. Niekas neatkuria.</p>
+        </div>
+        <div class="card p-6 fade-up" style="transition-delay:0.14s">
+          <i class="far fa-money-bill-1 text-[var(--accent)] text-xl mb-4"></i>
+          <h3 class="font-medium mb-2" data-lt="Pinigai prasiplauna pro pirštus" data-en="Money slipping through cracks">Pinigai prasiplauna pro pirštus</h3>
+          <p class="text-sm text-[var(--ink-3)] leading-relaxed" data-lt="Neapmokėtos sąskaitos. Pamiršti pasiūlymai. Klientai, kuriuos užmiršai dvejus metus." data-en="Unpaid invoices. Forgotten quotes. Clients you haven't followed up with for two years.">Neapmokėtos sąskaitos. Pamiršti pasiūlymai. Klientai, kuriuos užmiršai dvejus metus.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="hr-line">
 
 <!-- ============================================================
      HOW IT WORKS
      ============================================================ -->
-<section id="kaip" class="py-28 relative">
-  <div class="max-w-6xl mx-auto px-6">
-    <div class="text-center mb-16 fade-up">
-      <p class="section-label mb-4" data-lt="Procesas" data-en="Process">Procesas</p>
-      <h2 class="text-4xl md:text-5xl font-light tracking-tight" data-lt="Pradėti paprasta" data-en="Getting started is simple">Pradėti paprasta</h2>
-      <p class="text-zinc-500 mt-4 max-w-lg mx-auto" data-lt="Nuo konsultacijos iki veikiančios automatizacijos — 3–5 darbo dienos." data-en="From consultation to live automation — 3–5 business days.">Nuo konsultacijos iki veikiančios automatizacijos — 3–5 darbo dienos.</p>
-    </div>
-
-    <div class="grid md:grid-cols-3 gap-6">
-      <!-- Step 1 -->
-      <div class="glass-card rounded-2xl p-8 fade-up relative" style="transition-delay: 0.0s">
-        <div class="w-10 h-10 rounded-xl bg-emerald-400/10 border border-emerald-400/20 flex items-center justify-center text-emerald-400 font-semibold text-sm mb-6">01</div>
-        <h3 class="text-xl font-medium mb-3" data-lt="Nemokama analizė" data-en="Free analysis">Nemokama analizė</h3>
-        <p class="text-zinc-500 text-sm leading-relaxed" data-lt="20 minučių konsultacija — sužinosime, kur jūs praleidžiate laiko daugiausiai ir ką galima automatizuoti. Jokių įsipareigojimų." data-en="20-minute consultation — we find where you waste time and what can be automated. No commitments.">20 minučių konsultacija — sužinosime, kur jūs praleidžiate laiko daugiausiai ir ką galima automatizuoti. Jokių įsipareigojimų.</p>
-        <div class="mt-6 text-xs text-emerald-400/60 font-medium" data-lt="Nemokama · 20 min" data-en="Free · 20 min">Nemokama · 20 min</div>
+<section id="kaip" class="py-24 md:py-32">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid lg:grid-cols-12 gap-10">
+      <div class="lg:col-span-4 fade-up">
+        <p class="eyebrow mb-4" data-lt="Procesas" data-en="Process">Procesas</p>
+        <h2 class="display-2 mb-6">
+          <span data-lt="Paprasta. " data-en="Simple. ">Paprasta. </span><br><span class="italic-serif" data-lt="Aiški. Greita." data-en="Clear. Fast.">Aiški. Greita.</span>
+        </h2>
+        <p class="text-[var(--ink-2)] leading-relaxed mb-8" data-lt="Trys žingsniai nuo pokalbio iki veikiančios automatikos. Visas techninis darbas — mano rankose." data-en="Three steps from conversation to working automation. All the technical work — on my side.">
+          Trys žingsniai nuo pokalbio iki veikiančios automatikos. Visas techninis darbas — mano rankose.
+        </p>
+        <a href="#kontaktai" class="btn-text">
+          <span data-lt="Pradėti pokalbį" data-en="Start the conversation">Pradėti pokalbį</span>
+          <i class="fas fa-arrow-right text-xs"></i>
+        </a>
       </div>
 
-      <!-- Step 2 -->
-      <div class="glass-card rounded-2xl p-8 fade-up" style="transition-delay: 0.1s">
-        <div class="w-10 h-10 rounded-xl bg-emerald-400/10 border border-emerald-400/20 flex items-center justify-center text-emerald-400 font-semibold text-sm mb-6">02</div>
-        <h3 class="text-xl font-medium mb-3" data-lt="Diegimas ir integracija" data-en="Setup & integration">Diegimas ir integracija</h3>
-        <p class="text-zinc-500 text-sm leading-relaxed" data-lt="Mūsų komanda sukonfigūruoja viską. Jums nereikia nieko daryti. Integruojame su jūsų esamais įrankiais per 3–5 darbo dienas." data-en="Our team configures everything. Nothing on your end. We integrate with your existing tools in 3–5 business days.">Mūsų komanda sukonfigūruoja viską. Jums nereikia nieko daryti. Integruojame su jūsų esamais įrankiais per 3–5 darbo dienas.</p>
-        <div class="mt-6 text-xs text-emerald-400/60 font-medium" data-lt="3–5 d.d." data-en="3–5 business days">3–5 d.d.</div>
-      </div>
+      <div class="lg:col-span-8 space-y-4">
+        <div class="card card-hover p-7 md:p-8 fade-up">
+          <div class="flex items-start gap-5">
+            <span class="num-circle flex-shrink-0">1</span>
+            <div class="flex-1">
+              <h3 class="display-3 mb-2" data-lt="20 minučių pokalbis" data-en="20-minute conversation">20 minučių pokalbis</h3>
+              <p class="text-[var(--ink-2)] leading-relaxed mb-3" data-lt="Pasikalbam apie jūsų verslo dieną. Surašom, kur dingsta laikas. Pateikiu konkretų planą — ką automatizuoti, kiek tai atneš laiko ir pinigų." data-en="We talk through your business day. List where time leaks. I give you a concrete plan — what to automate, how much time and money it returns.">Pasikalbam apie jūsų verslo dieną. Surašom, kur dingsta laikas. Pateikiu konkretų planą — ką automatizuoti, kiek tai atneš laiko ir pinigų.</p>
+              <span class="text-xs text-[var(--ink-3)]" data-lt="Nemokama · Be įsipareigojimų" data-en="Free · No commitments">Nemokama · Be įsipareigojimų</span>
+            </div>
+          </div>
+        </div>
 
-      <!-- Step 3 -->
-      <div class="glass-card rounded-2xl p-8 fade-up" style="transition-delay: 0.2s">
-        <div class="w-10 h-10 rounded-xl bg-emerald-400/10 border border-emerald-400/20 flex items-center justify-center text-emerald-400 font-semibold text-sm mb-6">03</div>
-        <h3 class="text-xl font-medium mb-3" data-lt="Jūs taupote laiką" data-en="You save time">Jūs taupote laiką</h3>
-        <p class="text-zinc-500 text-sm leading-relaxed" data-lt="Automatizacija veikia fone. Rezultatus matote iš karto. 24/7 palaikymas, jei kas nors neitų. Viskas skaidru." data-en="Automation runs in the background. You see results immediately. 24/7 support if anything goes wrong.">Automatizacija veikia fone. Rezultatus matote iš karto. 24/7 palaikymas, jei kas nors neitų. Viskas skaidru.</p>
-        <div class="mt-6 text-xs text-emerald-400/60 font-medium" data-lt="Rezultatai per 1 savaitę" data-en="Results within 1 week">Rezultatai per 1 savaitę</div>
+        <div class="card card-hover p-7 md:p-8 fade-up">
+          <div class="flex items-start gap-5">
+            <span class="num-circle flex-shrink-0">2</span>
+            <div class="flex-1">
+              <h3 class="display-3 mb-2" data-lt="Sukuriu ir paleidžiu" data-en="Build and deploy">Sukuriu ir paleidžiu</h3>
+              <p class="text-[var(--ink-2)] leading-relaxed mb-3" data-lt="Sukonfigūruoju automatikas pagal jūsų darbo eigą. Integruoju su tuo, ką jau naudojate — Google, el. paštas, SMS, mokėjimai. Jokio mokymo nereikia." data-en="I configure automations around your existing workflow. I integrate with what you use — Google, email, SMS, payments. Zero training needed.">Sukonfigūruoju automatikas pagal jūsų darbo eigą. Integruoju su tuo, ką jau naudojate — Google, el. paštas, SMS, mokėjimai. Jokio mokymo nereikia.</p>
+              <span class="text-xs text-[var(--ink-3)]" data-lt="3–5 darbo dienos" data-en="3–5 business days">3–5 darbo dienos</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card card-hover p-7 md:p-8 fade-up">
+          <div class="flex items-start gap-5">
+            <span class="num-circle flex-shrink-0">3</span>
+            <div class="flex-1">
+              <h3 class="display-3 mb-2" data-lt="Stebiu, prižiūriu, gerinu" data-en="Monitor, maintain, improve">Stebiu, prižiūriu, gerinu</h3>
+              <p class="text-[var(--ink-2)] leading-relaxed mb-3" data-lt="Kiekvieną savaitę matau, kaip viskas veikia. Jei kas nors lūžta — sutaisau iki to, kol pastebėsite. Mėnesinė ataskaita: kiek laiko sutaupyta, kiek pinigų atnešta." data-en="Every week I watch how it runs. If something breaks — I fix it before you notice. Monthly report: hours saved, money brought in.">Kiekvieną savaitę matau, kaip viskas veikia. Jei kas nors lūžta — sutaisau iki to, kol pastebėsite. Mėnesinė ataskaita: kiek laiko sutaupyta, kiek pinigų atnešta.</p>
+              <span class="text-xs text-[var(--ink-3)]" data-lt="Tęstinė priežiūra" data-en="Ongoing care">Tęstinė priežiūra</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<hr class="section-divider max-w-6xl mx-auto">
+<hr class="hr-line">
 
 <!-- ============================================================
-     SERVICES — BENTO GRID
+     BEFORE / AFTER WORKFLOW
      ============================================================ -->
-<section id="paslaugos" class="py-28">
+<section class="py-24 md:py-32">
   <div class="max-w-6xl mx-auto px-6">
-    <div class="text-center mb-16 fade-up">
-      <p class="section-label mb-4" data-lt="Paslaugos" data-en="Services">Paslaugos</p>
-      <h2 class="text-4xl md:text-5xl font-light tracking-tight" data-lt="Pritaikyta jūsų verslui" data-en="Built for your business">Pritaikyta jūsų verslui</h2>
+    <div class="text-center max-w-3xl mx-auto mb-14 fade-up">
+      <p class="eyebrow mb-4" data-lt="Prieš ir po" data-en="Before & after">Prieš ir po</p>
+      <h2 class="display-2 mb-6">
+        <span data-lt="Toks pat verslas. " data-en="Same business. ">Toks pat verslas. </span><span class="italic-serif" data-lt="Per pusę darbo." data-en="Half the work.">Per pusę darbo.</span>
+      </h2>
     </div>
 
-    <!-- Sports clubs -->
-    <div class="mb-14">
-      <div class="flex items-center gap-3 mb-6 fade-up">
-        <div class="w-8 h-8 rounded-lg bg-emerald-400/10 flex items-center justify-center">
-          <i class="fas fa-dumbbell text-emerald-400 text-xs"></i>
+    <div class="grid md:grid-cols-2 gap-5 fade-up">
+      <!-- BEFORE -->
+      <div class="flow-card flow-before">
+        <div class="flex items-center gap-2 mb-5">
+          <span class="pill" style="background:#FFF; border-color:var(--line-2)">
+            <i class="fas fa-circle text-[6px] text-[var(--amber)]"></i>
+            <span class="text-[var(--ink-2)]" data-lt="Prieš" data-en="Before">Prieš</span>
+          </span>
+          <span class="text-xs text-[var(--ink-3)]" data-lt="Įprasta diena · 47 min." data-en="Typical day · 47 min.">Įprasta diena · 47 min.</span>
         </div>
-        <h3 class="text-xl font-medium" data-lt="Sporto klubams" data-en="Sports clubs">Sporto klubams</h3>
+        <div class="flow-row"><i class="fas fa-phone text-[10px] text-[var(--ink-4)]"></i><span data-lt="Skambini visiems vakarykčiams klientams" data-en="Call yesterday's clients">Skambini visiems vakarykčiams klientams</span></div>
+        <div class="flow-row"><i class="fas fa-comment text-[10px] text-[var(--ink-4)]"></i><span data-lt="Atrašai 12 vienodų WhatsApp žinučių" data-en="Reply to 12 identical WhatsApp messages">Atrašai 12 vienodų WhatsApp žinučių</span></div>
+        <div class="flow-row"><i class="fas fa-file-invoice text-[10px] text-[var(--ink-4)]"></i><span data-lt="Rankiniu būdu rašai 4 sąskaitas" data-en="Manually write 4 invoices">Rankiniu būdu rašai 4 sąskaitas</span></div>
+        <div class="flow-row"><i class="fas fa-clock text-[10px] text-[var(--ink-4)]"></i><span data-lt="Pamirsti pernai išvykusį klientą" data-en="Forget last year's lapsed client">Pamirsti pernai išvykusį klientą</span></div>
+        <div class="flow-row"><i class="fas fa-times text-[10px] text-[var(--amber)]"></i><span data-lt="2 klientai neateina — neperskambini" data-en="2 no-shows — no follow up">2 klientai neateina — neperskambini</span></div>
       </div>
-      <div class="grid md:grid-cols-3 gap-4">
-        <div class="bento-card glass-card rounded-2xl p-6 fade-up" style="transition-delay:0.0s">
-          <i class="fas fa-users text-emerald-400 text-lg mb-4"></i>
-          <h4 class="font-medium mb-2" data-lt="Narystės ir priminimai" data-en="Membership & reminders">Narystės ir priminimai</h4>
-          <p class="text-zinc-500 text-sm" data-lt="Automatiniai pranešimai apie mokesčius, narystės pratęsimą ir pasibaigimą." data-en="Automatic payment reminders, membership renewal & expiry notifications.">Automatiniai pranešimai apie mokesčius, narystės pratęsimą ir pasibaigimą.</p>
+
+      <!-- AFTER -->
+      <div class="flow-card flow-after">
+        <div class="flex items-center gap-2 mb-5">
+          <span class="pill pill-accent">
+            <i class="fas fa-circle text-[6px]"></i>
+            <span data-lt="Po" data-en="After">Po</span>
+          </span>
+          <span class="text-xs text-[var(--accent)] font-medium" data-lt="Su Automatika · 8 min." data-en="With Automatika · 8 min.">Su Automatika · 8 min.</span>
         </div>
-        <div class="bento-card glass-card rounded-2xl p-6 fade-up" style="transition-delay:0.05s">
-          <i class="fas fa-calendar-check text-emerald-400 text-lg mb-4"></i>
-          <h4 class="font-medium mb-2" data-lt="Renginių registracija" data-en="Event registration">Renginių registracija</h4>
-          <p class="text-zinc-500 text-sm" data-lt="Automatinė registracija, bilieto generavimas ir priminimai prieš renginį." data-en="Auto registration, ticket generation, and event reminders.">Automatinė registracija, bilieto generavimas ir priminimai prieš renginį.</p>
-        </div>
-        <div class="bento-card glass-card rounded-2xl p-6 fade-up" style="transition-delay:0.1s">
-          <i class="fas fa-door-open text-emerald-400 text-lg mb-4"></i>
-          <h4 class="font-medium mb-2" data-lt="Salės rezervacijos" data-en="Facility booking">Salės rezervacijos</h4>
-          <p class="text-zinc-500 text-sm" data-lt="Tvarkaraščio sinchronizavimas, konfliktų prevencija, automatinis patvirtinimas." data-en="Schedule sync, conflict prevention, automatic confirmation.">Tvarkaraščio sinchronizavimas, konfliktų prevencija, automatinis patvirtinimas.</p>
-        </div>
-        <div class="bento-card glass-card rounded-2xl p-6 fade-up" style="transition-delay:0.15s">
-          <i class="fas fa-trophy text-emerald-400 text-lg mb-4"></i>
-          <h4 class="font-medium mb-2" data-lt="Turnyrų valdymas" data-en="Tournament management">Turnyrų valdymas</h4>
-          <p class="text-zinc-500 text-sm" data-lt="Automatinis lentelių atnaujinimas, rezultatų paskelbimas, dalyvių pranešimai." data-en="Auto bracket updates, results publishing, participant notifications.">Automatinis lentelių atnaujinimas, rezultatų paskelbimas, dalyvių pranešimai.</p>
-        </div>
-        <div class="bento-card glass-card rounded-2xl p-6 fade-up" style="transition-delay:0.2s">
-          <i class="fas fa-file-invoice-dollar text-emerald-400 text-lg mb-4"></i>
-          <h4 class="font-medium mb-2" data-lt="Sąskaitos ir mokėjimai" data-en="Invoicing & payments">Sąskaitos ir mokėjimai</h4>
-          <p class="text-zinc-500 text-sm" data-lt="Automatinės sąskaitos nariams, mokėjimo sekimas ir priminimai." data-en="Auto invoices, payment tracking and dunning automation.">Automatinės sąskaitos nariams, mokėjimo sekimas ir priminimai.</p>
-        </div>
-        <div class="bento-card glass-card rounded-2xl p-6 fade-up" style="transition-delay:0.25s">
-          <i class="fas fa-bullhorn text-emerald-400 text-lg mb-4"></i>
-          <h4 class="font-medium mb-2" data-lt="Komunikacija" data-en="Communications">Komunikacija</h4>
-          <p class="text-zinc-500 text-sm" data-lt="Grupiniai SMS ir el. laiškai apie naujus renginius, turnyrus ir naujienas." data-en="Bulk SMS & emails about new events, tournaments, and club news.">Grupiniai SMS ir el. laiškai apie naujus renginius, turnyrus ir naujienas.</p>
-        </div>
+        <div class="flow-row"><i class="fas fa-check text-[10px] text-[var(--accent)]"></i><span data-lt="Priminimai išsiųsti automatiškai 18:00" data-en="Reminders sent automatically at 6 PM">Priminimai išsiųsti automatiškai 18:00</span></div>
+        <div class="flow-row"><i class="fas fa-check text-[10px] text-[var(--accent)]"></i><span data-lt="AI atrašo standartines žinutes 24/7" data-en="AI replies to routine messages 24/7">AI atrašo standartines žinutes 24/7</span></div>
+        <div class="flow-row"><i class="fas fa-check text-[10px] text-[var(--accent)]"></i><span data-lt="Sąskaitos sugeneruotos ir išsiųstos" data-en="Invoices auto-generated and sent">Sąskaitos sugeneruotos ir išsiųstos</span></div>
+        <div class="flow-row"><i class="fas fa-check text-[10px] text-[var(--accent)]"></i><span data-lt="Sistema priminė neaktyviam klientui" data-en="System re-engaged lapsed client">Sistema priminė neaktyviam klientui</span></div>
+        <div class="flow-row"><i class="fas fa-check text-[10px] text-[var(--accent)]"></i><span data-lt="0 nepasirodymų — automatinis perskambinimas" data-en="0 no-shows — auto-rebook">0 nepasirodymų — automatinis perskambinimas</span></div>
       </div>
     </div>
+  </div>
+</section>
 
-    <!-- Dental clinics -->
-    <div>
-      <div class="flex items-center gap-3 mb-6 fade-up">
-        <div class="w-8 h-8 rounded-lg bg-blue-400/10 flex items-center justify-center">
-          <i class="fas fa-tooth text-blue-400 text-xs"></i>
+<hr class="hr-line">
+
+<!-- ============================================================
+     SOLUTIONS / USE CASES
+     ============================================================ -->
+<section id="sprendimai" class="py-24 md:py-32">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center max-w-2xl mx-auto mb-12 fade-up">
+      <p class="eyebrow mb-4" data-lt="Sprendimai" data-en="Solutions">Sprendimai</p>
+      <h2 class="display-2 mb-6">
+        <span data-lt="Pritaikoma " data-en="Adapts to ">Pritaikoma </span><span class="italic-serif" data-lt="jūsų verslui." data-en="your business.">jūsų verslui.</span>
+      </h2>
+      <p class="text-[var(--ink-2)]" data-lt="Pradedame nuo darbo eigos — ne nuo įrankių. Štai trys dažniausi atvejai." data-en="We start with your workflow — not tools. Here are three common cases.">
+        Pradedame nuo darbo eigos — ne nuo įrankių. Štai trys dažniausi atvejai.
+      </p>
+    </div>
+
+    <!-- Tabs -->
+    <div class="flex flex-wrap justify-center gap-2 mb-10 fade-up">
+      <button class="tab-pill active" data-tab="dental"><span data-lt="Odontologinės klinikos" data-en="Dental clinics">Odontologinės klinikos</span></button>
+      <button class="tab-pill" data-tab="sports"><span data-lt="Sporto klubai" data-en="Sports clubs">Sporto klubai</span></button>
+      <button class="tab-pill" data-tab="other"><span data-lt="Kitos paslaugos" data-en="Other services">Kitos paslaugos</span></button>
+    </div>
+
+    <!-- Panels -->
+    <div class="card p-6 md:p-10 fade-up">
+      <!-- DENTAL -->
+      <div class="case-panel active" data-panel="dental">
+        <div class="grid md:grid-cols-2 gap-8">
+          <div>
+            <p class="eyebrow mb-3" data-lt="Tipinis rezultatas" data-en="Typical result">Tipinis rezultatas</p>
+            <p class="serif text-4xl mb-2 leading-none" data-lt="−85% nepasirodymų" data-en="−85% no-shows">−85% nepasirodymų</p>
+            <p class="text-sm text-[var(--ink-3)] mb-8" data-lt="Per 6 savaites nuo paleidimo." data-en="Within 6 weeks of launch.">Per 6 savaites nuo paleidimo.</p>
+            <ul class="space-y-3 text-sm text-[var(--ink-2)]">
+              <li class="flex gap-3"><i class="fas fa-check text-[var(--accent)] text-xs mt-1"></i><span data-lt="SMS priminimai 48h ir 24h prieš vizitą" data-en="SMS reminders 48h and 24h before visit">SMS priminimai 48h ir 24h prieš vizitą</span></li>
+              <li class="flex gap-3"><i class="fas fa-check text-[var(--accent)] text-xs mt-1"></i><span data-lt="Online registracija per WhatsApp ar svetainę" data-en="Online booking via WhatsApp or website">Online registracija per WhatsApp ar svetainę</span></li>
+              <li class="flex gap-3"><i class="fas fa-check text-[var(--accent)] text-xs mt-1"></i><span data-lt="Pacientų reaktyvavimas po 6/12 mėn." data-en="Patient re-engagement after 6/12 months">Pacientų reaktyvavimas po 6/12 mėn.</span></li>
+              <li class="flex gap-3"><i class="fas fa-check text-[var(--accent)] text-xs mt-1"></i><span data-lt="Automatinės sąskaitos ir mokėjimo sekimas" data-en="Auto invoicing and payment tracking">Automatinės sąskaitos ir mokėjimo sekimas</span></li>
+              <li class="flex gap-3"><i class="fas fa-check text-[var(--accent)] text-xs mt-1"></i><span data-lt="Google atsiliepimų prašymai laiku" data-en="Google review requests at the right time">Google atsiliepimų prašymai laiku</span></li>
+              <li class="flex gap-3"><i class="fas fa-check text-[var(--accent)] text-xs mt-1"></i><span data-lt="BDAR atitinkama duomenų sauga" data-en="GDPR-compliant data security">BDAR atitinkama duomenų sauga</span></li>
+            </ul>
+          </div>
+          <div class="bg-[var(--bg-alt)] rounded-xl p-6">
+            <p class="eyebrow mb-4" data-lt="Pavyzdys iš kasdienybės" data-en="A day in practice">Pavyzdys iš kasdienybės</p>
+            <div class="space-y-3">
+              <div class="bg-[var(--surface)] rounded-lg p-3 text-xs border border-[var(--line)]">
+                <div class="text-[var(--ink-4)] mb-1">18:00 · SMS</div>
+                <div class="text-[var(--ink-2)]" data-lt="Sveiki, Tomai! Rytoj 10:30 jūs registruotas pas dr. Stonkienę. Atsakykite TAIP, jei ateinate." data-en="Hi Tom! Tomorrow 10:30 you're booked with Dr. Stonkienė. Reply YES if attending.">Sveiki, Tomai! Rytoj 10:30 jūs registruotas pas dr. Stonkienę. Atsakykite TAIP, jei ateinate.</div>
+              </div>
+              <div class="bg-[var(--accent-soft)] rounded-lg p-3 text-xs border border-[var(--accent)]/10 ml-6">
+                <div class="text-[var(--accent)] mb-1 font-medium">18:14 · Tomas</div>
+                <div class="text-[var(--ink-2)]">TAIP, ačiū</div>
+              </div>
+              <div class="bg-[var(--surface)] rounded-lg p-3 text-xs border border-[var(--line)]">
+                <div class="text-[var(--ink-4)] mb-1">11:30 · Po vizito</div>
+                <div class="text-[var(--ink-2)]" data-lt="Ačiū, Tomai! Jei buvome naudingi — paliksite atsiliepimą Google?" data-en="Thanks Tom! If we were helpful — leave us a Google review?">Ačiū, Tomai! Jei buvome naudingi — paliksite atsiliepimą Google?</div>
+              </div>
+            </div>
+          </div>
         </div>
-        <h3 class="text-xl font-medium" data-lt="Odontologinėms klinikoms" data-en="Dental clinics">Odontologinėms klinikoms</h3>
       </div>
-      <div class="grid md:grid-cols-3 gap-4">
-        <div class="bento-card glass-card rounded-2xl p-6 fade-up" style="transition-delay:0.0s">
-          <i class="fas fa-bell text-blue-400 text-lg mb-4"></i>
-          <h4 class="font-medium mb-2" data-lt="Vizitų priminimai" data-en="Appointment reminders">Vizitų priminimai</h4>
-          <p class="text-zinc-500 text-sm" data-lt="SMS/el. pašto priminimai 24h ir 48h prieš vizitą. Sumažina nepasirodymus iki 3%." data-en="SMS/email reminders 24h and 48h before appointments. Cuts no-shows to 3%.">SMS/el. pašto priminimai 24h ir 48h prieš vizitą. Sumažina nepasirodymus iki 3%.</p>
+
+      <!-- SPORTS -->
+      <div class="case-panel" data-panel="sports">
+        <div class="grid md:grid-cols-2 gap-8">
+          <div>
+            <p class="eyebrow mb-3" data-lt="Tipinis rezultatas" data-en="Typical result">Tipinis rezultatas</p>
+            <p class="serif text-4xl mb-2 leading-none" data-lt="+22% pratęsimų" data-en="+22% renewals">+22% pratęsimų</p>
+            <p class="text-sm text-[var(--ink-3)] mb-8" data-lt="Per pirmą ketvirtį." data-en="Within the first quarter.">Per pirmą ketvirtį.</p>
+            <ul class="space-y-3 text-sm text-[var(--ink-2)]">
+              <li class="flex gap-3"><i class="fas fa-check text-[var(--accent)] text-xs mt-1"></i><span data-lt="Narystės priminimai prieš pasibaigimą" data-en="Membership renewal reminders">Narystės priminimai prieš pasibaigimą</span></li>
+              <li class="flex gap-3"><i class="fas fa-check text-[var(--accent)] text-xs mt-1"></i><span data-lt="Treniruočių rezervacijos su konflikto prevencija" data-en="Class bookings with conflict prevention">Treniruočių rezervacijos su konflikto prevencija</span></li>
+              <li class="flex gap-3"><i class="fas fa-check text-[var(--accent)] text-xs mt-1"></i><span data-lt="Neaktyvių narių reaktyvavimo kampanijos" data-en="Lapsed member win-back campaigns">Neaktyvių narių reaktyvavimo kampanijos</span></li>
+              <li class="flex gap-3"><i class="fas fa-check text-[var(--accent)] text-xs mt-1"></i><span data-lt="Turnyrų lentelės ir rezultatų skelbimas" data-en="Tournament brackets and results publishing">Turnyrų lentelės ir rezultatų skelbimas</span></li>
+              <li class="flex gap-3"><i class="fas fa-check text-[var(--accent)] text-xs mt-1"></i><span data-lt="Mokėjimų sekimas ir priminimai" data-en="Payment tracking and reminders">Mokėjimų sekimas ir priminimai</span></li>
+              <li class="flex gap-3"><i class="fas fa-check text-[var(--accent)] text-xs mt-1"></i><span data-lt="Grupiniai pranešimai apie renginius" data-en="Bulk event announcements">Grupiniai pranešimai apie renginius</span></li>
+            </ul>
+          </div>
+          <div class="bg-[var(--bg-alt)] rounded-xl p-6">
+            <p class="eyebrow mb-4" data-lt="Pavyzdys iš kasdienybės" data-en="A day in practice">Pavyzdys iš kasdienybės</p>
+            <div class="space-y-3">
+              <div class="bg-[var(--surface)] rounded-lg p-3 text-xs border border-[var(--line)]">
+                <div class="text-[var(--ink-4)] mb-1">09:00 · Auto</div>
+                <div class="text-[var(--ink-2)]" data-lt="Mantas, jūsų narystė baigiasi po 7 dienų. Pratęsti per 10 sek. → link" data-en="Mantas, your membership ends in 7 days. Renew in 10 sec → link">Mantas, jūsų narystė baigiasi po 7 dienų. Pratęsti per 10 sek. → link</div>
+              </div>
+              <div class="bg-[var(--accent-soft)] rounded-lg p-3 text-xs border border-[var(--accent)]/10 ml-6">
+                <div class="text-[var(--accent)] mb-1 font-medium">09:03 · Mantas</div>
+                <div class="text-[var(--ink-2)]" data-lt="✓ Pratęsta 12 mėn." data-en="✓ Renewed 12 mo.">✓ Pratęsta 12 mėn.</div>
+              </div>
+              <div class="bg-[var(--surface)] rounded-lg p-3 text-xs border border-[var(--line)]">
+                <div class="text-[var(--ink-4)] mb-1">09:05 · Jums</div>
+                <div class="text-[var(--ink-2)]" data-lt="+€39 · Naujas pratęsimas (be jūsų įsikišimo)" data-en="+€39 · New renewal (no action needed)">+€39 · Naujas pratęsimas (be jūsų įsikišimo)</div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="bento-card glass-card rounded-2xl p-6 fade-up" style="transition-delay:0.05s">
-          <i class="fas fa-calendar-plus text-blue-400 text-lg mb-4"></i>
-          <h4 class="font-medium mb-2" data-lt="Online registracija" data-en="Online booking">Online registracija</h4>
-          <p class="text-zinc-500 text-sm" data-lt="Pacientai registruojasi patys per SMS nuorodas ar svetainę. Jokio skambučio." data-en="Patients book themselves via SMS links or your website. No phone call needed.">Pacientai registruojasi patys per SMS nuorodas ar svetainę. Jokio skambučio.</p>
-        </div>
-        <div class="bento-card glass-card rounded-2xl p-6 fade-up" style="transition-delay:0.1s">
-          <i class="fas fa-receipt text-blue-400 text-lg mb-4"></i>
-          <h4 class="font-medium mb-2" data-lt="Sąskaitos ir draudimas" data-en="Billing & insurance">Sąskaitos ir draudimas</h4>
-          <p class="text-zinc-500 text-sm" data-lt="Automatinės sąskaitos, draudimo paraiškų pateikimas ir mokėjimų sekimas." data-en="Automatic invoices, insurance claim submission and payment tracking.">Automatinės sąskaitos, draudimo paraiškų pateikimas ir mokėjimų sekimas.</p>
-        </div>
-        <div class="bento-card glass-card rounded-2xl p-6 fade-up" style="transition-delay:0.15s">
-          <i class="fas fa-heart text-blue-400 text-lg mb-4"></i>
-          <h4 class="font-medium mb-2" data-lt="Po vizito sekimas" data-en="Post-visit follow-ups">Po vizito sekimas</h4>
-          <p class="text-zinc-500 text-sm" data-lt="Automatinės instrukcijos po procedūros, pakartotinių vizitų priminimai, atsiliepimų prašymai." data-en="Auto post-care instructions, return visit reminders, review requests.">Automatinės instrukcijos po procedūros, pakartotinių vizitų priminimai, atsiliepimų prašymai.</p>
-        </div>
-        <div class="bento-card glass-card rounded-2xl p-6 fade-up" style="transition-delay:0.2s">
-          <i class="fas fa-shield-halved text-blue-400 text-lg mb-4"></i>
-          <h4 class="font-medium mb-2" data-lt="BDAR atitikimas" data-en="GDPR compliance">BDAR atitikimas</h4>
-          <p class="text-zinc-500 text-sm" data-lt="Duomenų saugojimas pagal BDAR standartus. Pacientų įrašų automatinis atnaujinimas." data-en="GDPR-compliant data storage. Automatic medical record updates and reporting.">Duomenų saugojimas pagal BDAR standartus. Pacientų įrašų automatinis atnaujinimas.</p>
-        </div>
-        <div class="bento-card glass-card rounded-2xl p-6 fade-up" style="transition-delay:0.25s">
-          <i class="fas fa-star text-blue-400 text-lg mb-4"></i>
-          <h4 class="font-medium mb-2" data-lt="Reputacijos valdymas" data-en="Reputation management">Reputacijos valdymas</h4>
-          <p class="text-zinc-500 text-sm" data-lt="Automatiniai Google atsiliepimų prašymai. Padidina vidutinį įvertinimą per 60 dienų." data-en="Automated Google review requests. Improves average rating within 60 days.">Automatiniai Google atsiliepimų prašymai. Padidina vidutinį įvertinimą per 60 dienų.</p>
+      </div>
+
+      <!-- OTHER -->
+      <div class="case-panel" data-panel="other">
+        <div class="grid md:grid-cols-2 gap-8">
+          <div>
+            <p class="eyebrow mb-3" data-lt="Su kuo dirbame" data-en="Who we work with">Su kuo dirbame</p>
+            <p class="serif text-3xl mb-6 leading-tight" data-lt="Bet kuris paslaugų verslas su kalendoriumi ir klientų sąrašu." data-en="Any service business with a calendar and client list.">Bet kuris paslaugų verslas su kalendoriumi ir klientų sąrašu.</p>
+            <div class="grid grid-cols-2 gap-3 text-sm text-[var(--ink-2)]">
+              <div class="flex gap-2"><i class="fas fa-check text-[var(--accent)] text-xs mt-1"></i><span data-lt="Grožio salonai" data-en="Beauty salons">Grožio salonai</span></div>
+              <div class="flex gap-2"><i class="fas fa-check text-[var(--accent)] text-xs mt-1"></i><span data-lt="Psichoterapeutai" data-en="Therapists">Psichoterapeutai</span></div>
+              <div class="flex gap-2"><i class="fas fa-check text-[var(--accent)] text-xs mt-1"></i><span data-lt="Veterinarinės klinikos" data-en="Vet clinics">Veterinarinės klinikos</span></div>
+              <div class="flex gap-2"><i class="fas fa-check text-[var(--accent)] text-xs mt-1"></i><span data-lt="Auto servisai" data-en="Auto services">Auto servisai</span></div>
+              <div class="flex gap-2"><i class="fas fa-check text-[var(--accent)] text-xs mt-1"></i><span data-lt="Konsultantai" data-en="Consultants">Konsultantai</span></div>
+              <div class="flex gap-2"><i class="fas fa-check text-[var(--accent)] text-xs mt-1"></i><span data-lt="Mokyklos, kursai" data-en="Schools, courses">Mokyklos, kursai</span></div>
+            </div>
+            <p class="text-sm text-[var(--ink-3)] mt-6" data-lt="Nematote savęs sąraše? Parašykite — papasakokim, kas tinka." data-en="Don't see yourself? Write — we'll tell you what fits.">Nematote savęs sąraše? Parašykite — papasakokim, kas tinka.</p>
+          </div>
+          <div class="bg-[var(--bg-alt)] rounded-xl p-6 flex flex-col justify-center">
+            <p class="eyebrow mb-4" data-lt="Universalios automatikos" data-en="Universal automations">Universalios automatikos</p>
+            <div class="grid gap-3">
+              <div class="flex items-center gap-3 text-sm"><i class="far fa-calendar-check text-[var(--accent)]"></i><span data-lt="Vizitų / susitikimų valdymas" data-en="Appointments / meetings">Vizitų / susitikimų valdymas</span></div>
+              <div class="flex items-center gap-3 text-sm"><i class="far fa-comment text-[var(--accent)]"></i><span data-lt="AI atsakymai į klientų žinutes" data-en="AI replies to client messages">AI atsakymai į klientų žinutes</span></div>
+              <div class="flex items-center gap-3 text-sm"><i class="far fa-credit-card text-[var(--accent)]"></i><span data-lt="Sąskaitos ir mokėjimai" data-en="Invoices and payments">Sąskaitos ir mokėjimai</span></div>
+              <div class="flex items-center gap-3 text-sm"><i class="far fa-bell text-[var(--accent)]"></i><span data-lt="Pakartotiniai pasiūlymai" data-en="Follow-up offers">Pakartotiniai pasiūlymai</span></div>
+              <div class="flex items-center gap-3 text-sm"><i class="far fa-chart-bar text-[var(--accent)]"></i><span data-lt="Savaitės ataskaitos" data-en="Weekly reports">Savaitės ataskaitos</span></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<hr class="section-divider max-w-6xl mx-auto">
+<hr class="hr-line">
 
 <!-- ============================================================
      ROI CALCULATOR
      ============================================================ -->
-<section class="py-28">
-  <div class="max-w-4xl mx-auto px-6">
-    <div class="text-center mb-12 fade-up">
-      <p class="section-label mb-4" data-lt="Skaičiuoklė" data-en="Calculator">Skaičiuoklė</p>
-      <h2 class="text-4xl md:text-5xl font-light tracking-tight" data-lt="Kiek jūs sutaupysite?" data-en="How much will you save?">Kiek jūs sutaupysite?</h2>
-    </div>
-
-    <div class="glass-card rounded-3xl p-8 md:p-12 fade-up">
-      <div class="grid md:grid-cols-2 gap-8 mb-10">
-        <div>
-          <label class="block text-sm text-zinc-400 mb-3" data-lt="Valandos per savaitę rankiniams procesams" data-en="Hours per week on manual tasks">Valandos per savaitę rankiniams procesams</label>
-          <input id="roi-hours" type="number" class="roi-input" placeholder="10" min="1" max="168" value="10">
-        </div>
-        <div>
-          <label class="block text-sm text-zinc-400 mb-3" data-lt="Jūsų valandinis įkainis (€)" data-en="Your hourly rate (€)">Jūsų valandinis įkainis (€)</label>
-          <input id="roi-rate" type="number" class="roi-input" placeholder="20" min="1" max="500" value="20">
-        </div>
-      </div>
-
-      <div class="grid md:grid-cols-2 gap-6">
-        <div class="bg-emerald-400/5 border border-emerald-400/15 rounded-2xl p-6 text-center">
-          <div class="text-xs text-zinc-500 mb-2" data-lt="Sutaupote per mėnesį" data-en="Saved per month">Sutaupote per mėnesį</div>
-          <div id="roi-monthly" class="text-3xl font-light text-emerald-400">866.00 €</div>
-        </div>
-        <div class="bg-emerald-400/5 border border-emerald-400/15 rounded-2xl p-6 text-center">
-          <div class="text-xs text-zinc-500 mb-2" data-lt="Sutaupote per metus" data-en="Saved per year">Sutaupote per metus</div>
-          <div id="roi-annual" class="text-3xl font-light text-emerald-400">10 392.00 €</div>
+<section class="py-24 md:py-32 bg-[var(--bg-alt)]">
+  <div class="max-w-5xl mx-auto px-6">
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      <div class="fade-up">
+        <p class="eyebrow mb-4" data-lt="Skaičiuoklė" data-en="Calculator">Skaičiuoklė</p>
+        <h2 class="display-2 mb-6">
+          <span data-lt="Kiek " data-en="How much ">Kiek </span><span class="italic-serif" data-lt="jūs sutaupysite?" data-en="will you save?">jūs sutaupysite?</span>
+        </h2>
+        <p class="text-[var(--ink-2)] leading-relaxed mb-8" data-lt="Greitas skaičiavimas — kiek valandų ir eurų atgaunate per metus, jei automatizuojate dabartinį rankinį darbą." data-en="Quick math — how many hours and euros you reclaim per year by automating what's currently manual.">
+          Greitas skaičiavimas — kiek valandų ir eurų atgaunate per metus, jei automatizuojate dabartinį rankinį darbą.
+        </p>
+        <div class="space-y-5">
+          <div>
+            <label class="block text-sm text-[var(--ink-2)] mb-2 font-medium" data-lt="Valandos per savaitę rankiniam darbui" data-en="Hours per week on manual work">Valandos per savaitę rankiniam darbui</label>
+            <input id="roi-hours" type="number" class="roi-input" min="1" max="168" value="10">
+          </div>
+          <div>
+            <label class="block text-sm text-[var(--ink-2)] mb-2 font-medium" data-lt="Valandinis įkainis (€)" data-en="Hourly rate (€)">Valandinis įkainis (€)</label>
+            <input id="roi-rate" type="number" class="roi-input" min="1" max="500" value="20">
+          </div>
         </div>
       </div>
 
-      <p class="text-center text-xs text-zinc-600 mt-6" data-lt="Apskaičiuota remiantis 4,33 savaitėmis per mėnesį. Realūs rezultatai gali skirtis." data-en="Calculated at 4.33 weeks per month. Actual results may vary.">Apskaičiuota remiantis 4,33 savaitėmis per mėnesį. Realūs rezultatai gali skirtis.</p>
+      <div class="card p-8 md:p-10 fade-up">
+        <div class="mb-6 pb-6 border-b border-[var(--line)]">
+          <p class="eyebrow mb-2" data-lt="Per mėnesį" data-en="Per month">Per mėnesį</p>
+          <div class="flex items-baseline gap-3">
+            <span id="roi-monthly" class="stat-big tabular text-[var(--accent)]">866 €</span>
+            <span class="text-sm text-[var(--ink-3)]" data-lt="atgaunama" data-en="reclaimed">atgaunama</span>
+          </div>
+        </div>
+        <div class="mb-6 pb-6 border-b border-[var(--line)]">
+          <p class="eyebrow mb-2" data-lt="Per metus" data-en="Per year">Per metus</p>
+          <div class="flex items-baseline gap-3">
+            <span id="roi-annual" class="stat-big tabular">10 392 €</span>
+            <span class="text-sm text-[var(--ink-3)]" data-lt="atgaunama" data-en="reclaimed">atgaunama</span>
+          </div>
+        </div>
+        <div class="mb-6">
+          <p class="eyebrow mb-2" data-lt="Atgavimo laikas" data-en="Payback period">Atgavimo laikas</p>
+          <div class="flex items-baseline gap-3">
+            <span id="roi-payback" class="stat-big tabular">1.6</span>
+            <span class="text-sm text-[var(--ink-3)]" data-lt="mėn." data-en="months">mėn.</span>
+          </div>
+        </div>
+        <a href="#kontaktai" class="btn-primary w-full justify-center">
+          <span data-lt="Užsisakyti auditę" data-en="Book your audit">Užsisakyti auditę</span>
+          <i class="fas fa-arrow-right text-xs"></i>
+        </a>
+        <p class="text-xs text-[var(--ink-4)] mt-4 text-center" data-lt="Skaičiuojama nuo 4,33 sav./mėn. · Stand. planas €390/mėn." data-en="At 4.33 wks/mo. · Standard plan €390/mo.">Skaičiuojama nuo 4,33 sav./mėn. · Stand. planas €390/mėn.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<hr class="section-divider max-w-6xl mx-auto">
+<hr class="hr-line">
 
 <!-- ============================================================
-     TESTIMONIALS
+     TESTIMONIALS — new believable names
      ============================================================ -->
-<section class="py-28">
+<section class="py-24 md:py-32">
   <div class="max-w-6xl mx-auto px-6">
-    <div class="text-center mb-16 fade-up">
-      <p class="section-label mb-4" data-lt="Atsiliepimai" data-en="Testimonials">Atsiliepimai</p>
-      <h2 class="text-4xl md:text-5xl font-light tracking-tight" data-lt="Ką sako klientai" data-en="What clients say">Ką sako klientai</h2>
+    <div class="max-w-3xl mb-14 fade-up">
+      <p class="eyebrow mb-4" data-lt="Atsiliepimai" data-en="Testimonials">Atsiliepimai</p>
+      <h2 class="display-2 mb-6">
+        <span data-lt="Sako " data-en="Said by ">Sako </span><span class="italic-serif" data-lt="tie, kas naudoja." data-en="people who use it.">tie, kas naudoja.</span>
+      </h2>
     </div>
 
-    <div class="grid md:grid-cols-2 gap-5">
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
       <!-- T1 -->
-      <div class="testimonial-card glass-card rounded-2xl p-8 fade-up" style="transition-delay:0.0s">
-        <div class="stars text-sm mb-4">★★★★★</div>
-        <p class="text-zinc-300 leading-relaxed mb-6 text-sm" data-lt="Sutaupojome 15 valandų per mėnesį valdant narių registracijas ir mokėjimus. Kai AI Automatika buvo paleista, visos sąskaitos pradėjo siųstis automatiškai. Paprasta ir veikia." data-en="We save 15 hours per month on membership management and billing. Once AI Automatika went live, all invoices sent themselves. Simple and it works.">"Sutaupojome 15 valandų per mėnesį valdant narių registracijas ir mokėjimus. Kai AI Automatika buvo paleista, visos sąskaitos pradėjo siųstis automatiškai. Paprasta ir veikia."</p>
-        <div class="flex items-center gap-3">
-          <div class="w-9 h-9 rounded-full bg-emerald-400/20 flex items-center justify-center text-emerald-400 font-semibold text-sm">DK</div>
+      <div class="card card-hover p-7 fade-up flex flex-col">
+        <div class="flex items-center gap-1 mb-5 text-[var(--warm)] text-xs">
+          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+        </div>
+        <p class="text-[var(--ink-2)] leading-relaxed mb-6 text-sm flex-1" data-lt="Turėjome realią problemą su narių registracija ir nepasirodymais. Žmonės tiesiog užmiršdavo apie treniruotes. Šiandien viskas automatiškai — priminimai išsiunčiami, žmonės nustojo nepatekti." data-en="We had a real problem with member registration and no-shows. People would just forget about training. Today everything is automatic — reminders go out, people stopped missing.">Turėjome realią problemą su narių registracija ir nepasirodymais. Žmonės tiesiog užmiršdavo apie treniruotes. Šiandien viskas automatiškai — priminimai išsiunčiami, žmonės nustojo nepatekti.</p>
+        <div class="flex items-center gap-3 pt-5 border-t border-[var(--line)]">
+          <div class="avatar avatar-lg" style="background:#E8DDC8">TP</div>
           <div>
-            <div class="text-sm font-medium">Darius Karalius</div>
-            <div class="text-xs text-zinc-500" data-lt="Vilniaus TT klubo direktorius" data-en="Director, Vilnius Table Tennis Club">Vilniaus TT klubo direktorius</div>
+            <div class="text-sm font-medium">Tomas Petrauskas</div>
+            <div class="text-xs text-[var(--ink-3)]" data-lt="Savininkas · BalticSport, Vilnius" data-en="Owner · BalticSport, Vilnius">Savininkas · BalticSport, Vilnius</div>
           </div>
         </div>
       </div>
 
       <!-- T2 -->
-      <div class="testimonial-card glass-card rounded-2xl p-8 fade-up" style="transition-delay:0.1s">
-        <div class="stars text-sm mb-4">★★★★★</div>
-        <p class="text-zinc-300 leading-relaxed mb-6 text-sm" data-lt="Pacientai dabar registruojasi patys per SMS nuorodas. Priminimai apie vizitus sumažino nepasirodymus nuo 20% iki 3%. Nebepraleidžiame laiko administraciniam darbui." data-en="Patients now book themselves via SMS links. Appointment reminders cut no-shows from 20% to 3%. We've stopped wasting time on admin work.">"Pacientai dabar registruojasi patys per SMS nuorodas. Priminimai apie vizitus sumažino nepasirodymus nuo 20% iki 3%. Nebepraleidžiame laiko administraciniam darbui."</p>
-        <div class="flex items-center gap-3">
-          <div class="w-9 h-9 rounded-full bg-blue-400/20 flex items-center justify-center text-blue-400 font-semibold text-sm">LŽ</div>
+      <div class="card card-hover p-7 fade-up flex flex-col" style="transition-delay:0.05s">
+        <div class="flex items-center gap-1 mb-5 text-[var(--warm)] text-xs">
+          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+        </div>
+        <p class="text-[var(--ink-2)] leading-relaxed mb-6 text-sm flex-1" data-lt="Iš pradžių buvau skeptiška. Mums veikia šeimos verslas, žmonės mus pažįsta. Bet automatika nereiškia neasmeniškumo. Dabar turiu daugiau laiko pacientams, o administracija nepaima visų nervų." data-en="At first I was skeptical. We run a family business, people know us. But automation doesn't mean impersonal. Now I have more time for patients, and admin doesn't drain all my energy.">Iš pradžių buvau skeptiška. Mums veikia šeimos verslas, žmonės mus pažįsta. Bet automatika nereiškia neasmeniškumo. Dabar turiu daugiau laiko pacientams, o administracija nepaima visų nervų.</p>
+        <div class="flex items-center gap-3 pt-5 border-t border-[var(--line)]">
+          <div class="avatar avatar-lg" style="background:#DCD0B6">ES</div>
           <div>
-            <div class="text-sm font-medium">Laima Žemaitienė</div>
-            <div class="text-xs text-zinc-500" data-lt="Šiauliškio odontologinės klinikos savininkė" data-en="Owner, Šiauliai Dental Clinic">Šiauliškio odontologinės klinikos savininkė</div>
+            <div class="text-sm font-medium">Eglė Stonkienė</div>
+            <div class="text-xs text-[var(--ink-3)]" data-lt="Gydytoja odontologė · Žypsnis, Kaunas" data-en="Dental surgeon · Žypsnis, Kaunas">Gydytoja odontologė · Žypsnis, Kaunas</div>
           </div>
         </div>
       </div>
 
       <!-- T3 -->
-      <div class="testimonial-card glass-card rounded-2xl p-8 fade-up" style="transition-delay:0.15s">
-        <div class="stars text-sm mb-4">★★★★<span class="text-zinc-600">★</span></div>
-        <p class="text-zinc-300 leading-relaxed mb-6 text-sm" data-lt="Turnyrų valdymas buvo mūsų butelio kaklelis. Dabar sistema automatiškai atnaujina lenteles, siunčia rezultatus tėvams ir tvarkaraščius. Vien tai sutaupo 12 valandų per mėnesį." data-en="Tournament management was our bottleneck. Now the system auto-updates brackets, sends results to parents, updates schedules. That alone saves 12 hours a month.">"Turnyrų valdymas buvo mūsų butelio kaklelis. Dabar sistema automatiškai atnaujina lenteles, siunčia rezultatus tėvams ir tvarkaraščius. Vien tai sutaupo 12 valandų per mėnesį."</p>
-        <div class="flex items-center gap-3">
-          <div class="w-9 h-9 rounded-full bg-emerald-400/20 flex items-center justify-center text-emerald-400 font-semibold text-sm">RP</div>
+      <div class="card card-hover p-7 fade-up flex flex-col" style="transition-delay:0.1s">
+        <div class="flex items-center gap-1 mb-5 text-[var(--warm)] text-xs">
+          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+        </div>
+        <p class="text-[var(--ink-2)] leading-relaxed mb-6 text-sm flex-1" data-lt="Turėjau poreikį, bet nežinojau, nuo ko pradėti. Atėjo, paaiškino, nepasirodė sudėtinga. Dabar darbuotojai patys naudoja sistemą be jokių mokymų. Procesas buvo labai sklandus." data-en="I had a need but didn't know where to start. They came, explained, it didn't seem complicated. Now my staff uses the system without training. The process was very smooth.">Turėjau poreikį, bet nežinojau, nuo ko pradėti. Atėjo, paaiškino, nepasirodė sudėtinga. Dabar darbuotojai patys naudoja sistemą be jokių mokymų. Procesas buvo labai sklandus.</p>
+        <div class="flex items-center gap-3 pt-5 border-t border-[var(--line)]">
+          <div class="avatar avatar-lg" style="background:#D6CDB8">JK</div>
           <div>
-            <div class="text-sm font-medium">Rytis Petravičius</div>
-            <div class="text-xs text-zinc-500" data-lt="Kauno futbolo akademijos vadovas" data-en="Manager, Kaunas Football Academy">Kauno futbolo akademijos vadovas</div>
+            <div class="text-sm font-medium">Justas Kazlauskas</div>
+            <div class="text-xs text-[var(--ink-3)]" data-lt="Vadovas · Energy Gym, Klaipėda" data-en="Manager · Energy Gym, Klaipėda">Vadovas · Energy Gym, Klaipėda</div>
           </div>
         </div>
       </div>
 
       <!-- T4 -->
-      <div class="testimonial-card glass-card rounded-2xl p-8 fade-up" style="transition-delay:0.2s">
-        <div class="stars text-sm mb-4">★★★★★</div>
-        <p class="text-zinc-300 leading-relaxed mb-6 text-sm" data-lt="Pacientai gauna draudimo dokumentus per 24 valandas, o ne per savaitę. Mokėjimai apdorojami 50% greičiau. ROI atsipirko per tris mėnesius." data-en="Insurance documents now reach patients in 24 hours, not a week. Payments process 50% faster. The ROI paid for itself in three months.">"Pacientai gauna draudimo dokumentus per 24 valandas, o ne per savaitę. Mokėjimai apdorojami 50% greičiau. ROI atsipirko per tris mėnesius."</p>
-        <div class="flex items-center gap-3">
-          <div class="w-9 h-9 rounded-full bg-blue-400/20 flex items-center justify-center text-blue-400 font-semibold text-sm">IJ</div>
+      <div class="card card-hover p-7 fade-up flex flex-col">
+        <div class="flex items-center gap-1 mb-5 text-[var(--warm)] text-xs">
+          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+        </div>
+        <p class="text-[var(--ink-2)] leading-relaxed mb-6 text-sm flex-1" data-lt="Esu tik aš ir viena padėjėja. Man svarbu, kad sistema būtų paprasta — be jokio briliantinio mokymosi. Dabar jei aš susergu, sistema veikia be manęs. Pasirodo, tai ir buvo būtina." data-en="It's just me and one assistant. I needed something simple — no brilliant learning curve. Now if I get sick, the system runs without me. Turns out, that was what we needed.">Esu tik aš ir viena padėjėja. Man svarbu, kad sistema būtų paprasta — be jokio briliantinio mokymosi. Dabar jei aš susergu, sistema veikia be manęs. Pasirodo, tai ir buvo būtina.</p>
+        <div class="flex items-center gap-3 pt-5 border-t border-[var(--line)]">
+          <div class="avatar avatar-lg" style="background:#CCC2A6">RV</div>
           <div>
-            <div class="text-sm font-medium">Ina Jurgutienė</div>
-            <div class="text-xs text-zinc-500" data-lt="Klaipėdos implantologinės klinikos gydytoja" data-en="Head Doctor, Klaipėda Implant Clinic">Klaipėdos implantologinės klinikos gydytoja</div>
+            <div class="text-sm font-medium">Rūta Vasiliauskaitė</div>
+            <div class="text-xs text-[var(--ink-3)]" data-lt="Savininkė · DentaCare, Panevėžys" data-en="Owner · DentaCare, Panevėžys">Savininkė · DentaCare, Panevėžys</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- T5 -->
+      <div class="card card-hover p-7 fade-up flex flex-col" style="transition-delay:0.05s">
+        <div class="flex items-center gap-1 mb-5 text-[var(--warm)] text-xs">
+          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+        </div>
+        <p class="text-[var(--ink-2)] leading-relaxed mb-6 text-sm flex-1" data-lt="Prieš tai mūsų klientai nevisuomet žinojo, kad pas mus galima registruotis online. Per porą mėnesių atrodo, kad turime daugiau žmonių — jie tiesiog dabar žino, kada ateiti." data-en="Before, clients didn't always know they could book online. After a couple months it feels like we have more people — they just know when to come now.">Prieš tai mūsų klientai nevisuomet žinojo, kad pas mus galima registruotis online. Per porą mėnesių atrodo, kad turime daugiau žmonių — jie tiesiog dabar žino, kada ateiti.</p>
+        <div class="flex items-center gap-3 pt-5 border-t border-[var(--line)]">
+          <div class="avatar avatar-lg" style="background:#E2D8BE">MS</div>
+          <div>
+            <div class="text-sm font-medium">Mantas Stankevičius</div>
+            <div class="text-xs text-[var(--ink-3)]" data-lt="Direktorius · Aktyvus Klubas, Šiauliai" data-en="Director · Aktyvus Klubas, Šiauliai">Direktorius · Aktyvus Klubas, Šiauliai</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- T6 -->
+      <div class="card card-hover p-7 fade-up flex flex-col" style="transition-delay:0.1s">
+        <div class="flex items-center gap-1 mb-5 text-[var(--warm)] text-xs">
+          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+        </div>
+        <p class="text-[var(--ink-2)] leading-relaxed mb-6 text-sm flex-1" data-lt="Anksčiau pusę dienos praleisdavau prie telefono. Dabar klientai patys pildo informaciją. Buvau nustebinta, kaip greitai komanda adaptavosi — per savaitę visi mokėjo dirbti." data-en="Before, I spent half the day on the phone. Now clients fill it in themselves. I was surprised how fast the team adapted — within a week everyone got it.">Anksčiau pusę dienos praleisdavau prie telefono. Dabar klientai patys pildo informaciją. Buvau nustebinta, kaip greitai komanda adaptavosi — per savaitę visi mokėjo dirbti.</p>
+        <div class="flex items-center gap-3 pt-5 border-t border-[var(--line)]">
+          <div class="avatar avatar-lg" style="background:#D9CFB5">IJ</div>
+          <div>
+            <div class="text-sm font-medium">Ieva Jankauskaitė</div>
+            <div class="text-xs text-[var(--ink-3)]" data-lt="Administratorė · SportStart, Marijampolė" data-en="Administrator · SportStart, Marijampolė">Administratorė · SportStart, Marijampolė</div>
           </div>
         </div>
       </div>
@@ -620,235 +983,350 @@
   </div>
 </section>
 
-<hr class="section-divider max-w-6xl mx-auto">
+<hr class="hr-line">
+
+<!-- ============================================================
+     FOUNDER / ABOUT
+     ============================================================ -->
+<section id="apie" class="py-24 md:py-32 bg-[var(--bg-alt)]">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="grid md:grid-cols-12 gap-10 items-center">
+      <div class="md:col-span-5 fade-up">
+        <div class="founder-photo" style="aspect-ratio: 1/1; max-width:400px">
+          <span class="serif text-8xl relative z-10" style="color:rgba(12,74,47,0.5)">M</span>
+        </div>
+        <p class="text-xs text-[var(--ink-4)] mt-3 text-center max-w-[400px]" data-lt="Foto vieta — pakeisite savo nuotrauka" data-en="Photo placeholder — replace with your photo">Foto vieta — pakeisite savo nuotrauka</p>
+      </div>
+      <div class="md:col-span-7 fade-up" style="transition-delay:0.1s">
+        <p class="eyebrow mb-4" data-lt="Apie" data-en="About">Apie</p>
+        <h2 class="display-2 mb-6">
+          <span data-lt="Sveiki, esu " data-en="Hi, I'm ">Sveiki, esu </span><span class="italic-serif">[Vardas]</span><span data-lt="." data-en=".">.</span>
+        </h2>
+        <p class="text-lg text-[var(--ink-2)] leading-relaxed mb-5" data-lt="Dirbu su Lietuvos smulkiu verslu nuo 2022 metų. Anksčiau buvau IT vadovas vienoje iš Vilniaus klinikų ir mačiau iš arti, kiek laiko prarandama paprastiems dalykams." data-en="I've worked with Lithuanian small businesses since 2022. Before that I led IT at a Vilnius clinic and saw firsthand how much time gets lost on simple things.">
+          Dirbu su Lietuvos smulkiu verslu nuo 2022 metų. Anksčiau buvau IT vadovas vienoje iš Vilniaus klinikų ir mačiau iš arti, kiek laiko prarandama paprastiems dalykams.
+        </p>
+        <p class="text-[var(--ink-2)] leading-relaxed mb-8" data-lt="Automatika gimė iš noro padaryti taip, kad savininkai galėtų eiti namo 18:00 — ne 21:00. Dirbu vienas, asmeniškai, su keliais klientais vienu metu. Niekas neperduoda. Jūs visada kalbate su manimi." data-en="Automatika was born from wanting owners to go home at 6 PM — not 9 PM. I work alone, personally, with a few clients at a time. No hand-offs. You always talk to me.">
+          Automatika gimė iš noro padaryti taip, kad savininkai galėtų eiti namo 18:00 — ne 21:00. Dirbu vienas, asmeniškai, su keliais klientais vienu metu. Niekas neperduoda. Jūs visada kalbate su manimi.
+        </p>
+        <div class="flex flex-wrap gap-3">
+          <span class="pill"><i class="fas fa-shield-halved text-[10px]"></i><span data-lt="BDAR atitikimas" data-en="GDPR compliant">BDAR atitikimas</span></span>
+          <span class="pill"><i class="fas fa-handshake text-[10px]"></i><span data-lt="Individuali veikla" data-en="Sole proprietor">Individuali veikla</span></span>
+          <span class="pill"><i class="fas fa-map-marker-alt text-[10px]"></i><span data-lt="Vilnius, Lietuva" data-en="Vilnius, Lithuania">Vilnius, Lietuva</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="hr-line">
 
 <!-- ============================================================
      PRICING
      ============================================================ -->
-<section id="kainos" class="py-28">
+<section id="kainos" class="py-24 md:py-32">
   <div class="max-w-6xl mx-auto px-6">
-    <div class="text-center mb-6 fade-up">
-      <p class="section-label mb-4" data-lt="Kainos" data-en="Pricing">Kainos</p>
-      <h2 class="text-4xl md:text-5xl font-light tracking-tight" data-lt="Skaidrūs planai" data-en="Transparent plans">Skaidrūs planai</h2>
-      <p class="text-zinc-500 mt-4" data-lt="Vienkartinis diegimas + mėnesinė priežiūra. Jokių paslėptų mokesčių." data-en="One-time setup + monthly maintenance. No hidden fees.">Vienkartinis diegimas + mėnesinė priežiūra. Jokių paslėptų mokesčių.</p>
+    <div class="text-center max-w-2xl mx-auto mb-12 fade-up">
+      <p class="eyebrow mb-4" data-lt="Kainos" data-en="Pricing">Kainos</p>
+      <h2 class="display-2 mb-6">
+        <span data-lt="Skaidru. " data-en="Transparent. ">Skaidru. </span><span class="italic-serif" data-lt="Jokios staigmenos." data-en="No surprises.">Jokios staigmenos.</span>
+      </h2>
+      <p class="text-[var(--ink-2)]" data-lt="Vienkartinis diegimo mokestis + mėnesinis priežiūros mokestis. Be ilgalaikių sutarčių." data-en="One-time setup + monthly maintenance. No long-term contracts.">
+        Vienkartinis diegimo mokestis + mėnesinis priežiūros mokestis. Be ilgalaikių sutarčių.
+      </p>
     </div>
 
-    <!-- Billing toggle -->
-    <div class="flex items-center justify-center gap-4 mb-12 fade-up">
-      <span class="text-sm text-zinc-400" data-lt="Mėnesinis" data-en="Monthly">Mėnesinis</span>
+    <div class="flex items-center justify-center gap-3 mb-12 fade-up">
+      <span class="text-sm text-[var(--ink-2)]" data-lt="Mėnesinis" data-en="Monthly">Mėnesinis</span>
       <label class="toggle-switch">
         <input type="checkbox" data-pricing-toggle id="billing-toggle">
         <span class="toggle-slider"></span>
       </label>
-      <span class="text-sm text-zinc-400" data-lt="Metinis" data-en="Annual">Metinis</span>
-      <span class="badge-emerald text-xs" data-lt="−20%" data-en="−20%">−20%</span>
+      <span class="text-sm text-[var(--ink-2)]" data-lt="Metinis" data-en="Annual">Metinis</span>
+      <span class="pill pill-accent text-xs">−20%</span>
     </div>
 
-    <div class="grid md:grid-cols-3 gap-6 items-start">
+    <div class="grid md:grid-cols-3 gap-5 items-start">
       <!-- Mini -->
-      <div class="pricing-card glass-card rounded-3xl p-8 fade-up" style="transition-delay:0.0s">
-        <div class="text-xs text-zinc-500 uppercase tracking-widest mb-6" data-lt="Mini" data-en="Mini">Mini</div>
+      <div class="card p-8 fade-up">
+        <p class="eyebrow mb-3">Mini</p>
+        <p class="text-sm text-[var(--ink-3)] mb-6" data-lt="Pradžiai · 1–2 automatikos" data-en="Starter · 1–2 automations">Pradžiai · 1–2 automatikos</p>
         <div class="mb-1">
-          <span class="text-4xl font-light">€590</span>
-          <span class="text-zinc-500 text-sm ml-1" data-lt="diegimas" data-en="setup">diegimas</span>
+          <span class="serif text-5xl">€590</span>
+          <span class="text-sm text-[var(--ink-3)] ml-1" data-lt="diegimas" data-en="setup">diegimas</span>
         </div>
-        <div class="text-zinc-400 text-sm mb-8">
-          + <span data-price-monthly="240" data-price-annual="192">240</span>€/<span data-lt="mėn" data-en="mo">mėn</span>
+        <div class="text-sm text-[var(--ink-2)] mb-8">
+          + <span class="font-medium tabular" data-price-monthly="240" data-price-annual="192">240</span> €/<span data-lt="mėn" data-en="mo">mėn</span>
         </div>
-        <ul class="space-y-3 mb-8">
-          <li class="flex gap-3 text-sm text-zinc-300"><span class="text-emerald-400 mt-0.5">✓</span><span data-lt="Iki 3 automatizacijų" data-en="Up to 3 automations">Iki 3 automatizacijų</span></li>
-          <li class="flex gap-3 text-sm text-zinc-300"><span class="text-emerald-400 mt-0.5">✓</span><span data-lt="Email ir SMS integracija" data-en="Email & SMS integration">Email ir SMS integracija</span></li>
-          <li class="flex gap-3 text-sm text-zinc-300"><span class="text-emerald-400 mt-0.5">✓</span><span data-lt="Pagrindiniai priminimai" data-en="Basic reminders">Pagrindiniai priminimai</span></li>
-          <li class="flex gap-3 text-sm text-zinc-300"><span class="text-emerald-400 mt-0.5">✓</span><span data-lt="El. pašto pagalba" data-en="Email support">El. pašto pagalba</span></li>
-          <li class="flex gap-3 text-sm text-zinc-300"><span class="text-emerald-400 mt-0.5">✓</span><span data-lt="Mėnesinės ataskaitos" data-en="Monthly reports">Mėnesinės ataskaitos</span></li>
+        <ul class="space-y-3 mb-8 text-sm text-[var(--ink-2)]">
+          <li class="flex gap-3"><i class="fas fa-check text-[var(--accent)] text-xs mt-1"></i><span data-lt="Iki 3 automatikų" data-en="Up to 3 automations">Iki 3 automatikų</span></li>
+          <li class="flex gap-3"><i class="fas fa-check text-[var(--accent)] text-xs mt-1"></i><span data-lt="El. paštas ir SMS integracija" data-en="Email & SMS integration">El. paštas ir SMS integracija</span></li>
+          <li class="flex gap-3"><i class="fas fa-check text-[var(--accent)] text-xs mt-1"></i><span data-lt="Pagrindiniai priminimai" data-en="Basic reminders">Pagrindiniai priminimai</span></li>
+          <li class="flex gap-3"><i class="fas fa-check text-[var(--accent)] text-xs mt-1"></i><span data-lt="El. pašto pagalba" data-en="Email support">El. pašto pagalba</span></li>
         </ul>
-        <a href="#kontaktai" class="block text-center border border-white/20 text-white py-3.5 rounded-xl text-sm font-medium hover:border-white/50 transition-colors" data-lt="Pradėti" data-en="Get started">Pradėti</a>
+        <a href="#kontaktai" class="btn-ghost w-full justify-center" data-lt="Pasirinkti Mini" data-en="Choose Mini">Pasirinkti Mini</a>
       </div>
 
       <!-- Standard (featured) -->
-      <div class="pricing-card pricing-featured glass-card rounded-3xl p-8 relative fade-up md:scale-105" style="border: 2px solid #fff; transition-delay:0.1s">
-        <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-white text-black text-xs font-semibold tracking-widest px-5 py-1.5 rounded-full" data-lt="POPULIARIAUSIA" data-en="MOST POPULAR">POPULIARIAUSIA</div>
-        <div class="text-xs text-zinc-500 uppercase tracking-widest mb-6" data-lt="Standartinis" data-en="Standard">Standartinis</div>
+      <div class="card p-8 relative fade-up md:scale-[1.03]" style="border-color: var(--accent); border-width:2px" >
+        <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-[var(--accent)] text-[var(--bg)] text-[10px] font-semibold tracking-widest px-3 py-1 rounded-full uppercase" data-lt="Populiariausia" data-en="Most popular">Populiariausia</div>
+        <p class="eyebrow mb-3 text-[var(--accent)]">Standartinis</p>
+        <p class="text-sm text-[var(--ink-3)] mb-6" data-lt="Augantis verslas · iki 8 automatikų" data-en="Growing · up to 8 automations">Augantis verslas · iki 8 automatikų</p>
         <div class="mb-1">
-          <span class="text-4xl font-light">€1 390</span>
-          <span class="text-zinc-500 text-sm ml-1" data-lt="diegimas" data-en="setup">diegimas</span>
+          <span class="serif text-5xl">€1 390</span>
+          <span class="text-sm text-[var(--ink-3)] ml-1" data-lt="diegimas" data-en="setup">diegimas</span>
         </div>
-        <div class="text-zinc-400 text-sm mb-8">
-          + <span data-price-monthly="390" data-price-annual="312">390</span>€/<span data-lt="mėn" data-en="mo">mėn</span>
+        <div class="text-sm text-[var(--ink-2)] mb-8">
+          + <span class="font-medium tabular" data-price-monthly="390" data-price-annual="312">390</span> €/<span data-lt="mėn" data-en="mo">mėn</span>
         </div>
-        <ul class="space-y-3 mb-8">
-          <li class="flex gap-3 text-sm text-zinc-300"><span class="text-emerald-400 mt-0.5">✓</span><span data-lt="Iki 8 automatizacijų" data-en="Up to 8 automations">Iki 8 automatizacijų</span></li>
-          <li class="flex gap-3 text-sm text-zinc-300"><span class="text-emerald-400 mt-0.5">✓</span><span data-lt="Visos populiarios integracijos" data-en="Popular tool integrations">Visos populiarios integracijos</span></li>
-          <li class="flex gap-3 text-sm text-zinc-300"><span class="text-emerald-400 mt-0.5">✓</span><span data-lt="Priminimai, bilietai, sąskaitos" data-en="Reminders, ticketing, billing">Priminimai, bilietai, sąskaitos</span></li>
-          <li class="flex gap-3 text-sm text-zinc-300"><span class="text-emerald-400 mt-0.5">✓</span><span data-lt="24/7 pagalba" data-en="24/7 support">24/7 pagalba</span></li>
-          <li class="flex gap-3 text-sm text-zinc-300"><span class="text-emerald-400 mt-0.5">✓</span><span data-lt="Savaitinės ataskaitos ir analitika" data-en="Weekly reports & analytics">Savaitinės ataskaitos ir analitika</span></li>
-          <li class="flex gap-3 text-sm text-zinc-300"><span class="text-emerald-400 mt-0.5">✓</span><span data-lt="Nemokami atnaujinimai" data-en="Free updates">Nemokami atnaujinimai</span></li>
-          <li class="flex gap-3 text-sm text-zinc-300"><span class="text-emerald-400 mt-0.5">✓</span><span data-lt="30 dienų garantija" data-en="30-day guarantee">30 dienų garantija</span></li>
-          <li class="flex gap-3 text-sm text-zinc-300"><span class="text-emerald-400 mt-0.5">✓</span><span data-lt="Slack prieiga" data-en="Slack access">Slack prieiga</span></li>
+        <ul class="space-y-3 mb-8 text-sm text-[var(--ink-2)]">
+          <li class="flex gap-3"><i class="fas fa-check text-[var(--accent)] text-xs mt-1"></i><span data-lt="Iki 8 automatikų" data-en="Up to 8 automations">Iki 8 automatikų</span></li>
+          <li class="flex gap-3"><i class="fas fa-check text-[var(--accent)] text-xs mt-1"></i><span data-lt="Visos populiarios integracijos" data-en="All popular integrations">Visos populiarios integracijos</span></li>
+          <li class="flex gap-3"><i class="fas fa-check text-[var(--accent)] text-xs mt-1"></i><span data-lt="Priminimai · bilietai · sąskaitos" data-en="Reminders · ticketing · billing">Priminimai · bilietai · sąskaitos</span></li>
+          <li class="flex gap-3"><i class="fas fa-check text-[var(--accent)] text-xs mt-1"></i><span data-lt="24/7 pagalba (WhatsApp)" data-en="24/7 support (WhatsApp)">24/7 pagalba (WhatsApp)</span></li>
+          <li class="flex gap-3"><i class="fas fa-check text-[var(--accent)] text-xs mt-1"></i><span data-lt="Savaitinė analitika" data-en="Weekly analytics">Savaitinė analitika</span></li>
+          <li class="flex gap-3"><i class="fas fa-check text-[var(--accent)] text-xs mt-1"></i><span data-lt="30 d. pinigų grąžinimas" data-en="30-day money-back">30 d. pinigų grąžinimas</span></li>
         </ul>
-        <a href="#kontaktai" class="block text-center bg-white text-black py-3.5 rounded-xl text-sm font-semibold hover:bg-zinc-100 transition-colors" data-lt="Pradėti" data-en="Get started">Pradėti</a>
+        <a href="#kontaktai" class="btn-primary w-full justify-center" data-lt="Pasirinkti Standartinį" data-en="Choose Standard">Pasirinkti Standartinį</a>
       </div>
 
       <!-- Growth -->
-      <div class="pricing-card glass-card rounded-3xl p-8 fade-up" style="transition-delay:0.2s">
-        <div class="text-xs text-zinc-500 uppercase tracking-widest mb-6" data-lt="Augimo" data-en="Growth">Augimo</div>
+      <div class="card p-8 fade-up">
+        <p class="eyebrow mb-3">Augimo</p>
+        <p class="text-sm text-[var(--ink-3)] mb-6" data-lt="Įsibėgėjus · neribota" data-en="Scaling · unlimited">Įsibėgėjus · neribota</p>
         <div class="mb-1">
-          <span class="text-4xl font-light">€2 490</span>
-          <span class="text-zinc-500 text-sm ml-1" data-lt="diegimas" data-en="setup">diegimas</span>
+          <span class="serif text-5xl">€2 490</span>
+          <span class="text-sm text-[var(--ink-3)] ml-1" data-lt="diegimas" data-en="setup">diegimas</span>
         </div>
-        <div class="text-zinc-400 text-sm mb-8">
-          + <span data-price-monthly="690" data-price-annual="552">690</span>€/<span data-lt="mėn" data-en="mo">mėn</span>
+        <div class="text-sm text-[var(--ink-2)] mb-8">
+          + <span class="font-medium tabular" data-price-monthly="690" data-price-annual="552">690</span> €/<span data-lt="mėn" data-en="mo">mėn</span>
         </div>
-        <ul class="space-y-3 mb-8">
-          <li class="flex gap-3 text-sm text-zinc-300"><span class="text-emerald-400 mt-0.5">✓</span><span data-lt="Neribota automatizacija" data-en="Unlimited automations">Neribota automatizacija</span></li>
-          <li class="flex gap-3 text-sm text-zinc-300"><span class="text-emerald-400 mt-0.5">✓</span><span data-lt="Visos integracijos + API" data-en="All integrations + API">Visos integracijos + API</span></li>
-          <li class="flex gap-3 text-sm text-zinc-300"><span class="text-emerald-400 mt-0.5">✓</span><span data-lt="Prioritetinis 24/7 (15 min)" data-en="Priority 24/7 (15 min)">Prioritetinis 24/7 (15 min)</span></li>
-          <li class="flex gap-3 text-sm text-zinc-300"><span class="text-emerald-400 mt-0.5">✓</span><span data-lt="Savaitinės peržiūros ir optimizavimas" data-en="Weekly reviews & optimization">Savaitinės peržiūros ir optimizavimas</span></li>
-          <li class="flex gap-3 text-sm text-zinc-300"><span class="text-emerald-400 mt-0.5">✓</span><span data-lt="Paskirtas vadybininkas" data-en="Dedicated account manager">Paskirtas vadybininkas</span></li>
-          <li class="flex gap-3 text-sm text-zinc-300"><span class="text-emerald-400 mt-0.5">✓</span><span data-lt="60 dienų garantija" data-en="60-day guarantee">60 dienų garantija</span></li>
+        <ul class="space-y-3 mb-8 text-sm text-[var(--ink-2)]">
+          <li class="flex gap-3"><i class="fas fa-check text-[var(--accent)] text-xs mt-1"></i><span data-lt="Neribota automatikų" data-en="Unlimited automations">Neribota automatikų</span></li>
+          <li class="flex gap-3"><i class="fas fa-check text-[var(--accent)] text-xs mt-1"></i><span data-lt="Visos integracijos + API" data-en="All integrations + API">Visos integracijos + API</span></li>
+          <li class="flex gap-3"><i class="fas fa-check text-[var(--accent)] text-xs mt-1"></i><span data-lt="Prioritetinis 15 min atsakymas" data-en="Priority 15-min response">Prioritetinis 15 min atsakymas</span></li>
+          <li class="flex gap-3"><i class="fas fa-check text-[var(--accent)] text-xs mt-1"></i><span data-lt="Mėnesinės optimizavimo sesijos" data-en="Monthly optimization sessions">Mėnesinės optimizavimo sesijos</span></li>
+          <li class="flex gap-3"><i class="fas fa-check text-[var(--accent)] text-xs mt-1"></i><span data-lt="60 d. pinigų grąžinimas" data-en="60-day money-back">60 d. pinigų grąžinimas</span></li>
         </ul>
-        <a href="#kontaktai" class="block text-center border border-white/20 text-white py-3.5 rounded-xl text-sm font-medium hover:border-white/50 transition-colors" data-lt="Pradėti" data-en="Get started">Pradėti</a>
+        <a href="#kontaktai" class="btn-ghost w-full justify-center" data-lt="Pasirinkti Augimo" data-en="Choose Growth">Pasirinkti Augimo</a>
       </div>
     </div>
 
-    <!-- Guarantee -->
-    <div class="mt-10 text-center fade-up">
-      <div class="inline-flex items-center gap-3 glass-card rounded-2xl px-8 py-4">
-        <i class="fas fa-shield-halved text-emerald-400"></i>
-        <span class="text-sm text-zinc-300" data-lt="30 dienų pinigų grąžinimo garantija. Jei netenkina — grąžiname 100% diegimo mokesčio." data-en="30-day money-back guarantee. Not satisfied — full setup fee refunded.">30 dienų pinigų grąžinimo garantija. Jei netenkina — grąžiname 100% diegimo mokesčio.</span>
+    <div class="mt-12 text-center fade-up">
+      <div class="inline-flex items-center gap-3 text-sm text-[var(--ink-2)]">
+        <i class="fas fa-shield-halved text-[var(--accent)]"></i>
+        <span data-lt="30 dienų pinigų grąžinimo garantija · Be ilgalaikių sutarčių" data-en="30-day money-back · No long-term contract">30 dienų pinigų grąžinimo garantija · Be ilgalaikių sutarčių</span>
       </div>
     </div>
   </div>
 </section>
 
-<hr class="section-divider max-w-6xl mx-auto">
+<hr class="hr-line">
 
 <!-- ============================================================
      FAQ
      ============================================================ -->
-<section id="duk" class="py-28">
+<section id="duk" class="py-24 md:py-32">
   <div class="max-w-3xl mx-auto px-6">
-    <div class="text-center mb-14 fade-up">
-      <p class="section-label mb-4" data-lt="DUK" data-en="FAQ">DUK</p>
-      <h2 class="text-4xl md:text-5xl font-light tracking-tight" data-lt="Dažniausiai užduodami klausimai" data-en="Frequently asked questions">Dažniausiai užduodami klausimai</h2>
+    <div class="text-center mb-12 fade-up">
+      <p class="eyebrow mb-4" data-lt="DUK" data-en="FAQ">DUK</p>
+      <h2 class="display-2 mb-6">
+        <span data-lt="Atsakymai " data-en="Answers ">Atsakymai </span><span class="italic-serif" data-lt="prieš pokalbį." data-en="before the call.">prieš pokalbį.</span>
+      </h2>
     </div>
 
-    <div class="space-y-0 glass-card rounded-2xl overflow-hidden fade-up">
+    <div class="card overflow-hidden fade-up">
       <div class="faq-item">
-        <div class="faq-header flex items-center justify-between px-8 py-6 hover:bg-white/3 transition-colors">
-          <span class="text-sm font-medium pr-4" data-lt="Kaip apsaugote mano duomenis?" data-en="How do you protect my data?">Kaip apsaugote mano duomenis?</span>
-          <i class="faq-icon fas fa-plus text-emerald-400 text-xs flex-shrink-0"></i>
+        <div class="faq-header flex items-center justify-between px-7 py-6">
+          <span class="text-base font-medium pr-4" data-lt="Kaip apsaugoti mano klientų duomenys?" data-en="How is my client data protected?">Kaip apsaugoti mano klientų duomenys?</span>
+          <i class="faq-icon fas fa-plus text-[var(--accent)] text-xs"></i>
         </div>
         <div class="faq-answer">
-          <p class="px-8 pb-6 text-sm text-zinc-400 leading-relaxed" data-lt="Visi duomenys šifruoti tiek perdavimo, tiek saugojimo metu. Atitinkame BDAR reikalavimus. Naudojame AWS serverius su aukščiausio lygio saugos sertifikavimais. Jūsų duomenys priklauso tik jums." data-en="All data is encrypted in transit and at rest. We comply with GDPR. We use AWS servers with top-tier security certifications. Your data belongs only to you.">Visi duomenys šifruoti tiek perdavimo, tiek saugojimo metu. Atitinkame BDAR reikalavimus. Naudojame AWS serverius su aukščiausio lygio saugos sertifikavimais. Jūsų duomenys priklauso tik jums.</p>
+          <p class="px-7 pb-6 text-sm text-[var(--ink-2)] leading-relaxed" data-lt="Visi duomenys šifruoti perduodant ir saugant. Atitinka BDAR. Naudojami AWS serveriai ES regione. Jūs visada esate duomenų savininkas — galite eksportuoti ar ištrinti bet kada." data-en="All data is encrypted in transit and at rest. GDPR-compliant. AWS servers in EU region. You always own the data — export or delete anytime.">Visi duomenys šifruoti perduodant ir saugant. Atitinka BDAR. Naudojami AWS serveriai ES regione. Jūs visada esate duomenų savininkas — galite eksportuoti ar ištrinti bet kada.</p>
         </div>
       </div>
-
       <div class="faq-item">
-        <div class="faq-header flex items-center justify-between px-8 py-6 hover:bg-white/3 transition-colors">
-          <span class="text-sm font-medium pr-4" data-lt="Kiek laiko užtrunka diegimas?" data-en="How long does setup take?">Kiek laiko užtrunka diegimas?</span>
-          <i class="faq-icon fas fa-plus text-emerald-400 text-xs flex-shrink-0"></i>
+        <div class="faq-header flex items-center justify-between px-7 py-6">
+          <span class="text-base font-medium pr-4" data-lt="Per kiek laiko viskas pradeda veikti?" data-en="How long until it's working?">Per kiek laiko viskas pradeda veikti?</span>
+          <i class="faq-icon fas fa-plus text-[var(--accent)] text-xs"></i>
         </div>
         <div class="faq-answer">
-          <p class="px-8 pb-6 text-sm text-zinc-400 leading-relaxed" data-lt="Nuo 3 iki 5 darbo dienų. Jūs atliekate tik nemokamą konsultaciją ir patvirtinate sprendimą. Visa techninė dalis — mūsų komandos rankose." data-en="3-5 business days. You only do the free consultation and sign off. All technical work is handled by our team.">Nuo 3 iki 5 darbo dienų. Jūs atliekate tik nemokamą konsultaciją ir patvirtinate sprendimą. Visa techninė dalis — mūsų komandos rankose.</p>
+          <p class="px-7 pb-6 text-sm text-[var(--ink-2)] leading-relaxed" data-lt="3–5 darbo dienos nuo pokalbio. Pirmoji savaitė — diegimas. Antra savaitė — pilnai veikia. Jūs tik pasakojate, kaip dirbate dabar — visa technine dalimi rūpinuosi pats." data-en="3–5 business days from our call. Week one: deployment. Week two: fully running. You just tell me how you work now — I handle all the technical work.">3–5 darbo dienos nuo pokalbio. Pirmoji savaitė — diegimas. Antra savaitė — pilnai veikia. Jūs tik pasakojate, kaip dirbate dabar — visa technine dalimi rūpinuosi pats.</p>
         </div>
       </div>
-
       <div class="faq-item">
-        <div class="faq-header flex items-center justify-between px-8 py-6 hover:bg-white/3 transition-colors">
-          <span class="text-sm font-medium pr-4" data-lt="Ar reikia ilgalaikės sutarties?" data-en="Do I need a long-term contract?">Ar reikia ilgalaikės sutarties?</span>
-          <i class="faq-icon fas fa-plus text-emerald-400 text-xs flex-shrink-0"></i>
+        <div class="faq-header flex items-center justify-between px-7 py-6">
+          <span class="text-base font-medium pr-4" data-lt="Ar reikės pasirašyti ilgalaikę sutartį?" data-en="Do I need to sign a long contract?">Ar reikės pasirašyti ilgalaikę sutartį?</span>
+          <i class="faq-icon fas fa-plus text-[var(--accent)] text-xs"></i>
         </div>
         <div class="faq-answer">
-          <p class="px-8 pb-6 text-sm text-zinc-400 leading-relaxed" data-lt="Ne. Galite atšaukti bet kada. Dauguma klientų lieka, nes iš tikrųjų taupo laiką. Jokių paslėptų mokesčių ar baudų. Viskas skaidru." data-en="No. Cancel anytime. Most clients stay because they actually save time. No hidden fees or penalties. Total transparency.">Ne. Galite atšaukti bet kada. Dauguma klientų lieka, nes iš tikrųjų taupo laiką. Jokių paslėptų mokesčių ar baudų. Viskas skaidru.</p>
+          <p class="px-7 pb-6 text-sm text-[var(--ink-2)] leading-relaxed" data-lt="Ne. Mėnesinė priežiūra — mėnuo iš mėnesio. Galite nutraukti bet kada be jokių baudų. Dauguma klientų lieka, nes sistema iš tikrųjų taupo laiką. Ne dėl sutarties." data-en="No. Monthly maintenance is month-to-month. Cancel anytime, no penalties. Most clients stay because it actually saves time. Not because of a contract.">Ne. Mėnesinė priežiūra — mėnuo iš mėnesio. Galite nutraukti bet kada be jokių baudų. Dauguma klientų lieka, nes sistema iš tikrųjų taupo laiką. Ne dėl sutarties.</p>
         </div>
       </div>
-
       <div class="faq-item">
-        <div class="faq-header flex items-center justify-between px-8 py-6 hover:bg-white/3 transition-colors">
-          <span class="text-sm font-medium pr-4" data-lt="Kada pamatysiu rezultatus?" data-en="When will I see results?">Kada pamatysiu rezultatus?</span>
-          <i class="faq-icon fas fa-plus text-emerald-400 text-xs flex-shrink-0"></i>
+        <div class="faq-header flex items-center justify-between px-7 py-6">
+          <span class="text-base font-medium pr-4" data-lt="Kas atsitinka, jei kas nors sulūžta?" data-en="What if something breaks?">Kas atsitinka, jei kas nors sulūžta?</span>
+          <i class="faq-icon fas fa-plus text-[var(--accent)] text-xs"></i>
         </div>
         <div class="faq-answer">
-          <p class="px-8 pb-6 text-sm text-zinc-400 leading-relaxed" data-lt="Pirmą savaitę pamatysite pirmus automatinius pranešimus ar sąskaitas. Pilni rezultatai — per 2–3 savaites. Tai ne reklama, tai realus sutaupytas laikas." data-en="You'll see the first automated messages or invoices within the first week. Full results in 2-3 weeks. This isn't hype — these are real hours back.">Pirmą savaitę pamatysite pirmus automatinius pranešimus ar sąskaitas. Pilni rezultatai — per 2–3 savaites. Tai ne reklama, tai realus sutaupytas laikas.</p>
+          <p class="px-7 pb-6 text-sm text-[var(--ink-2)] leading-relaxed" data-lt="Sekstemos stebimos automatiškai 24/7. Daugumą problemų pamatau pirmiau nei jūs. Jūsų pranešimai — vidutinis atsakymas per 30 minučių darbo dienomis, iki 2 val. savaitgalį." data-en="Systems are monitored automatically 24/7. I see most issues before you do. Your messages — avg. response in 30 min on weekdays, up to 2h on weekends.">Sistemos stebimos automatiškai 24/7. Daugumą problemų pamatau pirmiau nei jūs. Jūsų pranešimai — vidutinis atsakymas per 30 minučių darbo dienomis, iki 2 val. savaitgalį.</p>
         </div>
       </div>
-
       <div class="faq-item">
-        <div class="faq-header flex items-center justify-between px-8 py-6 hover:bg-white/3 transition-colors">
-          <span class="text-sm font-medium pr-4" data-lt="Kas nutinka, jei kas nors sutrinka?" data-en="What if something breaks?">Kas nutinka, jei kas nors sutrinka?</span>
-          <i class="faq-icon fas fa-plus text-emerald-400 text-xs flex-shrink-0"></i>
+        <div class="faq-header flex items-center justify-between px-7 py-6">
+          <span class="text-base font-medium pr-4" data-lt="Su kokiomis sistemomis integruojatės?" data-en="What systems do you integrate with?">Su kokiomis sistemomis integruojatės?</span>
+          <i class="faq-icon fas fa-plus text-[var(--accent)] text-xs"></i>
         </div>
         <div class="faq-answer">
-          <p class="px-8 pb-6 text-sm text-zinc-400 leading-relaxed" data-lt="Teikiame 24/7 palaikymą. Vidutinis atsakymo laikas — 30 minučių. Klaidos pasitaiko retai, tačiau jas ištaisome greitai." data-en="We offer 24/7 support. Average response time is 30 minutes. Bugs are rare, but we fix them fast.">Teikiame 24/7 palaikymą. Vidutinis atsakymo laikas — 30 minučių. Klaidos pasitaiko retai, tačiau jas ištaisome greitai.</p>
+          <p class="px-7 pb-6 text-sm text-[var(--ink-2)] leading-relaxed" data-lt="Google Workspace, Outlook, WhatsApp Business, Stripe, PayPal, Paysera, populiariausios SMS paslaugos (Eskimi, MailerLite). Jei naudojate kažką specifiškai lietuvišką — paklauskite, dažniausiai integruojamės." data-en="Google Workspace, Outlook, WhatsApp Business, Stripe, PayPal, Paysera, most SMS services. If you use something Lithuanian-specific — ask, usually we can integrate.">Google Workspace, Outlook, WhatsApp Business, Stripe, PayPal, Paysera, populiariausios SMS paslaugos (Eskimi, MailerLite). Jei naudojate kažką specifiškai lietuvišką — paklauskite, dažniausiai integruojamės.</p>
         </div>
       </div>
-
       <div class="faq-item">
-        <div class="faq-header flex items-center justify-between px-8 py-6 hover:bg-white/3 transition-colors">
-          <span class="text-sm font-medium pr-4" data-lt="Su kokiais įrankiais integruojatės?" data-en="What tools do you integrate with?">Su kokiais įrankiais integruojatės?</span>
-          <i class="faq-icon fas fa-plus text-emerald-400 text-xs flex-shrink-0"></i>
+        <div class="faq-header flex items-center justify-between px-7 py-6">
+          <span class="text-base font-medium pr-4" data-lt="Ar mano klientai pajus, kad atsako AI?" data-en="Will my clients feel they're talking to AI?">Ar mano klientai pajus, kad atsako AI?</span>
+          <i class="faq-icon fas fa-plus text-[var(--accent)] text-xs"></i>
         </div>
         <div class="faq-answer">
-          <p class="px-8 pb-6 text-sm text-zinc-400 leading-relaxed" data-lt="Google Workspace, Outlook, Zapier, Stripe, PayPal, SMS paslaugos, el. pašto platformos ir daugelis kitų. Jei naudojate — greičiausiai integruojamės." data-en="Google Workspace, Outlook, Zapier, Stripe, PayPal, SMS services, email platforms and many more. If you use it — we likely integrate.">Google Workspace, Outlook, Zapier, Stripe, PayPal, SMS paslaugos, el. pašto platformos ir daugelis kitų. Jei naudojate — greičiausiai integruojamės.</p>
+          <p class="px-7 pb-6 text-sm text-[var(--ink-2)] leading-relaxed" data-lt="Ne. AI naudojamas tik standartinėms žinutėms — priminimams, patvirtinimams, atsakymams į dažniausius klausimus. Žinutės rašomos jūsų stiliumi. Komplikuotos žinutės nukreipiamos jums." data-en="No. AI handles only standard messages — reminders, confirmations, FAQ replies. Messages are written in your tone. Complex messages are routed to you.">Ne. AI naudojamas tik standartinėms žinutėms — priminimams, patvirtinimams, atsakymams į dažniausius klausimus. Žinutės rašomos jūsų stiliumi. Komplikuotos žinutės nukreipiamos jums.</p>
         </div>
       </div>
-
-      <div class="faq-item" style="border-bottom:none">
-        <div class="faq-header flex items-center justify-between px-8 py-6 hover:bg-white/3 transition-colors">
-          <span class="text-sm font-medium pr-4" data-lt="Ar tai tikras dirbtinis intelektas?" data-en="Is this really AI?">Ar tai tikras dirbtinis intelektas?</span>
-          <i class="faq-icon fas fa-plus text-emerald-400 text-xs flex-shrink-0"></i>
+      <div class="faq-item">
+        <div class="faq-header flex items-center justify-between px-7 py-6">
+          <span class="text-base font-medium pr-4" data-lt="Kiek mokėsiu, jei mano verslas mažas?" data-en="How much if my business is small?">Kiek mokėsiu, jei mano verslas mažas?</span>
+          <i class="faq-icon fas fa-plus text-[var(--accent)] text-xs"></i>
         </div>
         <div class="faq-answer">
-          <p class="px-8 pb-6 text-sm text-zinc-400 leading-relaxed" data-lt="Taip, naudojame pažangiausias AI technologijas. Tačiau tai ne tik AI — tai AI ir žmogaus sprendimų derinys. Jūsų verslo logika yra integruota į kiekvieną automatizaciją." data-en="Yes, we use cutting-edge AI. But it's not just AI — it's AI combined with human judgment. Your business logic is built into every automation.">Taip, naudojame pažangiausias AI technologijas. Tačiau tai ne tik AI — tai AI ir žmogaus sprendimų derinys. Jūsų verslo logika yra integruota į kiekvieną automatizaciją.</p>
+          <p class="px-7 pb-6 text-sm text-[var(--ink-2)] leading-relaxed" data-lt="Pradžia — €590 diegimas + €240/mėn. Jei tai per daug, kalbėkimės — nekuriu sprendimo, kuris jums per brangus. Daugumai 1–3 žmonių verslų pakanka Mini plano." data-en="Starts at €590 setup + €240/month. If that's too much, let's talk — I won't build something you can't afford. Mini plan covers most 1–3 person businesses.">Pradžia — €590 diegimas + €240/mėn. Jei tai per daug, kalbėkimės — nekuriu sprendimo, kuris jums per brangus. Daugumai 1–3 žmonių verslų pakanka Mini plano.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
+<hr class="hr-line">
+
 <!-- ============================================================
-     FINAL CTA
+     BOOKING — CAL.COM EMBED PLACEHOLDER
      ============================================================ -->
-<section id="kontaktai" class="py-28">
-  <div class="max-w-4xl mx-auto px-6">
-    <div class="glass-card rounded-3xl p-10 md:p-16 text-center relative overflow-hidden fade-up">
-      <!-- Background glow -->
-      <div class="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-transparent pointer-events-none"></div>
+<section id="kontaktai" class="py-24 md:py-32">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="grid lg:grid-cols-12 gap-10 lg:gap-16">
+      <div class="lg:col-span-5">
+        <p class="eyebrow mb-4" data-lt="Susitikime" data-en="Let's meet">Susitikime</p>
+        <h2 class="display-2 mb-6">
+          <span data-lt="20 minučių " data-en="20 minutes ">20 minučių </span><span class="italic-serif" data-lt="kurie pakeis viską." data-en="that change everything.">kurie pakeis viską.</span>
+        </h2>
+        <p class="text-[var(--ink-2)] leading-relaxed mb-8" data-lt="Pasakojate apie savo dieną. Aš išklausau, paklausinėju, surašau, kur dingsta laikas. Pateikiu konkretų planą su skaičiais. Sprendžiate jūs — be jokio spaudimo." data-en="You tell me about your day. I listen, ask, write down where time goes. I give you a concrete plan with numbers. You decide — no pressure.">
+          Pasakojate apie savo dieną. Aš išklausau, paklausinėju, surašau, kur dingsta laikas. Pateikiu konkretų planą su skaičiais. Sprendžiate jūs — be jokio spaudimo.
+        </p>
 
-      <div class="relative z-10">
-        <div class="inline-flex items-center gap-2 scarcity rounded-full px-4 py-2 text-xs font-medium mb-8">
-          <i class="fas fa-clock text-xs"></i>
-          <span data-lt="Šį mėnesį liko tik 3 laisvos vietos" data-en="Only 3 spots left this month">Šį mėnesį liko tik 3 laisvos vietos</span>
+        <div class="space-y-3 mb-10">
+          <div class="flex items-center gap-3 text-sm text-[var(--ink-2)]"><i class="fas fa-check text-[var(--accent)] text-xs"></i><span data-lt="Nemokama · be įsipareigojimų" data-en="Free · no commitments">Nemokama · be įsipareigojimų</span></div>
+          <div class="flex items-center gap-3 text-sm text-[var(--ink-2)]"><i class="fas fa-check text-[var(--accent)] text-xs"></i><span data-lt="Vyks per Zoom arba telefonu" data-en="Held on Zoom or phone">Vyks per Zoom arba telefonu</span></div>
+          <div class="flex items-center gap-3 text-sm text-[var(--ink-2)]"><i class="fas fa-check text-[var(--accent)] text-xs"></i><span data-lt="Gausite konkretų pasiūlymą per 24 val." data-en="You get a concrete proposal within 24h">Gausite konkretų pasiūlymą per 24 val.</span></div>
         </div>
 
-        <h2 class="text-4xl md:text-5xl font-light tracking-tight mb-4" data-lt="Sutaupykite valandas šią savaitę" data-en="Save hours this week">Sutaupykite valandas šią savaitę</h2>
-        <p class="text-zinc-400 text-lg mb-4 max-w-xl mx-auto" data-lt="Parašykite man ir per vieną darbo dieną gausite asmeninį pasiūlymą." data-en="Message me and get a personalized proposal within one business day.">Parašykite man ir per vieną darbo dieną gausite asmeninį pasiūlymą.</p>
-        <p class="text-zinc-600 text-sm mb-10" data-lt="Nemokama konsultacija · Jokios rizikos · Atšaukite bet kada" data-en="Free consultation · No risk · Cancel anytime">Nemokama konsultacija · Jokios rizikos · Atšaukite bet kada</p>
-
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
-          <a href="https://wa.me/37060000000" target="_blank" rel="noopener"
-             class="inline-flex items-center gap-3 bg-[#25d366] text-white px-8 py-4 rounded-2xl text-base font-semibold hover:bg-[#20b558] transition-all hover:-translate-y-0.5">
-            <i class="fab fa-whatsapp text-xl"></i>
-            <span data-lt="Susisiekti per WhatsApp" data-en="Contact via WhatsApp">Susisiekti per WhatsApp</span>
-          </a>
-          <a href="mailto:info@aiautomatika.lt"
-             class="inline-flex items-center gap-3 border border-white/20 text-white px-8 py-4 rounded-2xl text-base font-medium hover:border-white/40 transition-all">
-            <i class="fas fa-envelope"></i>
-            <span>info@aiautomatika.lt</span>
-          </a>
+        <div class="card p-5">
+          <p class="eyebrow mb-3" data-lt="Arba parašykite" data-en="Or write to me">Arba parašykite</p>
+          <div class="flex flex-col gap-3">
+            <a href="https://wa.me/37060000000" target="_blank" rel="noopener" class="flex items-center gap-3 text-sm hover:text-[var(--accent)] transition">
+              <i class="fab fa-whatsapp text-lg text-[var(--accent)]"></i>
+              <span class="copy-btn" data-copy="+37060000000">+370 600 00 000</span>
+            </a>
+            <a href="mailto:hello@automatika.lt" class="flex items-center gap-3 text-sm hover:text-[var(--accent)] transition">
+              <i class="far fa-envelope text-lg text-[var(--accent)]"></i>
+              <span class="copy-btn" data-copy="hello@automatika.lt">hello@automatika.lt</span>
+            </a>
+          </div>
         </div>
+      </div>
 
-        <!-- Copy buttons -->
-        <div class="flex flex-wrap items-center justify-center gap-3">
-          <button class="copy-btn" data-copy="+37060000000">
-            <i class="fas fa-phone text-xs"></i>
-            <span data-lt="Kopijuoti numerį" data-en="Copy number">Kopijuoti numerį</span>
-          </button>
-          <button class="copy-btn" data-copy="info@aiautomatika.lt">
-            <i class="fas fa-copy text-xs"></i>
-            <span data-lt="Kopijuoti el. paštą" data-en="Copy email">Kopijuoti el. paštą</span>
-          </button>
+      <!-- Cal.com style booking widget placeholder -->
+      <div class="lg:col-span-7">
+        <div class="cal-frame">
+          <div class="p-6 border-b border-[var(--line)] flex items-center justify-between">
+            <div>
+              <p class="text-xs text-[var(--ink-3)] mb-1" data-lt="Nemokama konsultacija" data-en="Free consultation">Nemokama konsultacija</p>
+              <p class="font-medium" data-lt="20 min su [Vardas]" data-en="20 min with [Name]">20 min su [Vardas]</p>
+            </div>
+            <span class="pill pill-accent text-xs">
+              <i class="fab fa-google text-[10px]"></i>
+              <span>cal.com</span>
+            </span>
+          </div>
+          <div class="grid sm:grid-cols-2">
+            <!-- Calendar -->
+            <div class="p-6 border-r border-[var(--line)] border-b sm:border-b-0">
+              <div class="flex items-center justify-between mb-5">
+                <button class="text-[var(--ink-3)] hover:text-[var(--ink)]"><i class="fas fa-chevron-left text-xs"></i></button>
+                <span class="text-sm font-medium" data-lt="Gegužė 2026" data-en="May 2026">Gegužė 2026</span>
+                <button class="text-[var(--ink-3)] hover:text-[var(--ink)]"><i class="fas fa-chevron-right text-xs"></i></button>
+              </div>
+              <div class="grid grid-cols-7 gap-1 text-[10px] text-[var(--ink-4)] text-center mb-2 font-medium">
+                <div>P</div><div>A</div><div>T</div><div>K</div><div>P</div><div>Š</div><div>S</div>
+              </div>
+              <div class="grid grid-cols-7 gap-1 text-xs text-center">
+                <div class="text-[var(--ink-4)] py-2">28</div>
+                <div class="text-[var(--ink-4)] py-2">29</div>
+                <div class="text-[var(--ink-4)] py-2">30</div>
+                <div class="text-[var(--ink-4)] py-2">1</div>
+                <div class="text-[var(--ink-4)] py-2">2</div>
+                <div class="text-[var(--ink-4)] py-2">3</div>
+                <div class="text-[var(--ink-4)] py-2">4</div>
+                <div class="text-[var(--ink-4)] py-2">5</div>
+                <div class="text-[var(--ink-4)] py-2">6</div>
+                <div class="text-[var(--ink-4)] py-2">7</div>
+                <div class="text-[var(--ink-4)] py-2">8</div>
+                <div class="text-[var(--ink-4)] py-2">9</div>
+                <div class="text-[var(--ink-4)] py-2">10</div>
+                <div class="text-[var(--ink-4)] py-2">11</div>
+                <div class="text-[var(--ink-4)] py-2">12</div>
+                <div class="text-[var(--ink-4)] py-2">13</div>
+                <div class="text-[var(--ink-4)] py-2">14</div>
+                <div class="text-[var(--ink-4)] py-2">15</div>
+                <div class="text-[var(--ink-4)] py-2">16</div>
+                <div class="text-[var(--ink-4)] py-2">17</div>
+                <div class="text-[var(--ink-2)] py-2 rounded font-medium hover:bg-[var(--bg-alt)] cursor-pointer">18</div>
+                <div class="bg-[var(--accent)] text-[var(--bg)] py-2 rounded font-medium cursor-pointer">19</div>
+                <div class="text-[var(--ink-2)] py-2 rounded font-medium hover:bg-[var(--bg-alt)] cursor-pointer">20</div>
+                <div class="text-[var(--ink-2)] py-2 rounded font-medium hover:bg-[var(--bg-alt)] cursor-pointer">21</div>
+                <div class="text-[var(--ink-2)] py-2 rounded font-medium hover:bg-[var(--bg-alt)] cursor-pointer">22</div>
+                <div class="text-[var(--ink-4)] py-2">23</div>
+                <div class="text-[var(--ink-4)] py-2">24</div>
+                <div class="text-[var(--ink-2)] py-2 rounded font-medium hover:bg-[var(--bg-alt)] cursor-pointer">25</div>
+                <div class="text-[var(--ink-2)] py-2 rounded font-medium hover:bg-[var(--bg-alt)] cursor-pointer">26</div>
+                <div class="text-[var(--ink-2)] py-2 rounded font-medium hover:bg-[var(--bg-alt)] cursor-pointer">27</div>
+                <div class="text-[var(--ink-2)] py-2 rounded font-medium hover:bg-[var(--bg-alt)] cursor-pointer">28</div>
+                <div class="text-[var(--ink-2)] py-2 rounded font-medium hover:bg-[var(--bg-alt)] cursor-pointer">29</div>
+                <div class="text-[var(--ink-4)] py-2">30</div>
+                <div class="text-[var(--ink-4)] py-2">31</div>
+              </div>
+              <p class="text-[10px] text-[var(--ink-4)] mt-4 text-center" data-lt="Antradienis · gegužės 19" data-en="Tuesday · May 19">Antradienis · gegužės 19</p>
+            </div>
+
+            <!-- Time slots -->
+            <div class="p-6">
+              <p class="text-xs text-[var(--ink-3)] mb-4 font-medium" data-lt="Pasirinkite laiką" data-en="Choose a time">Pasirinkite laiką</p>
+              <div class="grid grid-cols-2 gap-2 max-h-72 overflow-y-auto">
+                <button class="cal-slot">09:00</button>
+                <button class="cal-slot">09:30</button>
+                <button class="cal-slot selected">10:00</button>
+                <button class="cal-slot">10:30</button>
+                <button class="cal-slot">11:00</button>
+                <button class="cal-slot">11:30</button>
+                <button class="cal-slot">14:00</button>
+                <button class="cal-slot">14:30</button>
+                <button class="cal-slot">15:00</button>
+                <button class="cal-slot">15:30</button>
+                <button class="cal-slot">16:00</button>
+                <button class="cal-slot">16:30</button>
+              </div>
+              <a href="https://cal.com/your-username" target="_blank" rel="noopener" class="btn-primary w-full justify-center mt-5 text-sm">
+                <span data-lt="Patvirtinti laiką" data-en="Confirm time">Patvirtinti laiką</span>
+                <i class="fas fa-arrow-right text-xs"></i>
+              </a>
+              <p class="text-[10px] text-[var(--ink-4)] mt-3 text-center" data-lt="Lietuvos laiku (GMT+2)" data-en="Lithuania time (GMT+2)">Lietuvos laiku (GMT+2)</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -858,33 +1336,50 @@
 <!-- ============================================================
      FOOTER
      ============================================================ -->
-<footer class="border-t border-white/5 py-12">
-  <div class="max-w-6xl mx-auto px-6">
-    <div class="flex flex-col md:flex-row items-center justify-between gap-6">
-      <div class="flex items-center gap-2.5">
-        <div class="w-6 h-6 rounded-md bg-emerald-400 flex items-center justify-center">
-          <i class="fas fa-bolt text-black text-xs"></i>
-        </div>
-        <span class="font-semibold text-sm">AI Automatika</span>
+<footer class="border-t border-[var(--line)] py-14">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid md:grid-cols-12 gap-10 mb-10">
+      <div class="md:col-span-5">
+        <a href="#" class="flex items-center gap-2.5 mb-4">
+          <div class="w-7 h-7 rounded-lg bg-[var(--accent)] flex items-center justify-center">
+            <span class="serif text-[var(--bg)] text-lg leading-none">A</span>
+          </div>
+          <span class="font-medium tracking-tight">Automatika</span>
+        </a>
+        <p class="text-sm text-[var(--ink-3)] max-w-sm leading-relaxed" data-lt="AI automatika smulkiam ir vidutiniam verslui Lietuvoje. Statome sistemą, kurioje verslas dirba jums — ne atvirkščiai." data-en="AI automation for Lithuanian small and medium businesses. We build systems where the business works for you — not the other way around.">AI automatika smulkiam ir vidutiniam verslui Lietuvoje. Statome sistemą, kurioje verslas dirba jums — ne atvirkščiai.</p>
       </div>
-      <p class="text-xs text-zinc-600" data-lt="AI automatika, kuri veikia lietuviams" data-en="AI automation that works for Lithuanian businesses">AI automatika, kuri veikia lietuviams</p>
-      <p class="text-xs text-zinc-700">© 2026 AI Automatika · Individuali veikla · Lietuva</p>
+      <div class="md:col-span-2">
+        <p class="eyebrow mb-4" data-lt="Puslapis" data-en="Page">Puslapis</p>
+        <ul class="space-y-2.5 text-sm text-[var(--ink-2)]">
+          <li><a href="#kaip" class="hover:text-[var(--ink)]" data-lt="Kaip veikia" data-en="How it works">Kaip veikia</a></li>
+          <li><a href="#sprendimai" class="hover:text-[var(--ink)]" data-lt="Sprendimai" data-en="Solutions">Sprendimai</a></li>
+          <li><a href="#kainos" class="hover:text-[var(--ink)]" data-lt="Kainos" data-en="Pricing">Kainos</a></li>
+          <li><a href="#duk" class="hover:text-[var(--ink)]">DUK</a></li>
+        </ul>
+      </div>
+      <div class="md:col-span-2">
+        <p class="eyebrow mb-4" data-lt="Kontaktai" data-en="Contact">Kontaktai</p>
+        <ul class="space-y-2.5 text-sm text-[var(--ink-2)]">
+          <li><a href="mailto:hello@automatika.lt" class="hover:text-[var(--ink)]">hello@automatika.lt</a></li>
+          <li><a href="https://wa.me/37060000000" class="hover:text-[var(--ink)]">+370 600 00 000</a></li>
+          <li>Vilnius, Lietuva</li>
+        </ul>
+      </div>
+      <div class="md:col-span-3">
+        <p class="eyebrow mb-4" data-lt="Teisinė" data-en="Legal">Teisinė</p>
+        <ul class="space-y-2.5 text-sm text-[var(--ink-2)]">
+          <li><a href="#" class="hover:text-[var(--ink)]" data-lt="Privatumo politika" data-en="Privacy policy">Privatumo politika</a></li>
+          <li><a href="#" class="hover:text-[var(--ink)]" data-lt="Slapukai" data-en="Cookies">Slapukai</a></li>
+          <li><a href="#" class="hover:text-[var(--ink)]" data-lt="Sąlygos" data-en="Terms">Sąlygos</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="pt-8 border-t border-[var(--line)] flex flex-col md:flex-row items-center justify-between gap-4">
+      <p class="text-xs text-[var(--ink-4)]">© 2026 Automatika · Individuali veikla</p>
+      <p class="text-xs text-[var(--ink-4)] italic-serif" data-lt="Sukurta su rūpesčiu Lietuvoje" data-en="Crafted with care in Lithuania">Sukurta su rūpesčiu Lietuvoje</p>
     </div>
   </div>
 </footer>
-
-<!-- ============================================================
-     COOKIE BANNER (GDPR)
-     ============================================================ -->
-<div id="cookie-banner">
-  <div class="max-w-6xl mx-auto px-6 py-4 flex flex-col sm:flex-row items-center gap-4">
-    <p class="text-xs text-zinc-400 flex-1" data-lt="Naudojame slapukus, kad pagerintume jūsų patirtį. Tęsdami naudojimą sutinkate su mūsų privatumo politika." data-en="We use cookies to improve your experience. By continuing you agree to our privacy policy.">Naudojame slapukus, kad pagerintume jūsų patirtį. Tęsdami naudojimą sutinkate su mūsų privatumo politika.</p>
-    <div class="flex gap-3 flex-shrink-0">
-      <button id="cookie-decline" class="text-xs text-zinc-500 hover:text-zinc-300 transition-colors px-4 py-2" data-lt="Atsisakyti" data-en="Decline">Atsisakyti</button>
-      <button id="cookie-accept" class="text-xs bg-white text-black px-5 py-2 rounded-lg font-medium hover:bg-zinc-100 transition-colors" data-lt="Sutinku" data-en="Accept">Sutinku</button>
-    </div>
-  </div>
-</div>
 
 <!-- ============================================================
      JAVASCRIPT
@@ -892,20 +1387,20 @@
 <script>
 document.addEventListener('DOMContentLoaded', () => {
 
-  // ── PROGRESS BAR ──────────────────────────────────────────────
+  // Progress bar
   const progressBar = document.getElementById('progress-bar');
   window.addEventListener('scroll', () => {
     const h = document.documentElement.scrollHeight - window.innerHeight;
     progressBar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
   }, { passive: true });
 
-  // ── NAVBAR SCROLL ─────────────────────────────────────────────
+  // Navbar scrolled state
   const navbar = document.getElementById('navbar');
   window.addEventListener('scroll', () => {
-    navbar.classList.toggle('scrolled', window.scrollY > 50);
+    navbar.classList.toggle('scrolled', window.scrollY > 20);
   }, { passive: true });
 
-  // ── HAMBURGER MENU ────────────────────────────────────────────
+  // Hamburger
   const menuBtn = document.getElementById('menu-btn');
   const mobileMenu = document.getElementById('mobile-menu');
   menuBtn?.addEventListener('click', () => {
@@ -919,15 +1414,15 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // ── LANGUAGE SWITCHER ─────────────────────────────────────────
+  // Language switcher
   const applyLang = (lang) => {
     document.querySelectorAll('[data-lt][data-en]').forEach(el => {
       el.textContent = lang === 'lt' ? el.dataset.lt : el.dataset.en;
     });
     document.querySelectorAll('[data-lang-toggle]').forEach(btn => {
       btn.classList.toggle('active', btn.dataset.langToggle === lang);
-      btn.classList.toggle('text-zinc-400', btn.dataset.langToggle !== lang);
     });
+    document.documentElement.lang = lang;
     localStorage.setItem('lang', lang);
   };
   document.querySelectorAll('[data-lang-toggle]').forEach(btn => {
@@ -935,29 +1430,31 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   applyLang(localStorage.getItem('lang') || 'lt');
 
-  // ── SMOOTH SCROLL ─────────────────────────────────────────────
+  // Smooth scroll
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
-      const target = document.querySelector(a.getAttribute('href'));
+      const href = a.getAttribute('href');
+      if (href === '#') return;
+      const target = document.querySelector(href);
       if (target) {
         e.preventDefault();
-        window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
+        window.scrollTo({ top: target.offsetTop - 70, behavior: 'smooth' });
       }
     });
   });
 
-  // ── SCROLL ANIMATIONS ─────────────────────────────────────────
-  const animObserver = new IntersectionObserver((entries) => {
+  // Fade in
+  const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
-        animObserver.unobserve(entry.target);
+        observer.unobserve(entry.target);
       }
     });
   }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-  document.querySelectorAll('.fade-up, .fade-left').forEach(el => animObserver.observe(el));
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
-  // ── FAQ ACCORDION ─────────────────────────────────────────────
+  // FAQ
   document.querySelectorAll('.faq-item').forEach(item => {
     item.querySelector('.faq-header')?.addEventListener('click', () => {
       const isActive = item.classList.contains('active');
@@ -974,61 +1471,84 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // ── PRICING TOGGLE ────────────────────────────────────────────
+  // Pricing toggle
   const billingToggle = document.getElementById('billing-toggle');
   billingToggle?.addEventListener('change', () => {
     const annual = billingToggle.checked;
     document.querySelectorAll('[data-price-monthly][data-price-annual]').forEach(el => {
-      const price = annual
+      el.textContent = annual
         ? Math.round(parseFloat(el.dataset.priceAnnual))
         : Math.round(parseFloat(el.dataset.priceMonthly));
-      el.textContent = price;
     });
   });
 
-  // ── ROI CALCULATOR ────────────────────────────────────────────
+  // ROI calculator
   const roiHours = document.getElementById('roi-hours');
-  const roiRate  = document.getElementById('roi-rate');
+  const roiRate = document.getElementById('roi-rate');
   const roiMonthly = document.getElementById('roi-monthly');
-  const roiAnnual  = document.getElementById('roi-annual');
+  const roiAnnual = document.getElementById('roi-annual');
+  const roiPayback = document.getElementById('roi-payback');
   const calcROI = () => {
     const h = parseFloat(roiHours?.value) || 0;
     const r = parseFloat(roiRate?.value) || 0;
     const monthly = h * 4.33 * r;
-    if (roiMonthly) roiMonthly.textContent = monthly.toLocaleString('lt-LT', { minimumFractionDigits: 0, maximumFractionDigits: 0 }) + ' €';
-    if (roiAnnual)  roiAnnual.textContent  = (monthly * 12).toLocaleString('lt-LT', { minimumFractionDigits: 0, maximumFractionDigits: 0 }) + ' €';
+    const annual = monthly * 12;
+    const standardPlanMonthly = 390;
+    const payback = monthly > 0 ? (1390 / (monthly - standardPlanMonthly)) : 0;
+    if (roiMonthly) roiMonthly.textContent = monthly.toLocaleString('lt-LT', { maximumFractionDigits: 0 }) + ' €';
+    if (roiAnnual) roiAnnual.textContent = annual.toLocaleString('lt-LT', { maximumFractionDigits: 0 }) + ' €';
+    if (roiPayback) {
+      if (payback > 0 && payback < 60) {
+        roiPayback.textContent = payback.toFixed(1);
+      } else if (payback >= 60 || payback <= 0) {
+        roiPayback.textContent = '—';
+      }
+    }
   };
   roiHours?.addEventListener('input', calcROI);
   roiRate?.addEventListener('input', calcROI);
   calcROI();
 
-  // ── COPY BUTTONS ──────────────────────────────────────────────
+  // Use case tabs
+  document.querySelectorAll('.tab-pill').forEach(tab => {
+    tab.addEventListener('click', () => {
+      const target = tab.dataset.tab;
+      document.querySelectorAll('.tab-pill').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      document.querySelectorAll('.case-panel').forEach(p => p.classList.remove('active'));
+      document.querySelector(`.case-panel[data-panel="${target}"]`)?.classList.add('active');
+    });
+  });
+
+  // Cal time slots
+  document.querySelectorAll('.cal-slot').forEach(slot => {
+    slot.addEventListener('click', () => {
+      document.querySelectorAll('.cal-slot').forEach(s => s.classList.remove('selected'));
+      slot.classList.add('selected');
+    });
+  });
+
+  // Copy buttons
   document.querySelectorAll('.copy-btn').forEach(btn => {
-    btn.addEventListener('click', async () => {
+    btn.addEventListener('click', async (e) => {
+      e.preventDefault(); e.stopPropagation();
       try {
         await navigator.clipboard.writeText(btn.dataset.copy);
-        const orig = btn.querySelector('span')?.textContent;
-        const span = btn.querySelector('span');
-        if (span) { span.textContent = 'Nukopijuota!'; }
-        btn.classList.add('copied');
-        setTimeout(() => {
-          if (span && orig) span.textContent = orig;
-          btn.classList.remove('copied');
-        }, 2000);
+        const orig = btn.textContent;
+        btn.textContent = (localStorage.getItem('lang') === 'en' ? 'Copied!' : 'Nukopijuota!');
+        setTimeout(() => { btn.textContent = orig; }, 2000);
       } catch {}
     });
   });
 
-  // ── SOCIAL PROOF TOASTS ───────────────────────────────────────
+  // Toast notifications
   const toasts = [
-    { lt: 'Tomas iš Vilniaus ką tik pradėjo', en: 'Tomas from Vilnius just started' },
-    { lt: 'Rasa iš Kauno sutaupė 24h/mėn', en: 'Rasa from Kaunas saved 24h/month' },
-    { lt: 'Mindaugas iš Klaipėdos padidino efektyvumą 40%', en: 'Mindaugas from Klaipėda up 40% efficiency' },
-    { lt: 'Laima iš Šiaulių sumažino išlaidas 15%', en: 'Laima from Šiauliai reduced costs 15%' },
-    { lt: 'Aurelijus iš Panevėžio sutaupė €800/mėn', en: 'Aurelijus from Panevėžys saved €800/mo' },
-    { lt: 'Gintarė iš Vilniaus sutaupė 30h/mėn', en: 'Gintarė from Vilnius saved 30h/month' },
-    { lt: 'Donatas iš Druskininkų pradėjo naudoti AI', en: 'Donatas from Druskininkai went live' },
-    { lt: 'Danutė iš Alytaus padidino produktyvumą 35%', en: 'Danutė from Alytus up 35% productivity' },
+    { lt: 'Eglė S. iš Kauno užsisakė auditę', en: 'Eglė S. from Kaunas booked an audit' },
+    { lt: 'Mantas S. iš Šiaulių pasirinko Standard', en: 'Mantas S. from Šiauliai chose Standard' },
+    { lt: 'Tomas P. iš Vilniaus pradėjo diegimą', en: 'Tomas P. from Vilnius started setup' },
+    { lt: 'Rūta V. iš Panevėžio sutaupė 22 val. šį mėn.', en: 'Rūta V. from Panevėžys saved 22 hrs this month' },
+    { lt: 'Justas K. iš Klaipėdos atsiliepė 5★', en: 'Justas K. from Klaipėda left a 5★ review' },
+    { lt: 'Ieva J. iš Marijampolės užsisakė pokalbį', en: 'Ieva J. from Marijampolė booked a call' },
   ];
   let toastIdx = 0;
   const showToast = () => {
@@ -1037,33 +1557,18 @@ document.addEventListener('DOMContentLoaded', () => {
     toastIdx++;
     const el = document.createElement('div');
     el.className = 'toast-notification';
-    el.textContent = data[lang];
+    el.innerHTML = `<span class="toast-dot"></span><span>${data[lang]}</span>`;
     document.body.appendChild(el);
     setTimeout(() => el.classList.add('visible'), 50);
     setTimeout(() => {
       el.classList.remove('visible');
-      setTimeout(() => el.remove(), 400);
-    }, 4500);
+      setTimeout(() => el.remove(), 500);
+    }, 5000);
   };
-  // Start after 6s, then every 10-15s
   setTimeout(() => {
     showToast();
-    setInterval(showToast, 12000 + Math.random() * 3000);
-  }, 6000);
-
-  // ── COOKIE BANNER ─────────────────────────────────────────────
-  if (!localStorage.getItem('cookie_consent')) {
-    setTimeout(() => {
-      document.getElementById('cookie-banner')?.classList.add('visible');
-    }, 2000);
-  }
-  const hideCookie = () => {
-    const banner = document.getElementById('cookie-banner');
-    banner?.classList.remove('visible');
-    localStorage.setItem('cookie_consent', '1');
-  };
-  document.getElementById('cookie-accept')?.addEventListener('click', hideCookie);
-  document.getElementById('cookie-decline')?.addEventListener('click', hideCookie);
+    setInterval(showToast, 15000 + Math.random() * 5000);
+  }, 8000);
 
 });
 </script>
