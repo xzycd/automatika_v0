@@ -9,7 +9,7 @@
   <meta property="og:description" content="Mažiau rutinos. Daugiau verslo. Sutaupykite 30+ valandų per mėnesį.">
   <meta property="og:type" content="website">
   <meta name="theme-color" content="#FAF7F2">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%230C4A2F'/%3E%3Ctext x='48' y='72' font-size='62' text-anchor='middle' fill='%23FAF7F2' font-family='Georgia,serif' font-style='italic'%3EA%3C/text%3E%3Ccircle cx='78' cy='26' r='7' fill='%23C99F6F'/%3E%3C/svg%3E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%230C4A2F'/%3E%3Cpath d='M22 78 L50 22 L78 78' stroke='%23FAF7F2' stroke-width='6.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3Cline x1='34' y1='56' x2='42' y2='56' stroke='%23FAF7F2' stroke-width='5.5' stroke-linecap='round'/%3E%3Cline x1='58' y1='56' x2='66' y2='56' stroke='%23FAF7F2' stroke-width='5.5' stroke-linecap='round'/%3E%3Ccircle cx='50' cy='56' r='6.5' fill='%23C99F6F'/%3E%3C/svg%3E">
 
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
@@ -345,32 +345,11 @@
     /* Footer */
     footer { background: var(--bg); }
 
-    /* Brand mark */
-    .brand-mark {
-      position: relative;
-      width: 32px; height: 32px;
-      border-radius: 50%;
-      background: var(--accent);
-      display: inline-flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-    }
-    .brand-mark .brand-a {
-      font-family: 'Instrument Serif', Georgia, serif;
-      font-style: italic;
-      color: var(--bg);
-      font-size: 22px;
-      line-height: 1;
-      transform: translate(-1px, 1px);
-      letter-spacing: -0.02em;
-    }
-    .brand-mark .brand-spark {
-      position: absolute;
-      top: -1px; right: -1px;
-      width: 9px; height: 9px;
-      border-radius: 50%;
-      background: var(--warm);
-      box-shadow: 0 0 0 2px var(--bg);
-    }
+    /* Brand */
+    .brand-mark { display: inline-flex; align-items: center; flex-shrink: 0; }
+    .brand-mark svg { display: block; transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
+    .brand-mark .brand-node { transition: r 0.4s ease, fill 0.4s ease; transform-origin: center; }
+    a:hover .brand-mark .brand-node { r: 3.2; }
     .brand-word { font-family: 'Inter', system-ui, sans-serif; font-weight: 500; letter-spacing: -0.015em; }
     .brand-word .brand-dot {
       font-family: 'Instrument Serif', Georgia, serif;
@@ -420,10 +399,15 @@
 <nav id="navbar">
   <div class="max-w-7xl mx-auto px-6 py-4">
     <div class="flex items-center justify-between gap-8">
-      <a href="#" class="flex items-center gap-2.5">
+      <a href="#" class="flex items-center gap-2.5" aria-label="Automatika">
         <span class="brand-mark">
-          <span class="brand-a">A</span>
-          <span class="brand-spark"></span>
+          <svg viewBox="0 0 40 40" width="30" height="30" aria-hidden="true">
+            <circle cx="20" cy="20" r="19" fill="#0C4A2F"/>
+            <path d="M9 31 L20 9 L31 31" stroke="#FAF7F2" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <line x1="13.6" y1="22.4" x2="17.4" y2="22.4" stroke="#FAF7F2" stroke-width="2.2" stroke-linecap="round"/>
+            <line x1="22.6" y1="22.4" x2="26.4" y2="22.4" stroke="#FAF7F2" stroke-width="2.2" stroke-linecap="round"/>
+            <circle class="brand-node" cx="20" cy="22.4" r="2.5" fill="#C99F6F"/>
+          </svg>
         </span>
         <span class="brand-word tracking-tight">Automatika<span class="brand-dot">.</span></span>
       </a>
@@ -1406,8 +1390,13 @@
       <div class="md:col-span-5">
         <a href="#" class="flex items-center gap-2.5 mb-4">
           <span class="brand-mark">
-            <span class="brand-a">A</span>
-            <span class="brand-spark"></span>
+            <svg viewBox="0 0 40 40" width="30" height="30" aria-hidden="true">
+              <circle cx="20" cy="20" r="19" fill="#0C4A2F"/>
+              <path d="M9 31 L20 9 L31 31" stroke="#FAF7F2" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              <line x1="13.6" y1="22.4" x2="17.4" y2="22.4" stroke="#FAF7F2" stroke-width="2.2" stroke-linecap="round"/>
+              <line x1="22.6" y1="22.4" x2="26.4" y2="22.4" stroke="#FAF7F2" stroke-width="2.2" stroke-linecap="round"/>
+              <circle class="brand-node" cx="20" cy="22.4" r="2.5" fill="#C99F6F"/>
+            </svg>
           </span>
           <span class="brand-word tracking-tight">Automatika<span class="brand-dot">.</span></span>
         </a>
