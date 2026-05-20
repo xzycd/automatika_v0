@@ -9,7 +9,7 @@
   <meta property="og:description" content="Mažiau rutinos. Daugiau verslo. Sutaupykite 30+ valandų per mėnesį.">
   <meta property="og:type" content="website">
   <meta name="theme-color" content="#FAF7F2">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230C4A2F'/%3E%3Ctext x='50' y='68' font-size='60' text-anchor='middle' fill='%23FAF7F2' font-family='serif'%3EA%3C/text%3E%3C/svg%3E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%230C4A2F'/%3E%3Ctext x='48' y='72' font-size='62' text-anchor='middle' fill='%23FAF7F2' font-family='Georgia,serif' font-style='italic'%3EA%3C/text%3E%3Ccircle cx='78' cy='26' r='7' fill='%23C99F6F'/%3E%3C/svg%3E">
 
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
@@ -345,6 +345,40 @@
     /* Footer */
     footer { background: var(--bg); }
 
+    /* Brand mark */
+    .brand-mark {
+      position: relative;
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      background: var(--accent);
+      display: inline-flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .brand-mark .brand-a {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-style: italic;
+      color: var(--bg);
+      font-size: 22px;
+      line-height: 1;
+      transform: translate(-1px, 1px);
+      letter-spacing: -0.02em;
+    }
+    .brand-mark .brand-spark {
+      position: absolute;
+      top: -1px; right: -1px;
+      width: 9px; height: 9px;
+      border-radius: 50%;
+      background: var(--warm);
+      box-shadow: 0 0 0 2px var(--bg);
+    }
+    .brand-word { font-family: 'Inter', system-ui, sans-serif; font-weight: 500; letter-spacing: -0.015em; }
+    .brand-word .brand-dot {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-style: italic;
+      color: var(--warm);
+      margin-left: 1px;
+    }
+
     /* Editorial photo */
     .editorial-photo-wrap {
       position: relative; width: 100%;
@@ -387,10 +421,11 @@
   <div class="max-w-7xl mx-auto px-6 py-4">
     <div class="flex items-center justify-between gap-8">
       <a href="#" class="flex items-center gap-2.5">
-        <div class="w-7 h-7 rounded-lg bg-[var(--accent)] flex items-center justify-center">
-          <span class="serif text-[var(--bg)] text-lg leading-none">A</span>
-        </div>
-        <span class="font-medium tracking-tight">Automatika</span>
+        <span class="brand-mark">
+          <span class="brand-a">A</span>
+          <span class="brand-spark"></span>
+        </span>
+        <span class="brand-word tracking-tight">Automatika<span class="brand-dot">.</span></span>
       </a>
 
       <div class="hidden md:flex items-center gap-7 text-sm text-[var(--ink-2)]">
@@ -1370,10 +1405,11 @@
     <div class="grid md:grid-cols-12 gap-10 mb-10">
       <div class="md:col-span-5">
         <a href="#" class="flex items-center gap-2.5 mb-4">
-          <div class="w-7 h-7 rounded-lg bg-[var(--accent)] flex items-center justify-center">
-            <span class="serif text-[var(--bg)] text-lg leading-none">A</span>
-          </div>
-          <span class="font-medium tracking-tight">Automatika</span>
+          <span class="brand-mark">
+            <span class="brand-a">A</span>
+            <span class="brand-spark"></span>
+          </span>
+          <span class="brand-word tracking-tight">Automatika<span class="brand-dot">.</span></span>
         </a>
         <p class="text-sm text-[var(--ink-3)] max-w-sm leading-relaxed" data-lt="AI automatika smulkiam ir vidutiniam verslui Lietuvoje. Statome sistemą, kurioje verslas dirba jums — ne atvirkščiai." data-en="AI automation for Lithuanian small and medium businesses. We build systems where the business works for you — not the other way around.">AI automatika smulkiam ir vidutiniam verslui Lietuvoje. Statome sistemą, kurioje verslas dirba jums — ne atvirkščiai.</p>
       </div>
