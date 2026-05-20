@@ -9,7 +9,7 @@
   <meta property="og:description" content="Mažiau rutinos. Daugiau verslo. Sutaupykite 30+ valandų per mėnesį.">
   <meta property="og:type" content="website">
   <meta name="theme-color" content="#FAF7F2">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%230C4A2F'/%3E%3Cpath d='M22 78 L50 22 L78 78' stroke='%23FAF7F2' stroke-width='6.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3Cline x1='34' y1='56' x2='42' y2='56' stroke='%23FAF7F2' stroke-width='5.5' stroke-linecap='round'/%3E%3Cline x1='58' y1='56' x2='66' y2='56' stroke='%23FAF7F2' stroke-width='5.5' stroke-linecap='round'/%3E%3Ccircle cx='50' cy='56' r='6.5' fill='%23C99F6F'/%3E%3C/svg%3E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230C4A2F'/%3E%3Ctext x='50' y='75' font-size='78' text-anchor='middle' fill='%23FAF7F2' font-family='Georgia,serif' font-style='italic' font-weight='400'%3EA%3C/text%3E%3Ctext x='75' y='75' font-size='78' fill='%23C99F6F' font-family='Georgia,serif' font-style='italic' font-weight='400'%3E.%3C/text%3E%3C/svg%3E">
 
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
@@ -141,6 +141,38 @@
     /* Lang toggle */
     .lang-btn { padding: 4px 10px; border-radius: 999px; font-size: 12px; font-weight: 500; color: var(--ink-3); transition: color 0.2s, background 0.2s; }
     .lang-btn.active { background: var(--ink); color: var(--bg); }
+
+    /* Brand wordmark — editorial italic serif */
+    .brand-word {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: 26px;
+      line-height: 1;
+      letter-spacing: -0.005em;
+      color: var(--ink);
+      transition: color 0.2s;
+    }
+    .brand-word .brand-dot {
+      color: var(--warm);
+      margin-left: 0.5px;
+    }
+    a:hover .brand-word { color: var(--accent); }
+    footer .brand-word { font-size: 24px; }
+
+    /* Editorial photo */
+    .editorial-photo-wrap {
+      position: relative; width: 100%;
+      border-radius: 14px; overflow: hidden;
+      background: radial-gradient(ellipse at 30% 40%, #E8DDC8 0%, transparent 60%), linear-gradient(180deg, #DCD0B6 0%, #C9B894 100%);
+      box-shadow: 0 24px 48px -20px rgba(15,15,15,0.16);
+    }
+    .editorial-photo-wrap img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      filter: saturate(0.85) contrast(0.97) brightness(1.02);
+      transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .editorial-photo-wrap:hover img { transform: scale(1.04); }
 
     /* Mobile menu */
     #mobile-menu { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
@@ -345,30 +377,6 @@
     /* Footer */
     footer { background: var(--bg); }
 
-    /* Brand */
-    .brand-mark { display: inline-flex; align-items: center; flex-shrink: 0; }
-    .brand-mark svg { display: block; }
-    .brand-word { font-family: 'Inter', system-ui, sans-serif; font-weight: 500; letter-spacing: -0.015em; }
-    .brand-word .brand-dot {
-      font-family: 'Instrument Serif', Georgia, serif;
-      font-style: italic;
-      color: var(--warm);
-    }
-
-    /* Editorial photo */
-    .editorial-photo-wrap {
-      position: relative; width: 100%;
-      border-radius: 14px; overflow: hidden;
-      background: radial-gradient(ellipse at 30% 40%, #E8DDC8 0%, transparent 60%), linear-gradient(180deg, #DCD0B6 0%, #C9B894 100%);
-      box-shadow: 0 24px 48px -20px rgba(15,15,15,0.16);
-    }
-    .editorial-photo-wrap img {
-      width: 100%; height: 100%; object-fit: cover; display: block;
-      filter: saturate(0.85) contrast(0.97) brightness(1.02);
-      transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .editorial-photo-wrap:hover img { transform: scale(1.04); }
-
     /* Mobile */
     @media (max-width: 768px) {
       .display-1 { font-size: 2.7rem; }
@@ -396,17 +404,8 @@
 <nav id="navbar">
   <div class="max-w-7xl mx-auto px-6 py-4">
     <div class="flex items-center justify-between gap-8">
-      <a href="#" class="flex items-center gap-2.5" aria-label="Automatika">
-        <span class="brand-mark">
-          <svg viewBox="0 0 40 40" width="30" height="30" aria-hidden="true">
-            <circle cx="20" cy="20" r="19" fill="#0C4A2F"/>
-            <path d="M9 31 L20 9 L31 31" stroke="#FAF7F2" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-            <line x1="13.6" y1="22.4" x2="17.4" y2="22.4" stroke="#FAF7F2" stroke-width="2.2" stroke-linecap="round"/>
-            <line x1="22.6" y1="22.4" x2="26.4" y2="22.4" stroke="#FAF7F2" stroke-width="2.2" stroke-linecap="round"/>
-            <circle cx="20" cy="22.4" r="2.5" fill="#C99F6F"/>
-          </svg>
-        </span>
-        <span class="brand-word tracking-tight">Automatika<span class="brand-dot">.</span></span>
+      <a href="#" aria-label="Automatika">
+        <span class="brand-word">Automatika<span class="brand-dot">.</span></span>
       </a>
 
       <div class="hidden md:flex items-center gap-7 text-sm text-[var(--ink-2)]">
@@ -1408,17 +1407,8 @@
   <div class="max-w-7xl mx-auto px-6">
     <div class="grid md:grid-cols-12 gap-10 mb-10">
       <div class="md:col-span-5">
-        <a href="#" class="flex items-center gap-2.5 mb-4">
-          <span class="brand-mark">
-            <svg viewBox="0 0 40 40" width="28" height="28" aria-hidden="true">
-              <circle cx="20" cy="20" r="19" fill="#0C4A2F"/>
-              <path d="M9 31 L20 9 L31 31" stroke="#FAF7F2" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-              <line x1="13.6" y1="22.4" x2="17.4" y2="22.4" stroke="#FAF7F2" stroke-width="2.2" stroke-linecap="round"/>
-              <line x1="22.6" y1="22.4" x2="26.4" y2="22.4" stroke="#FAF7F2" stroke-width="2.2" stroke-linecap="round"/>
-              <circle cx="20" cy="22.4" r="2.5" fill="#C99F6F"/>
-            </svg>
-          </span>
-          <span class="brand-word tracking-tight">Automatika<span class="brand-dot">.</span></span>
+        <a href="#" class="inline-block mb-4" aria-label="Automatika">
+          <span class="brand-word">Automatika<span class="brand-dot">.</span></span>
         </a>
         <p class="text-sm text-[var(--ink-3)] max-w-sm leading-relaxed" data-lt="AI automatika smulkiam ir vidutiniam verslui Lietuvoje. Statome sistemą, kurioje verslas dirba jums — ne atvirkščiai." data-en="AI automation for Lithuanian small and medium businesses. We build systems where the business works for you — not the other way around.">AI automatika smulkiam ir vidutiniam verslui Lietuvoje. Statome sistemą, kurioje verslas dirba jums — ne atvirkščiai.</p>
       </div>
