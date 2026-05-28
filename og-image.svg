@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Automatika - AI automatika Lietuvos verslui">
+  <defs>
+    <style>
+      .serif { font-family: Georgia, 'Times New Roman', serif; }
+      .sans  { font-family: 'Helvetica Neue', Arial, sans-serif; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="630" fill="#FAF7F2"/>
+  <rect width="1200" height="630" fill="url(#grain)" opacity="0.04"/>
+
+  <!-- brand mark -->
+  <g transform="translate(90 86)">
+    <rect width="56" height="56" rx="14" fill="#0C4A2F"/>
+    <text x="28" y="41" font-size="36" text-anchor="middle" fill="#FAF7F2" class="serif">A</text>
+    <text x="76" y="38" font-size="26" class="sans" font-weight="600" fill="#0F0F0F">Automatika</text>
+  </g>
+
+  <!-- headline -->
+  <text x="90" y="300" font-size="92" class="sans" font-weight="700" fill="#0F0F0F" letter-spacing="-3">Mažiau rutinos.</text>
+  <text x="90" y="404" font-size="92" class="serif" font-style="italic" fill="#0C4A2F" letter-spacing="-2">Daugiau verslo.</text>
+
+  <!-- subhead -->
+  <text x="92" y="474" font-size="30" class="sans" fill="#3F3F3F">Sutaupykite 30+ valandų per mėnesį su AI automatika.</text>
+
+  <!-- pill -->
+  <g transform="translate(90 520)">
+    <rect width="360" height="50" rx="25" fill="#D7E5DC"/>
+    <circle cx="34" cy="25" r="6" fill="#0C4A2F"/>
+    <text x="56" y="33" font-size="20" class="sans" font-weight="500" fill="#0C4A2F">AI automatika · Lietuva</text>
+  </g>
+
+  <!-- accent rule -->
+  <rect x="1060" y="0" width="140" height="630" fill="#0C4A2F"/>
+  <text x="1130" y="330" font-size="220" text-anchor="middle" fill="#FAF7F2" class="serif" opacity="0.18">A</text>
+
+  <filter id="grain">
+    <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2"/>
+  </filter>
+</svg>

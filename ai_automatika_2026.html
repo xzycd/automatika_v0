@@ -5,13 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Automatika - AI automatika Lietuvos verslui</title>
   <meta name="description" content="Mažiau rutinos. Daugiau verslo. Sutaupykite 30+ valandų per mėnesį su AI automatika. Nemokama konsultacija - atsakymas per 24 val.">
+  <link rel="canonical" href="https://automatika.lt/">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#FAF7F2">
+
   <meta property="og:title" content="Automatika - AI automatika Lietuvos verslui">
   <meta property="og:description" content="Mažiau rutinos. Daugiau verslo. Sutaupykite 30+ valandų per mėnesį.">
   <meta property="og:type" content="website">
-  <meta name="theme-color" content="#FAF7F2">
+  <meta property="og:url" content="https://automatika.lt/">
+  <meta property="og:site_name" content="Automatika">
+  <meta property="og:locale" content="lt_LT">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:image" content="https://automatika.lt/og-image.svg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Automatika - AI automatika Lietuvos verslui">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Automatika - AI automatika Lietuvos verslui">
+  <meta name="twitter:description" content="Mažiau rutinos. Daugiau verslo. Sutaupykite 30+ valandų per mėnesį.">
+  <meta name="twitter:image" content="https://automatika.lt/og-image.svg">
+
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230C4A2F'/%3E%3Ctext x='50' y='68' font-size='60' text-anchor='middle' fill='%23FAF7F2' font-family='serif'%3EA%3C/text%3E%3C/svg%3E">
 
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="automatika.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -335,7 +352,68 @@
       .display-1 { font-size: 2.7rem; }
       section { padding-top: 4rem !important; padding-bottom: 4rem !important; }
     }
+
+    /* Accessibility: visible keyboard focus */
+    :focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+    .btn-primary:focus-visible { outline-color: var(--ink); }
+    /* Mouse users keep clean look; keyboard users get the ring */
+    :focus:not(:focus-visible) { outline: none; }
+
+    /* Respect reduced-motion preference */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
+      }
+      .fade-up { opacity: 1; transform: none; }
+      .marquee { animation: none; }
+    }
   </style>
+
+  <!-- Structured data: Service -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Automatika",
+    "description": "AI automatika Lietuvos smulkiam ir vidutiniam verslui. Priminimai, registracijos, sąskaitos ir klientų komunikacija veikia savaime.",
+    "url": "https://automatika.lt/",
+    "image": "https://automatika.lt/og-image.svg",
+    "email": "hello@automatika.lt",
+    "areaServed": { "@type": "Country", "name": "Lithuania" },
+    "address": { "@type": "PostalAddress", "addressLocality": "Vilnius", "addressCountry": "LT" },
+    "founder": { "@type": "Person", "name": "Audrius" },
+    "knowsLanguage": ["lt", "en"],
+    "offers": [
+      { "@type": "Offer", "name": "Mini", "price": "590", "priceCurrency": "EUR", "description": "Diegimas + 240 €/mėn. priežiūra. Iki 3 automatikų." },
+      { "@type": "Offer", "name": "Standartinis", "price": "1390", "priceCurrency": "EUR", "description": "Diegimas + 390 €/mėn. priežiūra. Iki 8 automatikų." },
+      { "@type": "Offer", "name": "Augimo", "price": "2490", "priceCurrency": "EUR", "description": "Diegimas + 690 €/mėn. priežiūra. Neribota automatikų." }
+    ]
+  }
+  </script>
+
+  <!-- Structured data: FAQ (eligible for rich results) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "Kaip apsaugoti mano klientų duomenys?", "acceptedAnswer": { "@type": "Answer", "text": "Visi duomenys šifruoti perduodant ir saugant. Atitinka BDAR. Naudojami AWS serveriai ES regione. Jūs visada esate duomenų savininkas - galite eksportuoti ar ištrinti bet kada." } },
+      { "@type": "Question", "name": "Per kiek laiko viskas pradeda veikti?", "acceptedAnswer": { "@type": "Answer", "text": "3-5 darbo dienos nuo pokalbio. Pirmoji savaitė - diegimas. Antra savaitė - pilnai veikia. Jūs tik pasakojate, kaip dirbate dabar - visa technine dalimi rūpinuosi pats." } },
+      { "@type": "Question", "name": "Ar reikės pasirašyti ilgalaikę sutartį?", "acceptedAnswer": { "@type": "Answer", "text": "Ne. Mėnesinė priežiūra - mėnuo iš mėnesio. Galite nutraukti bet kada be jokių baudų. Dauguma klientų lieka, nes sistema iš tikrųjų taupo laiką. Ne dėl sutarties." } },
+      { "@type": "Question", "name": "Kas atsitinka, jei kas nors sulūžta?", "acceptedAnswer": { "@type": "Answer", "text": "Sistemos stebimos automatiškai 24/7. Daugumą problemų pamatau pirmiau nei jūs. Jūsų pranešimai - vidutinis atsakymas per 30 minučių darbo dienomis, iki 2 val. savaitgalį." } },
+      { "@type": "Question", "name": "Su kokiomis sistemomis integruojatės?", "acceptedAnswer": { "@type": "Answer", "text": "Google Workspace, Outlook, WhatsApp Business, Stripe, PayPal, Paysera, populiariausios SMS paslaugos (Eskimi, MailerLite). Jei naudojate kažką specifiškai lietuvišką - paklauskite, dažniausiai integruojamės." } },
+      { "@type": "Question", "name": "Ar mano klientai pajus, kad atsako AI?", "acceptedAnswer": { "@type": "Answer", "text": "Ne. AI naudojamas tik standartinėms žinutėms - priminimams, patvirtinimams, atsakymams į dažniausius klausimus. Žinutės rašomos jūsų stiliumi. Komplikuotos žinutės nukreipiamos jums." } },
+      { "@type": "Question", "name": "Kiek mokėsiu, jei mano verslas mažas?", "acceptedAnswer": { "@type": "Answer", "text": "Pradžia - 590 € diegimas + 240 €/mėn. Jei tai per daug, kalbėkimės - nekuriu sprendimo, kuris jums per brangus. Daugumai 1-3 žmonių verslų pakanka Mini plano." } }
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -378,7 +456,7 @@
           <button data-lang-toggle="en" class="lang-btn">EN</button>
         </div>
         <a href="#kontaktai" class="hidden md:inline-flex btn-primary text-sm" data-lt="Nemokama konsultacija" data-en="Free consultation">Nemokama konsultacija</a>
-        <button id="menu-btn" class="md:hidden flex flex-col justify-center p-1" aria-label="Menu">
+        <button id="menu-btn" class="md:hidden flex flex-col justify-center p-1" aria-label="Menu" aria-controls="mobile-menu" aria-expanded="false">
           <span></span><span></span><span></span>
         </button>
       </div>
@@ -809,12 +887,12 @@
         </p>
         <div class="space-y-5">
           <div>
-            <label class="block text-sm text-[var(--ink-2)] mb-2 font-medium" data-lt="Valandos per savaitę rankiniam darbui" data-en="Hours per week on manual work">Valandos per savaitę rankiniam darbui</label>
-            <input id="roi-hours" type="number" class="roi-input" min="1" max="168" value="10">
+            <label for="roi-hours" class="block text-sm text-[var(--ink-2)] mb-2 font-medium" data-lt="Valandos per savaitę rankiniam darbui" data-en="Hours per week on manual work">Valandos per savaitę rankiniam darbui</label>
+            <input id="roi-hours" type="number" inputmode="numeric" class="roi-input" min="1" max="168" value="10">
           </div>
           <div>
-            <label class="block text-sm text-[var(--ink-2)] mb-2 font-medium" data-lt="Valandinis įkainis (€)" data-en="Hourly rate (€)">Valandinis įkainis (€)</label>
-            <input id="roi-rate" type="number" class="roi-input" min="1" max="500" value="20">
+            <label for="roi-rate" class="block text-sm text-[var(--ink-2)] mb-2 font-medium" data-lt="Valandinis įkainis (€)" data-en="Hourly rate (€)">Valandinis įkainis (€)</label>
+            <input id="roi-rate" type="number" inputmode="numeric" class="roi-input" min="1" max="500" value="20">
           </div>
         </div>
       </div>
@@ -1224,50 +1302,15 @@
             <!-- Calendar -->
             <div class="p-6 border-r border-[var(--line)] border-b sm:border-b-0">
               <div class="flex items-center justify-between mb-5">
-                <button class="text-[var(--ink-3)] hover:text-[var(--ink)]"><i class="fas fa-chevron-left text-xs"></i></button>
-                <span class="text-sm font-medium" data-lt="Gegužė 2026" data-en="May 2026">Gegužė 2026</span>
-                <button class="text-[var(--ink-3)] hover:text-[var(--ink)]"><i class="fas fa-chevron-right text-xs"></i></button>
+                <button type="button" class="text-[var(--ink-3)] hover:text-[var(--ink)]" aria-label="Ankstesnis mėnuo"><i class="fas fa-chevron-left text-xs"></i></button>
+                <span id="cal-month" class="text-sm font-medium">Gegužė 2026</span>
+                <button type="button" class="text-[var(--ink-3)] hover:text-[var(--ink)]" aria-label="Kitas mėnuo"><i class="fas fa-chevron-right text-xs"></i></button>
               </div>
               <div class="grid grid-cols-7 gap-1 text-[10px] text-[var(--ink-4)] text-center mb-2 font-medium">
                 <div>P</div><div>A</div><div>T</div><div>K</div><div>P</div><div>Š</div><div>S</div>
               </div>
-              <div class="grid grid-cols-7 gap-1 text-xs text-center">
-                <div class="text-[var(--ink-4)] py-2">28</div>
-                <div class="text-[var(--ink-4)] py-2">29</div>
-                <div class="text-[var(--ink-4)] py-2">30</div>
-                <div class="text-[var(--ink-4)] py-2">1</div>
-                <div class="text-[var(--ink-4)] py-2">2</div>
-                <div class="text-[var(--ink-4)] py-2">3</div>
-                <div class="text-[var(--ink-4)] py-2">4</div>
-                <div class="text-[var(--ink-4)] py-2">5</div>
-                <div class="text-[var(--ink-4)] py-2">6</div>
-                <div class="text-[var(--ink-4)] py-2">7</div>
-                <div class="text-[var(--ink-4)] py-2">8</div>
-                <div class="text-[var(--ink-4)] py-2">9</div>
-                <div class="text-[var(--ink-4)] py-2">10</div>
-                <div class="text-[var(--ink-4)] py-2">11</div>
-                <div class="text-[var(--ink-4)] py-2">12</div>
-                <div class="text-[var(--ink-4)] py-2">13</div>
-                <div class="text-[var(--ink-4)] py-2">14</div>
-                <div class="text-[var(--ink-4)] py-2">15</div>
-                <div class="text-[var(--ink-4)] py-2">16</div>
-                <div class="text-[var(--ink-4)] py-2">17</div>
-                <div class="text-[var(--ink-2)] py-2 rounded font-medium hover:bg-[var(--bg-alt)] cursor-pointer">18</div>
-                <div class="bg-[var(--accent)] text-[var(--bg)] py-2 rounded font-medium cursor-pointer">19</div>
-                <div class="text-[var(--ink-2)] py-2 rounded font-medium hover:bg-[var(--bg-alt)] cursor-pointer">20</div>
-                <div class="text-[var(--ink-2)] py-2 rounded font-medium hover:bg-[var(--bg-alt)] cursor-pointer">21</div>
-                <div class="text-[var(--ink-2)] py-2 rounded font-medium hover:bg-[var(--bg-alt)] cursor-pointer">22</div>
-                <div class="text-[var(--ink-4)] py-2">23</div>
-                <div class="text-[var(--ink-4)] py-2">24</div>
-                <div class="text-[var(--ink-2)] py-2 rounded font-medium hover:bg-[var(--bg-alt)] cursor-pointer">25</div>
-                <div class="text-[var(--ink-2)] py-2 rounded font-medium hover:bg-[var(--bg-alt)] cursor-pointer">26</div>
-                <div class="text-[var(--ink-2)] py-2 rounded font-medium hover:bg-[var(--bg-alt)] cursor-pointer">27</div>
-                <div class="text-[var(--ink-2)] py-2 rounded font-medium hover:bg-[var(--bg-alt)] cursor-pointer">28</div>
-                <div class="text-[var(--ink-2)] py-2 rounded font-medium hover:bg-[var(--bg-alt)] cursor-pointer">29</div>
-                <div class="text-[var(--ink-4)] py-2">30</div>
-                <div class="text-[var(--ink-4)] py-2">31</div>
-              </div>
-              <p class="text-[10px] text-[var(--ink-4)] mt-4 text-center" data-lt="Antradienis · gegužės 19" data-en="Tuesday · May 19">Antradienis · gegužės 19</p>
+              <div id="cal-days" class="grid grid-cols-7 gap-1 text-xs text-center"></div>
+              <p id="cal-footer" class="text-[10px] text-[var(--ink-4)] mt-4 text-center">Antradienis · gegužės 19</p>
             </div>
 
             <!-- Time slots -->
@@ -1354,6 +1397,9 @@
 <script>
 document.addEventListener('DOMContentLoaded', () => {
 
+  // Decorative Font Awesome glyphs carry no meaning for assistive tech
+  document.querySelectorAll('i.fas, i.far, i.fab').forEach(i => i.setAttribute('aria-hidden', 'true'));
+
   // Progress bar + navbar scroll state, rAF-batched (single listener)
   const progressBar = document.getElementById('progress-bar');
   const navbar = document.getElementById('navbar');
@@ -1375,15 +1421,16 @@ document.addEventListener('DOMContentLoaded', () => {
   // Hamburger
   const menuBtn = document.getElementById('menu-btn');
   const mobileMenu = document.getElementById('mobile-menu');
+  const setMenu = (open) => {
+    mobileMenu.classList.toggle('visible', open);
+    menuBtn.classList.toggle('open', open);
+    menuBtn.setAttribute('aria-expanded', String(open));
+  };
   menuBtn?.addEventListener('click', () => {
-    mobileMenu.classList.toggle('visible');
-    menuBtn.classList.toggle('open');
+    setMenu(!mobileMenu.classList.contains('visible'));
   });
   mobileMenu?.querySelectorAll('a').forEach(a => {
-    a.addEventListener('click', () => {
-      mobileMenu.classList.remove('visible');
-      menuBtn.classList.remove('open');
-    });
+    a.addEventListener('click', () => setMenu(false));
   });
 
   // Language switcher
@@ -1392,15 +1439,17 @@ document.addEventListener('DOMContentLoaded', () => {
       el.textContent = lang === 'lt' ? el.dataset.lt : el.dataset.en;
     });
     document.querySelectorAll('[data-lang-toggle]').forEach(btn => {
-      btn.classList.toggle('active', btn.dataset.langToggle === lang);
+      const on = btn.dataset.langToggle === lang;
+      btn.classList.toggle('active', on);
+      btn.setAttribute('aria-pressed', String(on));
     });
     document.documentElement.lang = lang;
     localStorage.setItem('lang', lang);
+    renderCalendar(lang);
   };
   document.querySelectorAll('[data-lang-toggle]').forEach(btn => {
     btn.addEventListener('click', () => applyLang(btn.dataset.langToggle));
   });
-  applyLang(localStorage.getItem('lang') || 'lt');
 
   // Smooth scroll
   document.querySelectorAll('a[href^="#"]').forEach(a => {
@@ -1426,20 +1475,36 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
   document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
-  // FAQ
-  document.querySelectorAll('.faq-item').forEach(item => {
-    item.querySelector('.faq-header')?.addEventListener('click', () => {
+  // FAQ - accessible accordion (header acts as a button, keyboard-operable)
+  document.querySelectorAll('.faq-item').forEach((item, idx) => {
+    const header = item.querySelector('.faq-header');
+    const ans = item.querySelector('.faq-answer');
+    if (!header || !ans) return;
+    const ansId = 'faq-answer-' + (idx + 1);
+    ans.id = ansId;
+    ans.setAttribute('role', 'region');
+    header.setAttribute('role', 'button');
+    header.setAttribute('tabindex', '0');
+    header.setAttribute('aria-expanded', 'false');
+    header.setAttribute('aria-controls', ansId);
+
+    const toggle = () => {
       const isActive = item.classList.contains('active');
       document.querySelectorAll('.faq-item').forEach(i => {
         i.classList.remove('active');
-        const ans = i.querySelector('.faq-answer');
-        if (ans) ans.style.maxHeight = '0';
+        const a = i.querySelector('.faq-answer');
+        if (a) a.style.maxHeight = '0';
+        i.querySelector('.faq-header')?.setAttribute('aria-expanded', 'false');
       });
       if (!isActive) {
         item.classList.add('active');
-        const ans = item.querySelector('.faq-answer');
-        if (ans) ans.style.maxHeight = ans.scrollHeight + 'px';
+        ans.style.maxHeight = ans.scrollHeight + 'px';
+        header.setAttribute('aria-expanded', 'true');
       }
+    };
+    header.addEventListener('click', toggle);
+    header.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
     });
   });
 
@@ -1481,16 +1546,50 @@ document.addEventListener('DOMContentLoaded', () => {
   roiRate?.addEventListener('input', calcROI);
   calcROI();
 
-  // Use case tabs
-  document.querySelectorAll('.tab-pill').forEach(tab => {
-    tab.addEventListener('click', () => {
+  // Use case tabs - accessible tablist with arrow-key navigation
+  const tabs = Array.from(document.querySelectorAll('.tab-pill'));
+  if (tabs.length) {
+    tabs[0].parentElement?.setAttribute('role', 'tablist');
+    tabs.forEach((tab, i) => {
       const target = tab.dataset.tab;
-      document.querySelectorAll('.tab-pill').forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
-      document.querySelectorAll('.case-panel').forEach(p => p.classList.remove('active'));
-      document.querySelector(`.case-panel[data-panel="${target}"]`)?.classList.add('active');
+      const panel = document.querySelector(`.case-panel[data-panel="${target}"]`);
+      const tabId = 'tab-' + target, panelId = 'panel-' + target;
+      tab.id = tabId;
+      tab.setAttribute('role', 'tab');
+      tab.setAttribute('aria-controls', panelId);
+      const active = tab.classList.contains('active');
+      tab.setAttribute('aria-selected', String(active));
+      tab.setAttribute('tabindex', active ? '0' : '-1');
+      if (panel) {
+        panel.id = panelId;
+        panel.setAttribute('role', 'tabpanel');
+        panel.setAttribute('aria-labelledby', tabId);
+        panel.setAttribute('tabindex', '0');
+      }
     });
-  });
+    const selectTab = (tab, focus) => {
+      tabs.forEach(t => {
+        const on = t === tab;
+        t.classList.toggle('active', on);
+        t.setAttribute('aria-selected', String(on));
+        t.setAttribute('tabindex', on ? '0' : '-1');
+      });
+      document.querySelectorAll('.case-panel').forEach(p => p.classList.remove('active'));
+      document.querySelector(`.case-panel[data-panel="${tab.dataset.tab}"]`)?.classList.add('active');
+      if (focus) tab.focus();
+    };
+    tabs.forEach((tab, i) => {
+      tab.addEventListener('click', () => selectTab(tab));
+      tab.addEventListener('keydown', (e) => {
+        let next = null;
+        if (e.key === 'ArrowRight' || e.key === 'ArrowDown') next = tabs[(i + 1) % tabs.length];
+        else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') next = tabs[(i - 1 + tabs.length) % tabs.length];
+        else if (e.key === 'Home') next = tabs[0];
+        else if (e.key === 'End') next = tabs[tabs.length - 1];
+        if (next) { e.preventDefault(); selectTab(next, true); }
+      });
+    });
+  }
 
   // Cal time slots
   document.querySelectorAll('.cal-slot').forEach(slot => {
@@ -1499,6 +1598,65 @@ document.addEventListener('DOMContentLoaded', () => {
       slot.classList.add('selected');
     });
   });
+
+  // Booking calendar - rendered from today's date so it is never stale (visual demo)
+  const LT_MONTHS = ['Sausis','Vasaris','Kovas','Balandis','Gegužė','Birželis','Liepa','Rugpjūtis','Rugsėjis','Spalis','Lapkritis','Gruodis'];
+  const LT_MONTHS_GEN = ['sausio','vasario','kovo','balandžio','gegužės','birželio','liepos','rugpjūčio','rugsėjo','spalio','lapkričio','gruodžio'];
+  const LT_DAYS = ['Pirmadienis','Antradienis','Trečiadienis','Ketvirtadienis','Penktadienis','Šeštadienis','Sekmadienis'];
+  const EN_MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  const EN_DAYS = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
+
+  function renderCalendar(lang) {
+    const daysEl = document.getElementById('cal-days');
+    const monthEl = document.getElementById('cal-month');
+    const footerEl = document.getElementById('cal-footer');
+    if (!daysEl || !monthEl || !footerEl) return;
+    lang = lang || document.documentElement.lang || 'lt';
+
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = today.getMonth();
+    const todayDate = today.getDate();
+    monthEl.textContent = (lang === 'en' ? EN_MONTHS[month] : LT_MONTHS[month]) + ' ' + year;
+
+    const firstDow = (new Date(year, month, 1).getDay() + 6) % 7; // Monday-first
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+    const pickWeekday = (d) => {
+      let dt = new Date(year, month, d);
+      while (dt.getMonth() === month && (dt.getDay() === 0 || dt.getDay() === 6)) {
+        d += 1; dt = new Date(year, month, d);
+      }
+      return dt.getMonth() === month ? d : null;
+    };
+    const sel = pickWeekday(Math.min(todayDate + 1, daysInMonth)) || pickWeekday(todayDate) || todayDate;
+
+    daysEl.innerHTML = '';
+    for (let i = 0; i < firstDow; i++) {
+      const blank = document.createElement('div');
+      blank.className = 'py-2';
+      daysEl.appendChild(blank);
+    }
+    for (let d = 1; d <= daysInMonth; d++) {
+      const cell = document.createElement('div');
+      const dow = new Date(year, month, d).getDay();
+      const muted = d < todayDate || dow === 0 || dow === 6;
+      if (d === sel) {
+        cell.className = 'bg-[var(--accent)] text-[var(--bg)] py-2 rounded font-medium cursor-pointer';
+      } else if (muted) {
+        cell.className = 'text-[var(--ink-4)] py-2';
+      } else {
+        cell.className = 'text-[var(--ink-2)] py-2 rounded font-medium hover:bg-[var(--bg-alt)] cursor-pointer';
+      }
+      cell.textContent = d;
+      daysEl.appendChild(cell);
+    }
+
+    const dowIdx = (new Date(year, month, sel).getDay() + 6) % 7;
+    footerEl.textContent = (lang === 'en')
+      ? EN_DAYS[dowIdx] + ' · ' + EN_MONTHS[month] + ' ' + sel
+      : LT_DAYS[dowIdx] + ' · ' + LT_MONTHS_GEN[month] + ' ' + sel;
+  }
 
   // Copy buttons
   document.querySelectorAll('.copy-btn').forEach(btn => {
@@ -1512,6 +1670,9 @@ document.addEventListener('DOMContentLoaded', () => {
       } catch {}
     });
   });
+
+  // Initialise language (also renders the calendar) once everything above is defined
+  applyLang(localStorage.getItem('lang') || 'lt');
 
 });
 </script>

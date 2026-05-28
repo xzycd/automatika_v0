@@ -1,0 +1,13 @@
+{
+  "name": "automatika-landing",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Single-page landing site for Automatika. The committed automatika.css is prebuilt — the site runs with no build step. Only run the script below if you change Tailwind classes in the HTML.",
+  "scripts": {
+    "build:css": "tailwindcss -i ./tailwind.input.css -o ./automatika.css --minify",
+    "watch:css": "tailwindcss -i ./tailwind.input.css -o ./automatika.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "3.4.17"
+  }
+}
